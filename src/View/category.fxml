@@ -7,9 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="420.0" style="-fx-border-radius: 6px; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryController">
    <children>
+      <ImageView fitHeight="310.0" fitWidth="420.0">
+         <image>
+            <Image url="@../../images/02_copia.jpg" />
+         </image>
+      </ImageView>
       <Button fx:id="btnStudent" layoutX="27.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="58.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand; -fx-border-color: #13219e;" text="As A Student">
          <graphic>
             <ImageView accessibleRole="BUTTON">
