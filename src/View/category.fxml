@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="310.0" fitWidth="420.0">
          <image>
-            <Image url="@../../images/02_copia.jpg" />
+            <Image url="@../../images/category-background.jpg" />
          </image>
       </ImageView>
       <Button fx:id="btnStudent" layoutX="27.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="58.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand; -fx-border-color: #13219e;" text="As A Student">

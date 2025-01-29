@@ -14,7 +14,7 @@ public class App extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
        
-        URL resource=getClass().getResource("./view/login.fxml");
+        URL resource=getClass().getResource("./view/category.fxml");
         Parent root = FXMLLoader.load(resource);
         primaryStage.setTitle("Main Form");
         primaryStage.setScene(new Scene(root));
