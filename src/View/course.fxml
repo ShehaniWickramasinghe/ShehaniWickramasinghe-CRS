@@ -83,7 +83,7 @@
       <Line endX="54.79998779296875" layoutX="689.0" layoutY="452.0" startX="-0.09991455078125" startY="0.5" stroke="#ececec" />
       <Line endX="54.79998779296875" layoutX="689.0" layoutY="452.0" startX="-0.09991455078125" startY="0.5" stroke="#ececec" />
       <QuadCurve controlX="28.00006103515625" controlY="-17.79998779296875" endX="-10.39996337890625" endY="-7.4000244140625" fill="WHITE" layoutX="746.0" layoutY="472.0" startX="-10.39996337890625" startY="-30.0" stroke="BLACK" strokeType="INSIDE" style="border-color: #ffffff;" />
-      <ImageView fx:id="imgTeacher" fitHeight="125.0" fitWidth="200.0" layoutX="551.0" layoutY="298.0">
+      <ImageView fx:id="myImageView" fitHeight="133.0" fitWidth="194.0" layoutX="561.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/Teacher%20teaching%20students%20in%20classroom%20illustration.jpg" />
          </image>

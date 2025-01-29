@@ -16,7 +16,7 @@
       </ImageView>
       <Button fx:id="btnStudent" layoutX="27.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="58.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand; -fx-border-color: #13219e;" text="As A Student">
          <graphic>
-            <ImageView accessibleRole="BUTTON">
+            <ImageView fx:id="imgStudent" accessibleRole="BUTTON">
                <image>
                   <Image url="@../../images/student.jpg" />
                </image>
@@ -31,7 +31,7 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Button>
-      <ImageView layoutX="245.0" layoutY="139.0">
+      <ImageView fx:id="imgteacher" layoutX="245.0" layoutY="139.0">
          <image>
             <Image url="@../../images/teaher.jpg" />
          </image>
