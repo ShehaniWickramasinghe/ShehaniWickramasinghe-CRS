@@ -24,15 +24,15 @@ public class CategoryController {
     private Label lblCreateAccount;
 
     @FXML
-    void btnStudentOnAction(ActionEvent event) throws IOException {
+    void btnStudentOnAction(ActionEvent event)  {
             System.out.println("Add Student");
-        Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/course.fxml"))));
-        stage.show();
-    }
-
-    @FXML
-    void btnTeacherOnAction(ActionEvent event) {
-        System.out.println("Add Teacher");
+        }
+        
+        @FXML
+        void btnTeacherOnAction(ActionEvent event)throws IOException {
+            System.out.println("Add Teacher");
+            Stage stage=new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/course.fxml"))));
+            stage.show();
     }
 }

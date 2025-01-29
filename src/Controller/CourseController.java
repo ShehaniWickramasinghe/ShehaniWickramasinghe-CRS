@@ -78,7 +78,7 @@ public class CourseController {
     void btnGoBackOnAction(ActionEvent event) throws IOException {
         System.out.println("Go Back");
         Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/category.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/login.fxml"))));
         stage.show();
     }
 
