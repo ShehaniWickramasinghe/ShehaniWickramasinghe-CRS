@@ -72,7 +72,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnGoBack" layoutX="543.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="34.0" prefWidth="216.0" style="-fx-background-color: #e10e0e; -fx-border-color: #e10e0e; -fx-border-radius: 4px;" text="Go back" textFill="WHITE">
+      <Button fx:id="btnGoBack" layoutX="543.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="34.0" prefWidth="216.0" style="-fx-background-color: #e10e0e; -fx-border-color: #e10e0e; -fx-border-radius: 4px; -fx-cursor: hand;" text="Go back" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
