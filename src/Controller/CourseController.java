@@ -4,14 +4,19 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
 public class CourseController {
 
     @FXML
-    private ImageView imgTeacher;
+    private Button btnGoBack;
+
+    @FXML
+    private Button btnSave;
 
     @FXML
     private Label lblClick;
