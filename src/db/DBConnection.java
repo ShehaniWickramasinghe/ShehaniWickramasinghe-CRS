@@ -13,7 +13,7 @@ public class DBConnection {
         connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarket", "root", "shehani@2024");
         }
 
-        private static DBConnection getInstance()throws Exception{
+        public static DBConnection getInstance()throws Exception{
             if (dBConnection==null) {
                 dBConnection=new DBConnection();
             }
