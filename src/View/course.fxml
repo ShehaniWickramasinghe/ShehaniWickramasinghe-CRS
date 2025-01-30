@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
    <children>
       <ImageView fitHeight="661.0" fitWidth="710.0">
@@ -20,7 +19,7 @@
             <Image url="@../../images/course-background-image.jpg" />
          </image>
       </ImageView>
-      <ListView layoutX="31.0" layoutY="69.0" prefHeight="532.0" prefWidth="611.0" />
+      <ListView layoutX="22.0" layoutY="72.0" prefHeight="532.0" prefWidth="616.0" />
       <Label alignment="CENTER" layoutY="22.0" prefHeight="39.0" prefWidth="717.0" text="Course  Form">
          <font>
             <Font name="System Bold" size="27.0" />

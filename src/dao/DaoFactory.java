@@ -1,12 +1,14 @@
 package dao;
 
+import dao.custom.impl.StudentDaoImpl;
+
 public class DaoFactory {
         private static DaoFactory daoFactory;
 
     private DaoFactory() {
     }
 
-    public DaoFactory getInstance(){
+    public static DaoFactory getInstance(){
         if (daoFactory==null) {
             daoFactory=new DaoFactory();
         }
@@ -14,10 +16,16 @@ public class DaoFactory {
     }
 
     public SuperDao getDao(DaoType type){
-        return null;
+        switch (type) {
+            case STUDENT:
+                return new StudentDaoImpl();
+               
+            default:
+                throw new AssertionError();
+        }
     }
     
     public enum DaoType{
-        
+        STUDENT
     }
 }
