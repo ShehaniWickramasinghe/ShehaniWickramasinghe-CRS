@@ -2,7 +2,9 @@ package controller;
 
 
 
+import dto.Coursedto;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,25 +21,46 @@ import javafx.stage.Stage;
 public class CourseController {
 
     @FXML
+    private Button btnDelete;
+
+    @FXML
     private Button btnGoBack;
 
     @FXML
     private Button btnSave;
 
     @FXML
-    private Label lblClick;
+    private Button btnUpdate;
 
     @FXML
-    private Label lblCourseDetails;
+    private TableColumn<Coursedto, String> colCourseId;
+
+    @FXML
+    private TableColumn<Coursedto, String> colCourseName;
+
+    @FXML
+    private TableColumn<Coursedto, String> colCreditHours;
+
+    @FXML
+    private TableColumn<Coursedto, ArrayList> colDepartment;
+
+    @FXML
+    private TableColumn<Coursedto, Integer> colMEC;
+
+    @FXML
+    private TableColumn<Coursedto, String> colprerequisites;
+
+    @FXML
+    private ComboBox<?> comboBox1;
 
     @FXML
     private Label lblCourseId;
 
     @FXML
-    private Label lblCourseId1;
+    private Label lblCourseName;
 
     @FXML
-    private Label lblCreditHour;
+    private Label lblCreditHours;
 
     @FXML
     private Label lblDepartment;
@@ -46,50 +69,56 @@ public class CourseController {
     private Label lblMEC;
 
     @FXML
-    private Label lblPrerequisities;
+    private Label lblprerequisites;
 
     @FXML
-    private TextField txtCourseDetails;
+    private TableView<Coursedto> tblCourse;
 
     @FXML
-    private TextField txtCourseDetails1;
+    private TextField txtCourseId;
 
     @FXML
-    private ComboBox<?> txtDepartment;
+    private TextField txtCourseName;
 
     @FXML
-    private TextField txtId;
-
-    @FXML
-    private TextField txtId1;
+    private TextField txtCreditHours;
 
     @FXML
     private TextField txtMEC;
 
     @FXML
-    private TextField txtPrerequisities;
+    private TextField txtprerequisites;
 
     @FXML
-    private TextField txtPrerequisities1;
+    private TextField txtprerequisites1;
 
     @FXML
-    private TextField txtPrerequisities11;
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
 
     @FXML
     void btnGoBackOnAction(ActionEvent event) throws IOException {
         System.out.println("Go Back");
-        Stage stage=(Stage)btnGoBack.getScene().getWindow();
-        FXMLLoader load= new FXMLLoader(getClass().getResource("../view/login.fxml"));
-        Parent root=load.load();
+            Stage stage=(Stage)btnGoBack.getScene().getWindow();
+            FXMLLoader load= new FXMLLoader(getClass().getResource("../view/login.fxml"));
+            Parent root=load.load();
+    
+            Stage stage1=new Stage();
+            stage1.setScene(new Scene(root));
+            stage1.show();
+            stage.close();
 
-        Stage stage1=new Stage();
-        stage1.setScene(new Scene(root));
-        stage1.show();
-        stage.close();
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
 
     }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+
+    }
+
 }

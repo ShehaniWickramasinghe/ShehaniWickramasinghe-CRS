@@ -13,9 +13,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
    <children>
-      <ImageView fitHeight="674.0" fitWidth="710.0">
+      <ImageView fitHeight="661.0" fitWidth="710.0">
          <image>
             <Image url="@../../images/course-background-image.jpg" />
          </image>
@@ -78,11 +78,20 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TableView layoutX="63.0" layoutY="375.0" prefHeight="216.0" prefWidth="555.0">
+      <TableView fx:id="tblCourse" layoutX="63.0" layoutY="375.0" prefHeight="216.0" prefWidth="555.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colCourseId" prefWidth="75.0" text="CourseId" />
+          <TableColumn fx:id="colCourseName" prefWidth="103.20001220703125" text="Course Name" />
+            <TableColumn fx:id="colCreditHours" prefWidth="83.20002746582031" text="Credit Hours" />
+            <TableColumn fx:id="colprerequisites" prefWidth="108.0" text="prerequisites" />
+            <TableColumn fx:id="colMEC" prefWidth="71.199951171875" text="MEC" />
+            <TableColumn fx:id="colDepartment" prefWidth="99.2000732421875" text="Department" />
         </columns>
       </TableView>
+      <Button fx:id="btnGoBack" layoutX="564.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #cf2626; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Go Back" textFill="#cf2626">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
