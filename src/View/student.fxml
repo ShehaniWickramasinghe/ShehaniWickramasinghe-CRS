@@ -23,7 +23,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ListView layoutX="25.0" layoutY="66.0" prefHeight="426.0" prefWidth="372.0" />
+      <ListView layoutX="25.0" layoutY="63.0" prefHeight="426.0" prefWidth="372.0" />
       <Label fx:id="lblStudentId" layoutX="43.0" layoutY="95.0" prefHeight="30.0" prefWidth="86.0" text="Student Id">
          <font>
             <Font size="15.0" />
@@ -69,12 +69,22 @@
          </font>
       </Label>
       <ComboBox fx:id="txtProgramOfStudy" layoutX="179.0" layoutY="344.0" prefHeight="26.0" prefWidth="190.0" />
-      <Button fx:id="btnSubmit" layoutX="68.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnSubmitOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #c72f2f; -fx-cursor: hand;" text="Submit" textFill="#c72f2f">
+      <Button fx:id="btnSave" layoutX="43.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #1d7b34; -fx-cursor: hand;" text="Save" textFill="#1d7b34">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <Button fx:id="btnGoBack" layoutX="477.0" layoutY="448.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="114.0" style="-fx-border-color: #437938; -fx-border-radius: 4px; -fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Go Back" textFill="#437938">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="146.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #192b94; -fx-cursor: hand;" text="Update" textFill="#192b94">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="249.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #c72f2f; -fx-cursor: hand;" text="Delete" textFill="#c72f2f">
          <font>
             <Font size="14.0" />
          </font>

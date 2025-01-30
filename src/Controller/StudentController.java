@@ -52,11 +52,17 @@ public class StudentController {
     @FXML
     private TextField txtStudentName1;
 
-     @FXML
+    @FXML
+    private Button btnDelete;
+
+    @FXML
     private Button btnGoBack;
 
     @FXML
-    private Button btnSubmit;
+    private Button btnSave;
+
+    @FXML
+    private Button btnUpdate;
 
     @FXML
     void btnGoBackOnAction(ActionEvent event) throws IOException {
@@ -72,7 +78,17 @@ public class StudentController {
     }
 
     @FXML
-    void btnSubmitOnAction(ActionEvent event) {
-            System.out.println("Submit student details");
+    void btnDeleteOnAction(ActionEvent event) {
+        System.out.println("delete details");
+    }
+
+    @FXML
+    void btnSaveOnAction(ActionEvent event) {
+            System.out.println("save details");
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        System.out.println("update details");
     }
 }
