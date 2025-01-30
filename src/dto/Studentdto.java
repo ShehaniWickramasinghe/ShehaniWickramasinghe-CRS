@@ -7,11 +7,11 @@ public class Studentdto {
         private String studentId;
         private String Name;
         private LocalDate DOB;
-        private Integer phoneNumber;
+        private String phoneNumber;
         private String email;
         private ArrayList<String> programOfStudy;
 
-        public Studentdto(String studentId, String name, LocalDate dOB, Integer phoneNumber, String email,
+        public Studentdto(String studentId, String name, LocalDate dOB, String phoneNumber, String email,
                 ArrayList<String> programOfStudy) {
             this.studentId = studentId;
             Name = name;
@@ -45,11 +45,11 @@ public class Studentdto {
         this.DOB = DOB;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
