@@ -7,8 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="773.0" style="-fx-background-color: #f5f6ee; -fx-border-color: #f5f6ee; -fx-border-radius: 4px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
@@ -67,26 +65,20 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnSave" layoutX="418.0" layoutY="342.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #154#0e3c70 884; -fx-border-color: #154#0e3c70 884; -fx-background-radius: 4px;" text="Save" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
       <Button fx:id="btnGoBack" layoutX="543.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="34.0" prefWidth="216.0" style="-fx-background-color: #e10e0e; -fx-border-color: #e10e0e; -fx-border-radius: 4px; -fx-cursor: hand;" text="Go back" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Line endX="63.79998779296875" layoutX="680.0" layoutY="452.0" startX="10.40008544921875" stroke="WHITE" />
-      <Line endX="54.79998779296875" layoutX="690.0" layoutY="451.0" startX="-0.09991455078125" startY="0.5" stroke="#ececec" />
-      <Line endX="54.79998779296875" layoutX="690.0" layoutY="452.0" startX="-0.09991455078125" startY="0.5" stroke="#ececec" />
-      <Line endX="54.79998779296875" layoutX="689.0" layoutY="452.0" startX="-0.09991455078125" startY="0.5" stroke="#ececec" />
-      <Line endX="54.79998779296875" layoutX="689.0" layoutY="452.0" startX="-0.09991455078125" startY="0.5" stroke="#ececec" />
-      <QuadCurve controlX="28.00006103515625" controlY="-17.79998779296875" endX="-10.39996337890625" endY="-7.4000244140625" fill="WHITE" layoutX="746.0" layoutY="472.0" startX="-10.39996337890625" startY="-30.0" stroke="BLACK" strokeType="INSIDE" style="border-color: #ffffff;" />
       <ImageView fx:id="myImageView" fitHeight="133.0" fitWidth="194.0" layoutX="561.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/Teacher%20teaching%20students%20in%20classroom%20illustration.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btnSave" layoutX="424.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="81.0" style="-fx-background-color: #ffffff; -fx-border-color: #388426; -fx-border-radius: 4px;" text="Save" textFill="#388426">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

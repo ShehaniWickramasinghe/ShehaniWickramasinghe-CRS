@@ -5,7 +5,9 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -50,12 +52,23 @@ public class StudentController {
     @FXML
     private TextField txtStudentName1;
 
+     @FXML
+    private Button btnGoBack;
+
+    @FXML
+    private Button btnSubmit;
+
     @FXML
     void btnGoBackOnAction(ActionEvent event) throws IOException {
             System.out.println("Go Back");
-        Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/login.fxml"))));
-        stage.show();
+        Stage stage=(Stage)btnGoBack.getScene().getWindow();
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("../view/login.fxml"));
+        Parent root=loader.load();
+
+        Stage stage2=new Stage();
+        stage2.setScene(new Scene(root));
+        stage2.show();
+        stage.close();
     }
 
     @FXML

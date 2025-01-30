@@ -16,7 +16,7 @@ public class App extends Application{
        
         URL resource=getClass().getResource("./view/login.fxml");
         Parent root = FXMLLoader.load(resource);
-        primaryStage.setTitle("Main Form");
+        primaryStage.setTitle("Login Page");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         

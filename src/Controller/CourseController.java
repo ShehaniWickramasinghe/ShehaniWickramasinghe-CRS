@@ -7,6 +7,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -77,9 +78,14 @@ public class CourseController {
     @FXML
     void btnGoBackOnAction(ActionEvent event) throws IOException {
         System.out.println("Go Back");
-        Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/login.fxml"))));
-        stage.show();
+        Stage stage=(Stage)btnGoBack.getScene().getWindow();
+        FXMLLoader load= new FXMLLoader(getClass().getResource("../view/login.fxml"));
+        Parent root=load.load();
+
+        Stage stage1=new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.show();
+        stage.close();
     }
 
     @FXML
