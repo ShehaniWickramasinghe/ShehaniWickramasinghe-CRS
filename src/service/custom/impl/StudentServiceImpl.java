@@ -19,14 +19,15 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public String update(Studentdto studentdto) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+       StudentEntity studentEntity=new StudentEntity(studentdto.getStudentId(),studentdto.getName(), studentdto.getDOB(), studentdto.getPhoneNumber(), studentdto.getEmail(), studentdto.getProgramOfStudy());
+       boolean isUpdate=studentDao.update(studentEntity);
+       return isUpdate? "success":"fail";
     }
 
     @Override
     public String delete(String studentId) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+       boolean isDelete=studentDao.delete(studentId);
+       return isDelete ? "success":"fail";
     }
 
 }

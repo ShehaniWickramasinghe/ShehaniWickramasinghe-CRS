@@ -1,17 +1,21 @@
 package controller;
 
+import java.awt.Color;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class StudentController {
@@ -84,11 +88,29 @@ public class StudentController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-            System.out.println("save details");
+            String studentId=txtStudentId.getText();
+            String name=txtStudentName.getText();
+            LocalDate DOB=txtDOB.getValue();
+            String phoneNo =txtPhoneNo.getText();
+            String email=txtEmail.getText();
+
+            if (email.contains("@")||email.contains(".")) {
+                email=txtEmail.getText();
+            }else{
+               alert(Alert.AlertType.ERROR, "ERROR", "Please enter a correct email address.");
+            }
+            String programOfStudy=txtProgramOfStudy.getPromptText();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         System.out.println("update details");
+    }
+    @SuppressWarnings("unused")
+    private void alert(Alert.AlertType alertType,String header,String content){
+        Alert alert=new Alert(alertType);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }
