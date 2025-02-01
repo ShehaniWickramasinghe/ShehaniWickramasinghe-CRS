@@ -121,8 +121,18 @@ public class StudentController {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        System.out.println("delete details");
+    void btnDeleteOnAction(ActionEvent event) throws Exception {
+        
+        if (txtStudentId!=null) {
+            Alert alert=new Alert(Alert.AlertType.WARNING,"Do you want to delete your details?");
+            alert.show();
+            StudentService studentService=new StudentServiceImpl();
+            String delete = studentService.delete(txtStudentId.getText());
+            clearForm();
+        }else{
+            Alert alert=new Alert(Alert.AlertType.NONE,"Student not found!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -154,6 +164,7 @@ public class StudentController {
         txtDOB.setValue(null);
         txtEmail.setText("");
         txtPhoneNo.setText("");
+        programOfStudy.setValue(null);
     }
 
     @FXML
