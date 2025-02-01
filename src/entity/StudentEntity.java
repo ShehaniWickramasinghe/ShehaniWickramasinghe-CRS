@@ -2,20 +2,23 @@ package entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+
+import javafx.collections.ObservableList;
 
 public class StudentEntity {
         private String studentId;
-        private String Name;
+        private String name;
         private LocalDate DOB;
         private String phoneNumber;
         private String email;
-        private ArrayList<String> programOfStudy;
+        private List<String> programOfStudy;
         
         public StudentEntity(String studentId, String name, LocalDate dOB, String phoneNumber, String email,
-                ArrayList<String> programOfStudy) {
+        List<String> programOfStudy) {
             this.studentId = studentId;
-            Name = name;
-            DOB = dOB;
+            this.name = name;
+            this.DOB = dOB;
             this.phoneNumber = phoneNumber;
             this.email = email;
             this.programOfStudy = programOfStudy;
@@ -30,11 +33,11 @@ public class StudentEntity {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.name = Name;
     }
 
     public LocalDate getDOB() {
@@ -61,17 +64,17 @@ public class StudentEntity {
         this.email = email;
     }
 
-    public ArrayList<String> getProgramOfStudy() {
+    public List<String> getProgramOfStudy() {
         return programOfStudy;
     }
 
-    public void setProgramOfStudy(ArrayList<String> programOfStudy) {
+    public void setProgramOfStudy(List<String> programOfStudy) {
         this.programOfStudy = programOfStudy;
     }
 
     @Override
     public String toString() {
-        return "StudentEntity [studentId=" + studentId + ", Name=" + Name + ", DOB=" + DOB + ", phoneNumber="
+        return "StudentEntity [studentId=" + studentId + ", Name=" + name + ", DOB=" + DOB + ", phoneNumber="
                 + phoneNumber + ", email=" + email + ", programOfStudy=" + programOfStudy + "]";
     }
 

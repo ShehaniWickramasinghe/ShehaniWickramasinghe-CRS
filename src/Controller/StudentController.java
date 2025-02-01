@@ -1,9 +1,15 @@
 package controller;
 
+import dto.Studentdto;
 import java.awt.Color;
 import java.io.IOException;
+import java.lang.invoke.VarHandle;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +23,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import service.custom.StudentService;
+import service.custom.impl.StudentServiceImpl;
 
 public class StudentController {
     
@@ -45,7 +53,7 @@ public class StudentController {
     private TextField txtPhoneNo;
 
     @FXML
-    private ComboBox<?> txtProgramOfStudy;
+    private ComboBox<String> programOfStudy;
 
     @FXML
     private TextField txtStudentId;
@@ -68,6 +76,39 @@ public class StudentController {
     @FXML
     private Button btnUpdate;
 
+    
+    public void initialize(){
+        List<String> arrayList = Arrays.asList("Inorganic", "Statistics and probability",
+        "Relative motion", "Radioactivity", "Optics", "Atomic Structure",
+        "Acids, Bases and pH", "Robotics", "Operating Systems", "OOP", "Cyber Security");
+        ObservableList<String> comboBoxList = FXCollections.observableArrayList(arrayList);
+        programOfStudy.setItems(comboBoxList);
+        programOfStudy.setValue("Inorganic");
+
+    }
+    
+        @FXML
+        void btnSaveOnAction(ActionEvent event) throws Exception {
+                String studentId=txtStudentId.getText();
+                String name=txtStudentName.getText();
+                LocalDate DOB=txtDOB.getValue();
+                String phoneNo =txtPhoneNo.getText();
+                String email=txtEmail.getText();
+    
+                if (email.contains("@") && email.contains(".")) {
+                    email=txtEmail.getText();
+                }else{
+                   alert(Alert.AlertType.ERROR, "ERROR", "Please enter a correct email address.");
+                    return;
+                }
+                String selectedProgram = programOfStudy.getValue();
+                ObservableList<String> comboBoxList = FXCollections.observableArrayList(selectedProgram);
+                Studentdto studentdto=new Studentdto(studentId, name, DOB, phoneNo, email, comboBoxList);
+                StudentService studentService=new StudentServiceImpl();
+                String save = studentService.save(studentdto);
+                System.out.println(studentdto);
+                clearForm();
+        }
     @FXML
     void btnGoBackOnAction(ActionEvent event) throws IOException {
             System.out.println("Go Back");
@@ -87,22 +128,6 @@ public class StudentController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
-            String studentId=txtStudentId.getText();
-            String name=txtStudentName.getText();
-            LocalDate DOB=txtDOB.getValue();
-            String phoneNo =txtPhoneNo.getText();
-            String email=txtEmail.getText();
-
-            if (email.contains("@")||email.contains(".")) {
-                email=txtEmail.getText();
-            }else{
-               alert(Alert.AlertType.ERROR, "ERROR", "Please enter a correct email address.");
-            }
-            String programOfStudy=txtProgramOfStudy.getPromptText();
-    }
-
-    @FXML
     void btnUpdateOnAction(ActionEvent event) {
         System.out.println("update details");
     }
@@ -112,5 +137,14 @@ public class StudentController {
         alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    public void clearForm(){
+        txtStudentId.setText("");
+        txtStudentName.setText("");
+        txtDOB.setValue(null);
+        txtEmail.setText("");
+        txtPhoneNo.setText("");
+        txtStudentName1.setText("");
     }
 }

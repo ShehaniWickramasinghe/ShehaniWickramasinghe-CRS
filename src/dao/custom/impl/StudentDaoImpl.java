@@ -9,8 +9,9 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean save(StudentEntity t) throws Exception {
+        String programOfStudyString = String.join(",", t.getProgramOfStudy());
         return CrudUtil.executeUpdate("INSERT INTO student VALUES(?,?,?,?,?,?)", t.getStudentId(),
-        t.getName(),t.getDOB(),t.getPhoneNumber(),t.getEmail(),t.getProgramOfStudy());
+        t.getName(),t.getDOB(),t.getPhoneNumber(),t.getEmail(),programOfStudyString);
     }
 
     @Override

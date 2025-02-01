@@ -4,14 +4,17 @@ import dao.DaoFactory;
 import dao.custom.StudentDao;
 import dto.Studentdto;
 import entity.StudentEntity;
+import java.util.ArrayList;
+import java.util.List;
 import service.custom.StudentService;
 
 public class StudentServiceImpl implements StudentService {
       private  StudentDao studentDao=(StudentDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.STUDENT);  
     @Override
     public String save(Studentdto studentdto) throws Exception {
+      List<String> programList = new ArrayList<>(studentdto.getProgramOfStudy());
         StudentEntity studentEntity=new StudentEntity(studentdto.getStudentId(), studentdto.getName(),
-         studentdto.getDOB(), studentdto.getPhoneNumber(), studentdto.getEmail(), studentdto.getProgramOfStudy());
+         studentdto.getDOB(), studentdto.getPhoneNumber(), studentdto.getEmail(), programList);
 
          boolean isSaved =studentDao.save(studentEntity);
          return isSaved ? "success":"fail";
