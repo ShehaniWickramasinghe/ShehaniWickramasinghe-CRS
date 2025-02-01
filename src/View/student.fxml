@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="628.0" style="-fx-border-radius: 7px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="628.0" style="-fx-border-radius: 7px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
    <children>
-      <ImageView fitHeight="559.0" fitWidth="629.0">
+      <ImageView fitHeight="530.0" fitWidth="629.0">
          <image>
             <Image url="@../../images/classroom.jpg" />
          </image>
@@ -23,68 +23,72 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ListView layoutX="25.0" layoutY="63.0" prefHeight="458.0" prefWidth="372.0" />
+      <ListView layoutX="25.0" layoutY="63.0" prefHeight="436.0" prefWidth="372.0" />
       <Label fx:id="lblStudentId" layoutX="43.0" layoutY="95.0" prefHeight="30.0" prefWidth="86.0" text="Student Id">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStudentId" layoutX="167.0" layoutY="95.0" prefHeight="30.0" prefWidth="206.0" />
-      <Label fx:id="lblStudentName" layoutX="43.0" layoutY="136.0" prefHeight="30.0" prefWidth="103.0" text="Student Name">
+      <TextField fx:id="txtStudentId" layoutX="161.0" layoutY="95.0" prefHeight="30.0" prefWidth="142.0" />
+      <Label fx:id="lblStudentName" layoutX="43.0" layoutY="135.0" prefHeight="30.0" prefWidth="103.0" text="Student Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStudentName" layoutX="167.0" layoutY="136.0" prefHeight="30.0" prefWidth="206.0" />
-      <TextField fx:id="txtStudentName1" layoutX="50.0" layoutY="174.0" prefHeight="30.0" prefWidth="322.0" />
-      <Label fx:id="lblDateOfBirth" layoutX="43.0" layoutY="211.0" prefHeight="30.0" prefWidth="103.0" text="Date Of Birth">
+      <TextField fx:id="txtStudentName" layoutX="160.0" layoutY="135.0" prefHeight="30.0" prefWidth="212.0" />
+      <Label fx:id="lblDateOfBirth" layoutX="43.0" layoutY="180.0" prefHeight="30.0" prefWidth="103.0" text="Date Of Birth">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <DatePicker fx:id="txtDOB" layoutX="160.0" layoutY="214.0" prefHeight="26.0" prefWidth="212.0" promptText="MM/DD/YYYY" />
-      <Label layoutX="43.0" layoutY="250.0" prefHeight="30.0" prefWidth="103.0" text="Phone no.">
+      <DatePicker fx:id="txtDOB" layoutX="160.0" layoutY="182.0" prefHeight="26.0" prefWidth="212.0" promptText="MM/DD/YYYY" />
+      <Label layoutX="43.0" layoutY="219.0" prefHeight="30.0" prefWidth="103.0" text="Phone no.">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPhoneNo" layoutX="160.0" layoutY="250.0" prefHeight="30.0" prefWidth="212.0" promptText="0xxxxxxxxx">
+      <TextField fx:id="txtPhoneNo" layoutX="160.0" layoutY="219.0" prefHeight="30.0" prefWidth="212.0" promptText="0xxxxxxxxx">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="lblEmail" layoutX="43.0" layoutY="289.0" prefHeight="30.0" prefWidth="103.0" text="Email">
+      <Label fx:id="lblEmail" layoutX="43.0" layoutY="264.0" prefHeight="30.0" prefWidth="103.0" text="Email">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail" layoutX="160.0" layoutY="289.0" prefHeight="30.0" prefWidth="212.0" promptText="example@gmail.com">
+      <TextField fx:id="txtEmail" layoutX="161.0" layoutY="264.0" prefHeight="30.0" prefWidth="212.0" promptText="example@gmail.com">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="lblProgramOfStudy" layoutX="43.0" layoutY="329.0" prefHeight="30.0" prefWidth="136.0" text="Program Of Study">
+      <Label fx:id="lblProgramOfStudy" layoutX="43.0" layoutY="313.0" prefHeight="30.0" prefWidth="136.0" text="Program Of Study">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="programOfStudy" layoutX="175.0" layoutY="331.0" prefHeight="26.0" prefWidth="190.0" />
-      <Button fx:id="btnSave" layoutX="43.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #1d7b34; -fx-cursor: hand;" text="Save" textFill="#1d7b34">
+      <ComboBox fx:id="programOfStudy" layoutX="172.0" layoutY="315.0" prefHeight="26.0" prefWidth="197.0" />
+      <Button fx:id="btnSave" layoutX="43.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #1d7b34; -fx-cursor: hand;" text="Save" textFill="#1d7b34">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnGoBack" layoutX="477.0" layoutY="448.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="114.0" style="-fx-border-color: #437938; -fx-border-radius: 4px; -fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Go Back" textFill="#437938">
+      <Button fx:id="btnGoBack" layoutX="480.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="114.0" style="-fx-border-color: #437938; -fx-border-radius: 4px; -fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Go Back" textFill="#437938">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="146.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #192b94; -fx-cursor: hand;" text="Update" textFill="#192b94">
+      <Button fx:id="btnUpdate" layoutX="160.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #192b94; -fx-cursor: hand;" text="Update" textFill="#192b94">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="249.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #c72f2f; -fx-cursor: hand;" text="Delete" textFill="#c72f2f">
+      <Button fx:id="btnDelete" layoutX="271.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-border-color: #c72f2f; -fx-cursor: hand;" text="Delete" textFill="#c72f2f">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSearch" layoutX="314.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-border-color: #133281; -fx-border-radius: 3px;" text="Search" textFill="#133281">
          <font>
             <Font size="14.0" />
          </font>

@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -60,9 +61,6 @@ public class StudentController {
 
     @FXML
     private TextField txtStudentName;
-
-    @FXML
-    private TextField txtStudentName1;
 
     @FXML
     private Button btnDelete;
@@ -128,8 +126,19 @@ public class StudentController {
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-        System.out.println("update details");
+    void btnUpdateOnAction(ActionEvent event)throws Exception {
+       String id = txtStudentId.getText();
+       String name = txtStudentName.getText();
+       LocalDate DOB = txtDOB.getValue();
+       String phone = txtPhoneNo.getText();
+       String email = txtEmail.getText();
+       String programOfStudyList = programOfStudy.getValue();
+       ObservableList<String> comboBoxList = FXCollections.observableArrayList(programOfStudyList);
+       Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, comboBoxList);
+       StudentService studentService=new StudentServiceImpl();
+       String update = studentService.update(studentdto);
+       System.out.println(studentdto);
+       clearForm();
     }
     @SuppressWarnings("unused")
     private void alert(Alert.AlertType alertType,String header,String content){
@@ -145,6 +154,25 @@ public class StudentController {
         txtDOB.setValue(null);
         txtEmail.setText("");
         txtPhoneNo.setText("");
-        txtStudentName1.setText("");
+    }
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) throws Exception {
+            String id = txtStudentId.getText();
+            StudentService studentService=new StudentServiceImpl();
+            Studentdto studentdto=studentService.search(id);
+            if (studentdto!=null) {
+              txtStudentId.setText(studentdto.getStudentId());
+              txtStudentName.setText(studentdto.getName());
+              txtDOB.setValue(studentdto.getDOB());
+              txtPhoneNo.setText(studentdto.getPhoneNumber());
+              txtEmail.setText(studentdto.getEmail());
+              ObservableList<String> observablePrograms = FXCollections.observableArrayList(studentdto.getProgramOfStudy());
+              programOfStudy.setItems(observablePrograms);
+              
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Student not found!", ButtonType.OK);
+                 alert.showAndWait();
+            }
     }
 }
