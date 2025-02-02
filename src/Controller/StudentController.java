@@ -1,9 +1,7 @@
 package controller;
 
 import dto.Studentdto;
-import java.awt.Color;
 import java.io.IOException;
-import java.lang.invoke.VarHandle;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +20,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import service.custom.StudentService;
 import service.custom.impl.StudentServiceImpl;

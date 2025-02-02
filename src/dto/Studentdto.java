@@ -1,10 +1,7 @@
 package dto;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-
-import javafx.collections.ObservableList;
 
 public class Studentdto {
         private String studentId;
