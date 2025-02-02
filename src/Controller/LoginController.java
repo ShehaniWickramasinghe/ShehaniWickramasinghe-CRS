@@ -2,8 +2,6 @@ package controller;
 
 import db.DBConnection;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,7 +51,7 @@ public class LoginController {
     }
 
     @FXML
-    void btnSignInOnAction(ActionEvent event) {
+    void btnSignInOnAction(ActionEvent event) throws IOException {
         String user_name=txtUserName.getText();
         String password=txtPassword.getText();
         if (authenticateUser(user_name, password)) {
@@ -61,6 +59,16 @@ public class LoginController {
         } else {
             System.out.println("Invalid username or password.");
         }
+
+        Stage stage=(Stage)btnSignIn.getScene().getWindow();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
+        Parent root=loader.load();
+
+        Stage stage1=new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.setTitle("Student Report");
+        stage1.show();
+        stage.close();
     }
 
     public static boolean authenticateUser(String user_name,String password){
