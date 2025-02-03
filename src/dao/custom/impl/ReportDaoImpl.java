@@ -1,7 +1,9 @@
 package dao.custom.impl;
 
+import dao.CrudUtil;
 import dao.custom.ReportDao;
 import entity.ReportEntity;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ReportDaoImpl implements ReportDao {
@@ -26,8 +28,12 @@ public class ReportDaoImpl implements ReportDao {
 
     @Override
     public ReportEntity search(String id) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'search'");
+       ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM report WHERE studentId=?", id);
+       if (rst.next()) {
+        return new ReportEntity(rst.getString("studentId"), rst.getString("studentName"),
+        rst.getString("department"), rst.getString("course"),rst.getString("grade"));
+       }
+       return null;
     }
 
     @Override

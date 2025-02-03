@@ -24,7 +24,7 @@
             <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <Button fx:id="btnProfile" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnProfileOnAction" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="My Profile" textFill="#b43d3d">
+      <Button fx:id="btnProfile" alignment="CENTER_RIGHT" layoutX="574.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnProfileOnAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="My Profile" textFill="#b43d3d">
          <font>
             <Font size="14.0" />
          </font>

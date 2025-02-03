@@ -7,10 +7,8 @@ import entity.ReportEntity;
 import service.custom.ReportService;
 
 public class ReportServiceImpl implements ReportService {
+    private  ReportDao reportDao=(ReportDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.REPORT);
 
-    public ReportServiceImpl() {
-    }
-        private ReportDao reportDao=(ReportDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.REPORT);
     @Override
     public Reportdto search(String StudentId) throws Exception {
         ReportEntity reportEntity=reportDao.search(StudentId);

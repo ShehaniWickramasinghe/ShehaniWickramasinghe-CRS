@@ -25,8 +25,7 @@ public class LoginController {
     @FXML
     private Button btnSignIn;
 
-    @FXML
-    private Label lblLogin;
+
 
     @FXML
     private CheckBox rememberCheckBox;
@@ -60,13 +59,12 @@ public class LoginController {
             System.out.println("Invalid username or password.");
         }
 
-        Stage stage=(Stage)btnSignIn.getScene().getWindow();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
-        Parent root=loader.load();
+       Stage stage=(Stage)btnSignIn.getScene().getWindow();
+       FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
+       Parent root=loader.load();
 
-        Stage stage1=new Stage();
-        stage1.setScene(new Scene(root));
-        stage1.setTitle("Student Report");
+       Stage stage1=new Stage();
+       stage1.setScene(new Scene(root));
         stage1.show();
         stage.close();
     }
