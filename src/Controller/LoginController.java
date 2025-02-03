@@ -58,15 +58,20 @@ public class LoginController {
         } else {
             System.out.println("Invalid username or password.");
         }
-
-       Stage stage=(Stage)btnSignIn.getScene().getWindow();
-       FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
-       Parent root=loader.load();
-
-       Stage stage1=new Stage();
-       stage1.setScene(new Scene(root));
-        stage1.show();
-        stage.close();
+        try {
+            Stage stage=(Stage)btnSignIn.getScene().getWindow();
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
+            Parent root=loader.load();
+     
+            Stage stage1=new Stage();
+            stage1.setScene(new Scene(root));
+             stage1.show();
+             stage.close();
+    
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("..................");
+        }
     }
 
     public static boolean authenticateUser(String user_name,String password){

@@ -3,12 +3,10 @@ package controller;
 import java.io.IOException;
 
 import dto.Reportdto;
-import java.awt.event.ActionEvent;
 import java.util.Properties;
-
+import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
