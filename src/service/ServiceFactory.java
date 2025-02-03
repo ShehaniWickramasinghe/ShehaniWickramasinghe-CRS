@@ -1,5 +1,8 @@
 package service;
 
+import service.custom.impl.ReportServiceImpl;
+import service.custom.impl.StudentServiceImpl;
+
 public class ServiceFactory {
         private static ServiceFactory serviceFactory;
 
@@ -14,10 +17,17 @@ public class ServiceFactory {
     }
 
     public SuperService getService(ServiceType type){
-           return null;
+           switch (type) {
+            case STUDENT:
+                return new StudentServiceImpl();
+            case REPORT:
+                return new ReportServiceImpl();  
+            default:
+                return null;
+           }
     }
 
     public enum ServiceType{
-
+            STUDENT,REPORT
     }
 }
