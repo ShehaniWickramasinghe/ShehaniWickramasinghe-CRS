@@ -29,6 +29,9 @@ public class reportController {
     private Button btnVacancies;
 
     @FXML
+    private Button btnSchedule;
+
+    @FXML
     private TableColumn<Reportdto,String> colCourse;
 
     @FXML
@@ -108,8 +111,18 @@ public class reportController {
         colCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
         colGrade.setCellValueFactory(new PropertyValueFactory<>("grade"));
         tblRecord.setItems(FXCollections.observableArrayList());
+    
+    }
 
-     
-        
+    @FXML
+    void btnScheduleOnAction(ActionEvent event) throws IOException {
+        Stage stage=(Stage)btnSchedule.getScene().getWindow();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/information.fxml"));
+        Parent root=loader.load();
+
+        Stage stage4=new Stage();
+        stage4.setScene(new Scene(root));
+        stage4.setTitle("Student Time Table");
+        stage4.show();
     }
 }

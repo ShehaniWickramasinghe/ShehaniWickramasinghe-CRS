@@ -29,7 +29,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnVacancies" layoutX="498.0" layoutY="61.0" mnemonicParsing="false" onAction="#btnVacanciesOnAction" style="-fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Vacancies" textFill="#b43d3d">
+      <Button fx:id="btnVacancies" layoutX="477.0" layoutY="61.0" mnemonicParsing="false" onAction="#btnVacanciesOnAction" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Vacancies " textFill="#b43d3d">
          <font>
             <Font size="14.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="tblRecord" layoutX="36.0" layoutY="191.0" prefHeight="150.0" prefWidth="620.0">
+      <TableView fx:id="tblRecord" layoutX="36.0" layoutY="191.0" prefHeight="150.0" prefWidth="604.0" style="-fx-text-align: center;">
         <columns>
           <TableColumn fx:id="colStudentId" prefWidth="91.19997787475586" text="Student Id" />
           <TableColumn fx:id="colStudentName" prefWidth="143.19996643066406" text="Student Name" />
@@ -59,6 +59,11 @@
          </font>
       </TextField>
       <Button fx:id="btnSearch" layoutX="352.0" layoutY="153.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-border-color: #111e66; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Search" textFill="#111e66">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSchedule" layoutX="344.0" layoutY="61.0" mnemonicParsing="false" onAction="#btnScheduleOnAction" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Student schedules" textFill="#b43d3d">
          <font>
             <Font size="14.0" />
          </font>

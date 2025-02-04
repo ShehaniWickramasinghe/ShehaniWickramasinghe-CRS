@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="1.0" layoutY="25.0" prefHeight="30.0" prefWidth="658.0" text="Student Schedule " textFill="#ec6d6d">
+         <font>
+            <Font name="Arial Black" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="82.0" prefHeight="23.0" prefWidth="211.0" text="Student Schedule" textFill="#3e3d3d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="115.0" layoutY="110.0" startX="-83.99999237060547" startY="-0.8000030517578125" />
+      <Label layoutX="46.0" layoutY="116.0" prefHeight="27.0" prefWidth="568.0" text="Physical Science Faculty Student Schedule">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="333.0" layoutY="113.0" prefHeight="27.0" prefWidth="253.0" text="Academic Year 2024/2025 (first year)  ">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="330.0" layoutY="108.0" prefHeight="3.0" prefWidth="244.0" />
+      <Separator layoutX="330.0" layoutY="141.0" prefHeight="3.0" prefWidth="244.0" />
+      <Separator layoutX="327.0" layoutY="108.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="6.0" />
+      <Separator layoutX="571.0" layoutY="108.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="6.0" />
+      <Label layoutX="46.0" layoutY="146.0" prefHeight="27.0" prefWidth="102.0" text="March, week 1">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="173.0" prefHeight="19.0" prefWidth="64.0" text="Time" />
+      <Label layoutX="117.0" layoutY="173.0" prefHeight="19.0" prefWidth="81.0" text="Monday" />
+      <Label layoutX="209.0" layoutY="173.0" prefHeight="19.0" prefWidth="81.0" text="Tuesday" />
+      <Separator layoutX="37.0" layoutY="173.0" prefHeight="3.0" prefWidth="504.0" />
+      <Separator layoutX="37.0" layoutY="190.0" prefHeight="3.0" prefWidth="504.0" />
+      <Separator layoutX="34.0" layoutY="173.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Separator layoutX="94.0" layoutY="173.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Separator layoutX="189.0" layoutY="173.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Separator layoutX="267.0" layoutY="172.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Separator layoutX="358.0" layoutY="173.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Separator layoutX="439.0" layoutY="171.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Separator layoutX="538.0" layoutY="171.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+      <Label layoutX="274.0" layoutY="173.0" prefHeight="19.0" prefWidth="81.0" text="Wednesday" />
+      <Label layoutX="370.0" layoutY="173.0" prefHeight="19.0" prefWidth="81.0" text="Thursday" />
+      <Label layoutX="460.0" layoutY="173.0" prefHeight="19.0" prefWidth="81.0" text="Friday" />
+      <Label layoutX="38.0" layoutY="200.0" prefHeight="19.0" prefWidth="56.0" text="8-10 a.m" />
+      <Label layoutX="99.0" layoutY="201.0" prefHeight="18.0" prefWidth="89.0" text="Programming " />
+      <Label layoutX="197.0" layoutY="201.0" prefHeight="18.0" prefWidth="82.0" text="Mechanics" />
+      <Label layoutX="281.0" layoutY="201.0" prefHeight="18.0" prefWidth="74.0" text="Organic" />
+      <Label layoutX="443.0" layoutY="200.0" prefHeight="18.0" prefWidth="90.0" text="Relative Motion" />
+      <Separator layoutX="37.0" layoutY="218.0" prefHeight="3.0" prefWidth="504.0" />
+      <Label alignment="CENTER" layoutX="370.0" layoutY="200.0" prefHeight="3.0" prefWidth="56.0" text="-" />
+      <Label layoutX="38.0" layoutY="227.0" prefHeight="19.0" prefWidth="56.0" text="10-12 a.m" />
+      <Label layoutX="107.0" layoutY="227.0" prefHeight="18.0" prefWidth="82.0" text="Statistics" />
+      <Label layoutX="197.0" layoutY="227.0" prefHeight="18.0" prefWidth="74.0" text="Radioactivity" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="227.0" prefHeight="18.0" prefWidth="74.0" text="-" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="227.0" prefHeight="18.0" prefWidth="74.0" text="Programming" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="451.0" layoutY="227.0" prefHeight="18.0" prefWidth="74.0" text="Programming" />
+      <Separator layoutX="37.0" layoutY="246.0" prefHeight="2.0" prefWidth="504.0" />
+      <Label layoutX="38.0" layoutY="288.0" prefHeight="19.0" prefWidth="56.0" text="1-3p.m" />
+      <Label layoutX="101.0" layoutY="289.0" prefHeight="18.0" prefWidth="94.0" text="inorganic practical" />
+      <Label layoutX="195.0" layoutY="289.0" prefHeight="18.0" prefWidth="94.0" text="Radioactivity" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="289.0" prefHeight="18.0" prefWidth="74.0" text="-" />
+      <Separator layoutX="39.0" layoutY="278.0" prefHeight="2.0" prefWidth="504.0" />
+      <Label layoutX="248.0" layoutY="257.0" prefHeight="18.0" prefWidth="229.0" text="Lunch Break" />
+      <Label layoutX="38.0" layoutY="256.0" prefHeight="19.0" prefWidth="56.0" text="12-1 p.m" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="288.0" prefHeight="18.0" prefWidth="74.0" text="Program prac." />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="437.0" layoutY="289.0" prefHeight="18.0" prefWidth="102.0" text="Radioactivity prac. " />
+      <Separator layoutX="37.0" layoutY="315.0" prefHeight="2.0" prefWidth="504.0" />
+      <Label layoutX="38.0" layoutY="324.0" prefHeight="19.0" prefWidth="56.0" text="3-5p.m" />
+      <Label layoutX="101.0" layoutY="324.0" prefHeight="18.0" prefWidth="94.0" text="inorganic practical" />
+      <Label layoutX="195.0" layoutY="324.0" prefHeight="18.0" prefWidth="94.0" text="Programming" />
+      <Label layoutX="283.0" layoutY="324.0" prefHeight="18.0" prefWidth="82.0" text="Sports" />
+      <Label layoutX="452.0" layoutY="324.0" prefHeight="18.0" prefWidth="82.0" text="Sports" />
+      <Label layoutX="369.0" layoutY="324.0" prefHeight="18.0" prefWidth="82.0" text="Sports" />
+      <Separator layoutX="37.0" layoutY="350.0" prefWidth="504.0" />
+      <Label layoutX="46.0" layoutY="365.0" prefHeight="27.0" prefWidth="102.0" text="March, week 2">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="399.0" prefHeight="19.0" prefWidth="64.0" text="Time" />
+      <Separator layoutX="36.0" layoutY="392.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="0.0" />
+      <Separator layoutX="37.0" layoutY="391.0" prefHeight="3.0" prefWidth="504.0" />
+      <Separator layoutX="91.0" layoutY="392.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="0.0" />
+      <Separator layoutX="185.0" layoutY="392.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="0.0" />
+      <Separator layoutX="264.0" layoutY="393.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="0.0" />
+      <Separator layoutX="358.0" layoutY="393.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="0.0" />
+      <Separator layoutX="436.0" layoutY="393.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="6.0" />
+      <Separator layoutX="538.0" layoutY="393.0" orientation="VERTICAL" prefHeight="206.0" prefWidth="0.0" />
+      <Separator layoutX="37.0" layoutY="418.0" prefHeight="2.0" prefWidth="504.0" />
+      <Label alignment="CENTER" layoutX="105.0" layoutY="399.0" prefHeight="19.0" prefWidth="74.0" text="Monday" />
+      <Label layoutX="201.0" layoutY="399.0" prefHeight="19.0" prefWidth="81.0" text="Tuesday" />
+      <Label layoutX="277.0" layoutY="399.0" prefHeight="19.0" prefWidth="81.0" text="Wednesday" />
+      <Label layoutX="369.0" layoutY="399.0" prefHeight="19.0" prefWidth="81.0" text="Thursday" />
+      <Label alignment="CENTER" layoutX="447.0" layoutY="399.0" prefHeight="19.0" prefWidth="81.0" text="Friday" />
+      <Label alignment="CENTER" layoutX="38.0" layoutY="427.0" prefHeight="19.0" prefWidth="56.0" text="8-10 a.m" />
+      <Label alignment="CENTER" layoutX="99.0" layoutY="428.0" prefHeight="18.0" prefWidth="74.0" text="Organic" />
+      <Label layoutX="193.0" layoutY="428.0" prefHeight="18.0" prefWidth="82.0" text="Statistics" />
+      <Label layoutX="269.0" layoutY="428.0" prefHeight="18.0" prefWidth="90.0" text="Relative Motion" />
+      <Label layoutX="368.0" layoutY="428.0" prefHeight="18.0" prefWidth="82.0" text="Statistics" />
+      <Label layoutX="443.0" layoutY="428.0" prefHeight="18.0" prefWidth="89.0" text="Programming " />
+      <Separator layoutX="37.0" layoutY="454.0" prefHeight="3.0" prefWidth="504.0" />
+      <Separator layoutX="37.0" layoutY="488.0" prefHeight="3.0" prefWidth="504.0" />
+      <Separator layoutX="39.0" layoutY="521.0" prefHeight="3.0" prefWidth="504.0" />
+      <Separator layoutX="36.0" layoutY="560.0" prefHeight="2.0" prefWidth="504.0" />
+      <Separator layoutX="39.0" layoutY="597.0" prefHeight="2.0" prefWidth="504.0" />
+      <Label layoutX="38.0" layoutY="468.0" prefHeight="19.0" prefWidth="56.0" text="10-12 a.m" />
+      <Label alignment="CENTER" layoutX="38.0" layoutY="496.0" prefHeight="19.0" prefWidth="56.0" text="12-1 p.m" />
+      <Label alignment="CENTER" layoutX="38.0" layoutY="532.0" prefHeight="19.0" prefWidth="56.0" text="1-3p.m" />
+      <Label alignment="CENTER" layoutX="38.0" layoutY="563.0" prefHeight="19.0" prefWidth="56.0" text="3-5p.m" />
+      <Label layoutX="105.0" layoutY="468.0" prefHeight="18.0" prefWidth="74.0" text="Radioactivity" />
+      <Label layoutX="277.0" layoutY="468.0" prefHeight="18.0" prefWidth="74.0" text="Radioactivity" />
+      <Label alignment="CENTER" layoutX="95.0" layoutY="496.0" prefHeight="18.0" prefWidth="362.0" text="Lunch Break" />
+      <Label layoutX="92.0" layoutY="532.0" prefHeight="18.0" prefWidth="89.0" text="Programming " />
+      <Label layoutX="96.0" layoutY="574.0" prefHeight="18.0" prefWidth="82.0" text="prog. practical" />
+      <Label layoutX="273.0" layoutY="574.0" prefHeight="18.0" prefWidth="82.0" text="Sports" />
+      <Label layoutX="368.0" layoutY="573.0" prefHeight="18.0" prefWidth="82.0" text="Sports" />
+      <Label layoutX="446.0" layoutY="573.0" prefHeight="18.0" prefWidth="82.0" text="Sports" />
+      <Label layoutX="202.0" layoutY="469.0" text="organic" />
+      <Label layoutX="189.0" layoutY="532.0" prefHeight="18.0" prefWidth="74.0" text="organic pract" />
+      <Label layoutX="442.0" layoutY="468.0" prefHeight="18.0" prefWidth="90.0" text="Relative Motion" />
+      <Label layoutX="267.0" layoutY="532.0" prefHeight="18.0" prefWidth="94.0" text="inorganic practical" />
+      <Label layoutX="368.0" layoutY="468.0" prefHeight="18.0" prefWidth="82.0" text="Statistics" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="532.0" prefHeight="18.0" prefWidth="74.0" text="-" />
+      <Label alignment="CENTER" layoutX="446.0" layoutY="533.0" prefHeight="18.0" prefWidth="74.0" text="Aestatics" />
+      <Label layoutX="202.0" layoutY="574.0" prefHeight="18.0" prefWidth="56.0" text="Aestatics" />
+      <Label layoutX="45.0" layoutY="612.0" prefHeight="27.0" prefWidth="296.0" text="March, week 3 and March, week 4">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="644.0" prefHeight="19.0" prefWidth="479.0" text="Study Leave">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

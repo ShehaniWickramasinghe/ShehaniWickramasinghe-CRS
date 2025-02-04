@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,8 +23,6 @@ public class LoginController {
 
     @FXML
     private Button btnSignIn;
-
-
 
     @FXML
     private CheckBox rememberCheckBox;
@@ -65,6 +62,7 @@ public class LoginController {
      
             Stage stage1=new Stage();
             stage1.setScene(new Scene(root));
+            stage1.setTitle("Student Report Page");
              stage1.show();
              stage.close();
     
