@@ -14,7 +14,7 @@ public class ReportServiceImpl implements ReportService {
         ReportEntity reportEntity=reportDao.search(StudentId);
         if (reportEntity!=null) {
            return new Reportdto(reportEntity.getStudentId(),reportEntity.getStudentName(),
-            reportEntity.getDepartment(), reportEntity.getCourseName(),reportEntity.getGrade()); 
+            reportEntity.getDepartment(), reportEntity.getCourse(),reportEntity.getGrade()); 
         }
         return null;
     }

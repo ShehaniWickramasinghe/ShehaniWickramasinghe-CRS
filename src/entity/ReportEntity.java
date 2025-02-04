@@ -4,15 +4,15 @@ public class ReportEntity {
         private String studentId;
         private String StudentName;
         private String department;
-        private String courseName;
+        private String course;
         private String grade;
 
-    public ReportEntity(String StudentName, String courseName, String department, String grade, String studentId) {
-        this.StudentName = StudentName;
-        this.courseName = courseName;
-        this.department = department;
-        this.grade = grade;
+    public ReportEntity(String studentId,String StudentName,String department, String course,  String grade ) {
         this.studentId = studentId;
+        this.StudentName = StudentName;
+        this.department = department;
+        this.course = course;
+        this.grade = grade;
     }
 
     public String getStudentId() {
@@ -39,12 +39,12 @@ public class ReportEntity {
         this.department = department;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getCourse() {
+        return course;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourse(String course) {
+        this.course = course;
     }
 
     public String getGrade() {
@@ -58,7 +58,7 @@ public class ReportEntity {
     @Override
     public String toString() {
         return "reportEntity [studentId=" + studentId + ", StudentName=" + StudentName + ", department=" + department
-                + ", courseName=" + courseName + ", grade=" + grade + "]";
+                + ", course=" + course + ", grade=" + grade + "]";
     }
 
     

@@ -82,6 +82,11 @@ public class reportController {
     void btnSearchOnAction(ActionEvent event) throws Exception {
            
         String id = txtCheck.getText().trim();
+        if (id.isEmpty()) {
+            alert(Alert.AlertType.WARNING, "Input Error", "Please enter a student ID");
+            return;
+        }
+
             ReportService reportService=new ReportServiceImpl();
             Reportdto reportdto = reportService.search(id);
             if (reportdto!=null) {
@@ -90,8 +95,8 @@ public class reportController {
                 tblRecord.setItems(data);
                 System.out.println(data);
             }else{
-                Alert alert=new Alert(Alert.AlertType.NONE,"Student result cannot be found");
-                alert.showAndWait();
+                alert(Alert.AlertType.NONE,"Not Found","Student result cannot be found");
+                
             }        
     }
 
@@ -104,12 +109,7 @@ public class reportController {
         colGrade.setCellValueFactory(new PropertyValueFactory<>("grade"));
         tblRecord.setItems(FXCollections.observableArrayList());
 
-        tblRecord.getSelectionModel().selectionModeProperty().addListener((obs,oldSelection,newSelection)->{
-            System.out.println("Table row click");
-                System.out.println("oldSelection:"+oldSelection);
-                System.out.println("=====================");
-                System.out.println("newSelection:"+newSelection);
-        });
+     
         
     }
 }

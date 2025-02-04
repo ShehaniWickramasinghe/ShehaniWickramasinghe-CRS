@@ -1,8 +1,10 @@
 package dao.custom.impl;
 
-import dao.CrudUtil;
 import dao.custom.ReportDao;
+import db.DBConnection;
 import entity.ReportEntity;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -28,12 +30,19 @@ public class ReportDaoImpl implements ReportDao {
 
     @Override
     public ReportEntity search(String id) throws Exception {
-       ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM report WHERE studentId=?", id);
-       if (rst.next()) {
-        return new ReportEntity(rst.getString("studentId"), rst.getString("studentName"),
-        rst.getString("department"), rst.getString("course"),rst.getString("grade"));
+        String query = "SELECT * FROM report WHERE studentId = ?";
+       try(Connection connection=DBConnection.getInstance().getConnection();
+       PreparedStatement statement=connection.prepareStatement(query)){
+        statement.setString(1, id);
+        ResultSet rst=statement.executeQuery();
+        if (rst.next()) {
+         return new ReportEntity(rst.getString("studentId"), rst.getString("studentName"),
+         rst.getString("department"), rst.getString("course"),rst.getString("grade"));
+        }
        }
+           
        return null;
+       
     }
 
     @Override
