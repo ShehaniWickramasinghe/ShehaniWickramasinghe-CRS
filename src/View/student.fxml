@@ -23,14 +23,19 @@
       </ImageView>
       <Label alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="43.0" prefWidth="625.0" text="Student Registration Form">
          <font>
-            <Font name="Gill Sans MT Bold Italic" size="26.0" />
+            <Font name="Constantia Bold Italic" size="26.0" />
          </font>
          <textFill>
-            <LinearGradient endX="0.7803029869541976" endY="0.9924242609378063" startX="0.7765151803014857">
+            <LinearGradient endX="1.0" startX="0.9696969985961914" startY="1.0">
                <stops>
                   <Stop>
                      <color>
-                        <Color />
+                        <Color red="0.12631578743457794" green="0.027134502306580544" blue="0.027134502306580544" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.1894736886024475" green="0.03929824382066727" blue="0.03929824382066727" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">

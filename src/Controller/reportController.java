@@ -70,8 +70,15 @@ public class reportController {
     }
 
     @FXML
-    void btnVacanciesOnAction(ActionEvent event) {
-            System.out.println("vacancies");
+    void btnVacanciesOnAction(ActionEvent event) throws IOException {
+            Stage stage=(Stage)btnVacancies.getScene().getWindow();
+            FXMLLoader  loader=new FXMLLoader(getClass().getResource("../view/vacancies.fxml"));
+            Parent root=loader.load();
+
+            Stage stage1=new Stage();
+            stage1.setScene(new Scene(root));
+            stage1.setTitle("Vacancy Page");
+            stage1.show();
     }
 
     

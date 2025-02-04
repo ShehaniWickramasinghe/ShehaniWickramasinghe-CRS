@@ -3,19 +3,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" layoutY="14.0" prefHeight="26.0" prefWidth="600.0" text="Course Vacancies">
          <font>
-            <Font name="Baskerville Old Face" size="24.0" />
+            <Font name="Bookman Old Style Bold Italic" size="27.0" />
          </font>
          <textFill>
-            <RadialGradient centerX="0.5442477789072864" centerY="0.7083333333333334" radius="0.5">
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.5530302958054976">
                <stops>
                   <Stop>
                      <color>
@@ -28,8 +28,21 @@
                      </color>
                   </Stop>
                </stops>
-            </RadialGradient>
+            </LinearGradient>
          </textFill>
       </Label>
+      <Label layoutX="43.0" layoutY="57.0" prefHeight="26.0" prefWidth="254.0" text="Inorganic Chemistry Course">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Line endX="107.20001220703125" endY="-1.52587890625E-5" layoutX="144.0" layoutY="83.0" startX="-100.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="85.0" layoutY="93.0" prefHeight="26.0" prefWidth="480.0" text="We have an open student vacancy for the Inorganic Chemistry course.This course covers " />
+      <Label layoutX="63.0" layoutY="119.0" prefHeight="26.0" prefWidth="502.0" text="fundamental and advanced concepts of inorganic compounds, periodic trends, bonding theor " />
+      <Label layoutX="58.0" layoutY="144.0" prefHeight="26.0" prefWidth="502.0" text="-ies, coordination chemistry, and solid-state chemistry." />
+      <Label layoutX="85.0" layoutY="170.0" prefHeight="26.0" prefWidth="480.0" text="      prerequisites- Basic knowledge of general chemistry.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </AnchorPane>
