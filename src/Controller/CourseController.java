@@ -4,7 +4,6 @@ package controller;
 
 import dto.Coursedto;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class CourseController {
@@ -41,7 +43,7 @@ public class CourseController {
     private TableColumn<Coursedto, String> colCreditHours;
 
     @FXML
-    private TableColumn<Coursedto, ArrayList> colDepartment;
+    private TableColumn<Coursedto,String> colDepartment;
 
     @FXML
     private TableColumn<Coursedto, Integer> colMEC;
@@ -50,7 +52,7 @@ public class CourseController {
     private TableColumn<Coursedto, String> colprerequisites;
 
     @FXML
-    private ComboBox<?> comboBox1;
+    private ComboBox<String> comboBox1;
 
     @FXML
     private Label lblCourseId;
@@ -90,6 +92,15 @@ public class CourseController {
 
     @FXML
     private TextField txtprerequisites1;
+    
+    void initialize(){
+        colCourseId.setCellValueFactory(new PropertyValueFactory<>("Course Id"));
+        colCourseName.setCellValueFactory(new PropertyValueFactory<>("Course Name"));
+        colCreditHours.setCellValueFactory(new PropertyValueFactory<>("Credit Hours"));
+        colprerequisites.setCellValueFactory(new PropertyValueFactory<>("prerequisites"));
+        colDepartment.setCellValueFactory(new PropertyValueFactory<>("Department"));
+        colMEC.setCellValueFactory(new PropertyValueFactory<>("MEC"));
+    }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -119,5 +130,6 @@ public class CourseController {
     void btnUpdateOnAction(ActionEvent event) {
 
     }
+
 
 }

@@ -1,25 +1,23 @@
-package dto;
-
+package entity;
 
 import java.util.List;
 
-public class Coursedto {
-        private String courseId;
+public class CourseEntity {
+         private String courseId;
         private String name;
         private String creditHour;
         private String prerequisites;
         private Integer maximumCapacity;
         private List<String> department;
 
-        public Coursedto(String courseId, String name, String creditHour, String prerequisites,
-                Integer maximumCapacity, List<String> department) {
-            this.courseId = courseId;
-            this.name = name;
-            this.creditHour = creditHour;
-            this.prerequisites = prerequisites;
-            this.maximumCapacity = maximumCapacity;
-            this.department = department;
-        }
+    public CourseEntity(String courseId, String name,String creditHour, Integer maximumCapacity, String prerequisites, List<String> department) {
+        this.courseId = courseId;
+        this.name = name;
+        this.creditHour = creditHour;
+        this.prerequisites = prerequisites;
+        this.maximumCapacity = maximumCapacity;
+        this.department = department;
+    }
 
     public String getCourseId() {
         return courseId;
@@ -71,10 +69,12 @@ public class Coursedto {
 
     @Override
     public String toString() {
-        return "Coursedto [courseId=" + courseId + ", name=" + name +  ", creditHour="
-                + creditHour + ", prerequisites=" + prerequisites + ", maximumCapacity=" + maximumCapacity
-                + ", department=" + department + "]";
+        return "CourseEntity [courseId=" + courseId + ", name=" + name 
+                + ", creditHour=" + creditHour + ", prerequisites=" + prerequisites + ", maximumCapacity="
+                + maximumCapacity + ", department=" + department + "]";
     }
 
-        
+    
+
+
 }
