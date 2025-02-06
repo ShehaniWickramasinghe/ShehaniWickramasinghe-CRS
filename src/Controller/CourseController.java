@@ -4,6 +4,7 @@ package controller;
 
 import dto.Coursedto;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javax.swing.table.DefaultTableModel;
 import service.custom.CourseService;
 import service.custom.impl.CourseServiceImpl;
 
@@ -98,6 +100,7 @@ public class CourseController {
     private TextField txtprerequisites;
     
     public void initialize(){
+        loadTable();
         colCourseId.setCellValueFactory(new PropertyValueFactory<>("Course Id"));
         colCourseName.setCellValueFactory(new PropertyValueFactory<>("Course Name"));
         colCreditHours.setCellValueFactory(new PropertyValueFactory<>("Credit Hours"));
@@ -113,8 +116,9 @@ public class CourseController {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-
+    void btnDeleteOnAction(ActionEvent event) throws Exception {
+            CourseService courseService=new CourseServiceImpl();
+            String delete = courseService.delete(txtCourseId.getText());
     }
 
     @FXML
@@ -152,7 +156,7 @@ public class CourseController {
         }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws Exception {
             String id = txtCourseId.getText();
             String name = txtCourseName.getText();
             String creditHour = txtCreditHours.getText();
@@ -160,9 +164,14 @@ public class CourseController {
             int mec = Integer.parseInt(txtMEC.getText());
             String department=(String) comboBox1.getValue();
             ObservableList<String> comboBoxList=FXCollections.observableArrayList();
-            if () {
-                
+            if (department!=null) {
+                comboBoxList.add(department);
             }
+            Coursedto coursedto=new Coursedto(id, name, creditHour, prerequisites, mec, comboBoxList);
+            CourseService courseService=new CourseServiceImpl();
+            String update = courseService.update(coursedto);
+
+            clearForm();
     }
 
     public void clearForm(){
@@ -180,6 +189,43 @@ public class CourseController {
         alert.setHeaderText(header);
         alert.setContentText(context);
         alert.showAndWait();
+    }
+
+    @SuppressWarnings("unchecked")
+    public void loadTable(){
+        try {
+            tblCourse.getColumns().clear();
+            tblCourse.getColumns().addAll(colCourseId,colCourseName,colCreditHours,colprerequisites,colMEC,colDepartment);
+            CourseService courseService=new CourseServiceImpl();
+            ObservableList<Coursedto> courseList=FXCollections.observableArrayList(courseService.getAll());
+            tblCourse.setItems(courseList);
+            String columns[]={"CourseId","Course Name","Credit Hours","Prerequisites","MEC","Department"};
+            DefaultTableModel dtm=new DefaultTableModel(columns,0){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+                
+            };
+            tblCourse.getItems();
+
+            ArrayList<Coursedto> coursedtos=courseService.getAll();
+            for (Coursedto coursedto : coursedtos) {
+                Object rowData[]={coursedto.getCourseId(),
+                coursedto.getName(),coursedto.getCreditHour(),coursedto.getPrerequisites(),
+            coursedto.getMaximumCapacity(),coursedto.getDepartment()};
+            dtm.addRow(rowData);
+            System.out.println(coursedtos);
+            System.out.println("successfully loaded");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getAllCourse(){
+        CourseService courseService=new CourseServiceImpl();
+        ObservableList<Coursedto> observableList=FXCollections.observableArrayList();
     }
 
 }

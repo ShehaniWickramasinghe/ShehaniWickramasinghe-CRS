@@ -47,10 +47,10 @@ public class CourseDaoImpl implements CourseDao {
         List<String> departments = Arrays.asList(rst.getString("department").split(","));
         
         courseEntities.add(new CourseEntity(rst.getString("courseId"),
-        rst.getString("course Name"), rst.getString("credit Hours"), rst.getString("prerequisites"),
+        rst.getString("courseName"), rst.getString("creditHours"), rst.getString("prerequisites"),
         rst.getInt("MEC"), departments));
        }
-       return null;
+       return courseEntities;
     }
 
 }
