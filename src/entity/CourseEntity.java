@@ -10,7 +10,7 @@ public class CourseEntity {
         private Integer maximumCapacity;
         private List<String> department;
 
-    public CourseEntity(String courseId, String name,String creditHour, Integer maximumCapacity, String prerequisites, List<String> department) {
+    public CourseEntity(String courseId, String name,String creditHour, String prerequisites, Integer maximumCapacity, List<String> department) {
         this.courseId = courseId;
         this.name = name;
         this.creditHour = creditHour;
