@@ -13,7 +13,7 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public boolean save(CourseEntity t) throws Exception {
        String department=String.join(",", t.getDepartment());
-       return CrudUtil.executeUpdate("INSERT INTO course VALUES(?,?,?,?,?)", t.getCourseId(),t.getName(),
+       return CrudUtil.executeUpdate("INSERT INTO course VALUES(?,?,?,?,?,?)", t.getCourseId(),t.getName(),
        t.getCreditHour(),t.getPrerequisites(),t.getMaximumCapacity(),department);
     }
 

@@ -4,6 +4,8 @@ import dao.DaoFactory;
 import dao.custom.CourseDao;
 import dto.Coursedto;
 import entity.CourseEntity;
+import javafx.scene.control.Alert;
+
 import java.util.ArrayList;
 import java.util.List;
 import service.custom.CourseService;
@@ -16,6 +18,11 @@ public class CourseServiceImpl implements CourseService {
         CourseEntity courseEntity=new CourseEntity(coursedto.getCourseId(), coursedto.getName(), coursedto.getCreditHour(), coursedto.getPrerequisites(), coursedto.getMaximumCapacity(), CourseList);
 
         boolean isSaved=courseDao.save(courseEntity);
+        if (isSaved) {
+           alert(Alert.AlertType.CONFIRMATION, "Success", "Course saved successfully!"); 
+        }else{
+            alert(Alert.AlertType.ERROR, "Fail", "Failed to save course. Please try again.");
+        }
         return isSaved ? "Success":"fail";
     }
 
@@ -53,6 +60,14 @@ public class CourseServiceImpl implements CourseService {
             Coursedto dto=new Coursedto(courseEntity.getCourseId(), courseEntity.getName(), courseEntity.getCreditHour(), courseEntity.getPrerequisites(), courseEntity.getMaximumCapacity(), courseEntity.getDepartment());
         }
         return coursedto;
+    }
+
+     @SuppressWarnings("unused")
+    private void alert(Alert.AlertType alertType,String header,String context){
+        Alert alert=new Alert(alertType);
+        alert.setHeaderText(header);
+        alert.setContentText(context);
+        alert.showAndWait();
     }
 
 }
