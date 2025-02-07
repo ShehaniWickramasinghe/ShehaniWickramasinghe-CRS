@@ -174,7 +174,7 @@ public class CourseController {
             Coursedto coursedto=new Coursedto(courseId, courseName, creditHour, prerequisites, mec, comboBoList);
             CourseService courseService=new CourseServiceImpl();
             String save = courseService.save(coursedto);
-            
+            loadTable();
             clearForm();
           
         }
@@ -194,7 +194,7 @@ public class CourseController {
             Coursedto coursedto=new Coursedto(id, name, creditHour, prerequisites, mec, comboBoxList);
             CourseService courseService=new CourseServiceImpl();
             String update = courseService.update(coursedto);
-
+            loadTable();
             clearForm();
     }
 
