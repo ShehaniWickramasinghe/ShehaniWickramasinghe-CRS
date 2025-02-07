@@ -99,20 +99,44 @@ public class CourseController {
     @FXML
     private TextField txtprerequisites;
     
-    public void initialize(){
-        loadTable();
-        colCourseId.setCellValueFactory(new PropertyValueFactory<>("Course Id"));
-        colCourseName.setCellValueFactory(new PropertyValueFactory<>("Course Name"));
-        colCreditHours.setCellValueFactory(new PropertyValueFactory<>("Credit Hours"));
+    public void getAllCourse() throws Exception{
+        CourseService courseService=new CourseServiceImpl();
+        ArrayList<Coursedto> getAll=courseService.getAll();
+        System.out.println(getAll);
+        ObservableList<Coursedto> observableList=FXCollections.observableArrayList();
+        observableList.addAll(getAll);
+        tblCourse.setItems(observableList);
+    }
+    public void initialize() throws Exception{
+        System.out.println("first method");
+        getAllCourse();
+        colCourseId.setCellValueFactory(new PropertyValueFactory<>("CourseId"));
+        colCourseName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colCreditHours.setCellValueFactory(new PropertyValueFactory<>("CreditHour"));
         colprerequisites.setCellValueFactory(new PropertyValueFactory<>("prerequisites"));
         colDepartment.setCellValueFactory(new PropertyValueFactory<>("Department"));
-        colMEC.setCellValueFactory(new PropertyValueFactory<>("MEC"));
+        colMEC.setCellValueFactory(new PropertyValueFactory<>("maximumCapacity"));
 
         List<String> arrayList=Arrays.asList("Computer Science","Chemistry","Applied Maths","Pure Maths","Physics",
         "Nuclear Science ");
         ObservableList<String> comboBoList=FXCollections.observableArrayList(arrayList);
         comboBox1.setItems(comboBoList);
         comboBox1.setValue("Chemistry");
+
+        tblCourse.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection)->{
+            System.out.println("Table row click");
+            System.out.println("oldSelection:"+oldSelection);
+            System.out.println("=====================");
+            System.out.println("newSelection:"+newSelection);
+            if (newSelection!=null) {
+                txtCourseId.setText(newSelection.getCourseId());
+                txtCourseName.setText(newSelection.getName());
+                txtCreditHours.setText(newSelection.getCreditHour());
+                txtprerequisites.setText(newSelection.getPrerequisites());
+                txtMEC.setText(Integer.toString(newSelection.getMaximumCapacity()));
+                comboBox1.setValue(newSelection.getDepartment().toString());
+            }
+        });
     }
 
     @FXML
@@ -223,9 +247,5 @@ public class CourseController {
         }
     }
 
-    public void getAllCourse(){
-        CourseService courseService=new CourseServiceImpl();
-        ObservableList<Coursedto> observableList=FXCollections.observableArrayList();
-    }
 
 }

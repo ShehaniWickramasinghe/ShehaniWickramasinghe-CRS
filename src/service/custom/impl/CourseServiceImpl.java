@@ -58,6 +58,7 @@ public class CourseServiceImpl implements CourseService {
         ArrayList<CourseEntity> courseEntities=courseDao.getAll();
         for (CourseEntity courseEntity : courseEntities) {
             Coursedto dto=new Coursedto(courseEntity.getCourseId(), courseEntity.getName(), courseEntity.getCreditHour(), courseEntity.getPrerequisites(), courseEntity.getMaximumCapacity(), courseEntity.getDepartment());
+            coursedto.add(dto);
         }
         return coursedto;
     }
