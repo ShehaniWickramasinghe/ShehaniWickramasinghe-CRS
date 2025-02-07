@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
@@ -52,23 +53,39 @@ public class LoginController {
         String password=txtPassword.getText();
         if (authenticateUser(user_name, password)) {
             System.out.println("Login successful!");
+            try {
+                Stage stage=(Stage)btnSignIn.getScene().getWindow();
+                FXMLLoader loader;
+                if ("A001".equals(user_name)) {
+                    loader=new FXMLLoader(getClass().getResource("../view/admin.fxml"));
+                    Parent root1=loader.load();
+
+                    Stage stage2=new Stage();
+                    stage2.setScene(new Scene(root1));
+                    stage2.setTitle("Admin Page");
+                    stage2.show();
+                    stage.close();
+                }else{
+                    loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
+                    Parent root=loader.load();
+             
+                    Stage stage1=new Stage();
+                    stage1.setScene(new Scene(root));
+                    stage1.setTitle("Student Report Page");
+                     stage1.show();
+                     stage.close();
+                }
+        
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("..................");
+                
+            }
         } else {
             System.out.println("Invalid username or password.");
-        }
-        try {
-            Stage stage=(Stage)btnSignIn.getScene().getWindow();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
-            Parent root=loader.load();
-     
-            Stage stage1=new Stage();
-            stage1.setScene(new Scene(root));
-            stage1.setTitle("Student Report Page");
-             stage1.show();
-             stage.close();
-    
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("..................");
+            Alert alert=new Alert(Alert.AlertType.ERROR, "The username or password is incorrect");
+            alert.showAndWait();
+            clearForm();
         }
     }
 
@@ -95,6 +112,9 @@ public class LoginController {
         System.out.println("=============================");
         return false;
     }
-
+        public void clearForm(){
+            txtUserName.setText("");
+            txtPassword.setText("");
+        }
         
 }
