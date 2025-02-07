@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="548.0" style="-fx-border-radius: 5px; -fx-background-color: #e3f2fd;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminController">
    <children>
       <ImageView fitHeight="291.0" fitWidth="548.0">
@@ -20,7 +19,7 @@
             <Font name="Calibri Bold Italic" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="76.0" prefHeight="23.0" prefWidth="355.0" text="What is your choice?">
+      <Label layoutX="41.0" layoutY="76.0" prefHeight="23.0" prefWidth="355.0" text="What would you like to do now ?">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
