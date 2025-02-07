@@ -48,7 +48,7 @@ public class CourseDaoImpl implements CourseDao {
         
         courseEntities.add(new CourseEntity(rst.getString("courseId"),
         rst.getString("courseName"), rst.getString("creditHours"), rst.getString("prerequisites"),
-        rst.getInt("MEC"), departments));
+        rst.getInt("mec"), departments));
        }
        return courseEntities;
     }
