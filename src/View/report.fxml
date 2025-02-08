@@ -58,13 +58,14 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="tblRecord" layoutX="36.0" layoutY="191.0" prefHeight="150.0" prefWidth="604.0" style="-fx-text-align: center;">
+      <TableView fx:id="tblRecord" layoutX="36.0" layoutY="191.0" prefHeight="150.0" prefWidth="625.0" style="-fx-text-align: center;">
         <columns>
-          <TableColumn fx:id="colStudentId" prefWidth="91.19997787475586" text="Student Id" />
-          <TableColumn fx:id="colStudentName" prefWidth="143.19996643066406" text="Student Name" />
-            <TableColumn fx:id="colDepartment" prefWidth="130.4000244140625" text="Department" />
-            <TableColumn fx:id="colCourse" prefWidth="155.99993896484375" text="Course Name" />
-            <TableColumn fx:id="colGrade" prefWidth="80.79986572265625" text="Grade" />
+          <TableColumn fx:id="colStudentId" prefWidth="78.4000244140625" text="Student Id" />
+          <TableColumn fx:id="colStudentName" prefWidth="138.39996337890625" text="Student Name" />
+            <TableColumn fx:id="colDepartment" prefWidth="126.39996337890625" text="Department" />
+            <TableColumn fx:id="colCourse" prefWidth="141.5999755859375" text="Course Name" />
+            <TableColumn fx:id="colSemester" prefWidth="86.40008544921875" text="Semester" />
+            <TableColumn fx:id="colGrade" prefWidth="48.800048828125" text="Grade" />
         </columns>
       </TableView>
       <Label layoutX="36.0" layoutY="156.0" prefHeight="24.0" prefWidth="150.0" text="Input your studentId ">
