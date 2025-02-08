@@ -8,4 +8,5 @@ public interface StudentService extends SuperService {
         public String update(Studentdto studentdto)throws Exception;
         public String delete(String studentId)throws Exception;
         public Studentdto search(String studentId)throws Exception;
+        
 }
