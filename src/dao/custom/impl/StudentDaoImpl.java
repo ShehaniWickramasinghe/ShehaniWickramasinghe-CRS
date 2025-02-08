@@ -48,4 +48,10 @@ public class StudentDaoImpl implements StudentDao {
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
+    @Override
+    public List<StudentEntity> searchAll(String id) throws Exception {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'searchAll'");
+    }
+
 }

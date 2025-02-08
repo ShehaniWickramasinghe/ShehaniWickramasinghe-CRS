@@ -53,4 +53,10 @@ public class CourseDaoImpl implements CourseDao {
        return courseEntities;
     }
 
+   @Override
+   public List<CourseEntity> searchAll(String id) throws Exception {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'searchAll'");
+   }
+
 }

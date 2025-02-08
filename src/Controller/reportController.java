@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 
 import dto.Reportdto;
+import java.util.List;
 import java.util.Properties;
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
@@ -45,6 +46,9 @@ public class reportController {
 
     @FXML
     private TableColumn<Reportdto,String> colStudentName;
+
+    @FXML
+    private TableColumn<Reportdto,String> colSemester;
 
     @FXML
     private TableView<Reportdto> tblRecord;
@@ -98,15 +102,13 @@ public class reportController {
         }
 
             ReportService reportService=new ReportServiceImpl();
-            Reportdto reportdto = reportService.search(id);
-            if (reportdto!=null) {
-                ObservableList<Reportdto> data=FXCollections.observableArrayList();
-               data.add(reportdto);
+            List<Reportdto> reportList=reportService.search(id);
+            if (!reportList.isEmpty()) {
+                ObservableList<Reportdto> data = FXCollections.observableArrayList(reportList);
                 tblRecord.setItems(data);
-                System.out.println(data);
             }else{
                 alert(Alert.AlertType.NONE,"Not Found","Student result cannot be found");
-                
+                tblRecord.setItems(FXCollections.observableArrayList());
             }        
     }
 
@@ -117,6 +119,8 @@ public class reportController {
         colDepartment.setCellValueFactory(new PropertyValueFactory<>("department"));
         colCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
         colGrade.setCellValueFactory(new PropertyValueFactory<>("grade"));
+        colSemester.setCellValueFactory(new PropertyValueFactory<>("Semester"));
+
         tblRecord.setItems(FXCollections.observableArrayList());
     
     }

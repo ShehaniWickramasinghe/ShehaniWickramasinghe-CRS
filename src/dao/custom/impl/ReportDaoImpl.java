@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReportDaoImpl implements ReportDao {
 
@@ -30,19 +31,27 @@ public class ReportDaoImpl implements ReportDao {
 
     @Override
     public ReportEntity search(String id) throws Exception {
-        String query = "SELECT * FROM report WHERE studentId = ?";
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'search'");
+    }
+
+    @Override
+    public List<ReportEntity> searchAll(String id) throws Exception {
+          String query = "SELECT * FROM report WHERE studentId = ?";
+        List<ReportEntity> reportList =new ArrayList<>();
+
        try(Connection connection=DBConnection.getInstance().getConnection();
        PreparedStatement statement=connection.prepareStatement(query)){
         statement.setString(1, id);
         ResultSet rst=statement.executeQuery();
-        if (rst.next()) {
-         return new ReportEntity(rst.getString("studentId"), rst.getString("studentName"),
-         rst.getString("department"), rst.getString("course"),rst.getString("grade"));
+        while (rst.next()) {
+            reportList.add(
+         new ReportEntity(rst.getString("studentId"), rst.getString("studentName"),
+         rst.getString("department"), rst.getString("course"),rst.getString("semester"),rst.getString("grade")));
         }
        }
            
-       return null;
-       
+       return reportList;
     }
 
     @Override
@@ -50,5 +59,11 @@ public class ReportDaoImpl implements ReportDao {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
+
+ 
+
+   
+    
+            
 
 }
