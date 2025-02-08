@@ -5,12 +5,15 @@ public class Reportdto {
         private String studentName;
         private String department;
         private String course;
+        private String semester;
         private String grade;
-        public Reportdto(String studentId, String studentName, String department, String course, String grade) {
+        
+        public Reportdto(String studentId, String studentName, String department, String course,String semester, String grade) {
             this.studentId = studentId;
             this.studentName = studentName;
             this.department = department;
             this.course = course;
+            this.semester=semester;
             this.grade = grade;
         }
 
@@ -46,6 +49,13 @@ public class Reportdto {
         this.course = course;
     }
 
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
     public String getGrade() {
         return grade;
     }
@@ -57,8 +67,11 @@ public class Reportdto {
     @Override
     public String toString() {
         return "Reportdto [studentId=" + studentId + ", studentName=" + studentName + ", department=" + department
-                + ", course=" + course + ", grade=" + grade + "]";
+                + ", course=" + course + ", semester=" + semester + ", grade=" + grade + "]";
     }
+
+   
+
 
         
 }

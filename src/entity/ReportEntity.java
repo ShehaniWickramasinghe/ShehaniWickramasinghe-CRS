@@ -5,13 +5,15 @@ public class ReportEntity {
         private String StudentName;
         private String department;
         private String course;
+        private String semester;
         private String grade;
 
-    public ReportEntity(String studentId,String StudentName,String department, String course,  String grade ) {
+    public ReportEntity(String studentId,String StudentName,String department, String course,String semester,  String grade ) {
         this.studentId = studentId;
         this.StudentName = StudentName;
         this.department = department;
         this.course = course;
+        this.semester=semester;
         this.grade = grade;
     }
 
@@ -47,6 +49,14 @@ public class ReportEntity {
         this.course = course;
     }
 
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
     public String getGrade() {
         return grade;
     }
@@ -57,9 +67,11 @@ public class ReportEntity {
 
     @Override
     public String toString() {
-        return "reportEntity [studentId=" + studentId + ", StudentName=" + StudentName + ", department=" + department
-                + ", course=" + course + ", grade=" + grade + "]";
+        return "ReportEntity [studentId=" + studentId + ", StudentName=" + StudentName + ", department=" + department
+                + ", course=" + course + ", semester=" + semester + ", grade=" + grade + "]";
     }
+
+    
 
     
 }
