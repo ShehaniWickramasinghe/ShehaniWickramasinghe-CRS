@@ -75,7 +75,7 @@ public class StudentController {
     public void initialize(){
         List<String> arrayList = Arrays.asList("Inorganic", "Statistics and probability",
         "Relative motion", "Radioactivity", "Optics", "Atomic Structure",
-        "Acids, Bases and pH", "Robotics", "Operating Systems", "OOP", "Cyber Security");
+        "Acids, Bases and pH", "Robotics", "Operating Systems", "OOP", "Cyber Security","Nuclear Reaction");
         ObservableList<String> comboBoxList = FXCollections.observableArrayList(arrayList);
         programOfStudy.setItems(comboBoxList);
         programOfStudy.setValue("Inorganic");
@@ -169,6 +169,7 @@ public class StudentController {
             String id = txtStudentId.getText();
             StudentService studentService=new StudentServiceImpl();
             Studentdto studentdto=studentService.search(id);
+            
             if (studentdto!=null) {
               txtStudentId.setText(studentdto.getStudentId());
               txtStudentName.setText(studentdto.getName());
