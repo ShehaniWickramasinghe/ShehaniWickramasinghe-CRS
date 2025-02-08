@@ -56,7 +56,7 @@ public class LoginController {
             try {
                 Stage stage=(Stage)btnSignIn.getScene().getWindow();
                 FXMLLoader loader;
-                if ("A001".equals(user_name)) {
+                if ("A001".equals(user_name)|"A002".equals(user_name)|"A003".equals(user_name)) {
                     loader=new FXMLLoader(getClass().getResource("../view/admin.fxml"));
                     Parent root1=loader.load();
 
