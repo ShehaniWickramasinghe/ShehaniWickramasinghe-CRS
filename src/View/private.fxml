@@ -89,10 +89,10 @@
       <TextField fx:id="txtGrade2" alignment="CENTER" layoutX="472.0" layoutY="205.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #f1f3f5; -fx-border-radius: 5px;" />
       <TableView fx:id="tblAcademic" layoutX="30.0" layoutY="300.0" prefHeight="246.0" prefWidth="559.0" style="-fx-background-color: #ffffff; -fx-border-radius: 8px; -fx-skin: #f8f9fa; -fx-cursor: hand;">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="89.59997367858887" text="student Id" />
-          <TableColumn fx:id="colName" prefWidth="115.20001983642578" text="Student Name" />
+          <TableColumn fx:id="colId" prefWidth="89.59997367858887" text=" Id" />
+          <TableColumn fx:id="colName" prefWidth="115.20001983642578" text=" Name" />
             <TableColumn fx:id="colDepartment" prefWidth="119.20001220703125" text="Department" />
-            <TableColumn fx:id="colAttendance" prefWidth="79.99993896484375" text="attendance" />
+            <TableColumn fx:id="colAttendance" prefWidth="79.99993896484375" text="Attendance" />
             <TableColumn fx:id="colSem1" prefWidth="79.99993896484375" text="Sem1" />
             <TableColumn fx:id="colSem2" prefWidth="71.99993896484375" text="Sem2" />
         </columns>

@@ -1,23 +1,25 @@
 package dao.custom.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import dao.CrudUtil;
 import dao.custom.PrivateDao;
 import entity.PrivateEntity;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrivateDaoImpl implements PrivateDao {
 
     @Override
     public boolean save(PrivateEntity t) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        return CrudUtil.executeUpdate("INSERT INTO private VALUES(?,?,?,?,?,?)", t.getId(),
+        t.getName(),t.getDepartment(),t.getAttendance(),
+        t.getSem1Grade(),t.getSem2Grade());
     }
 
     @Override
     public boolean update(PrivateEntity t) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        return CrudUtil.executeUpdate("UPDATE private SET name=?,department=?,attendance=?,sem1_grade=?,sem2_grade=? WHERE id=?",
+        t.getName(),t.getDepartment(),t.getAttendance(),t.getSem1Grade(),t.getSem2Grade(),t.getId());
     }
 
     @Override
@@ -28,8 +30,13 @@ public class PrivateDaoImpl implements PrivateDao {
 
     @Override
     public PrivateEntity search(String id) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'search'");
+        ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM private WHERE id=?", id);
+        if (rst.next()) {
+            return new PrivateEntity(rst.getString("id"), rst.getString("name"), 
+            rst.getString("department"), rst.getString("attendance"), rst.getString("sem1_grade"), 
+            rst.getString("sem2_grade"));
+        }
+        return null;
     }
 
     @Override
@@ -40,8 +47,13 @@ public class PrivateDaoImpl implements PrivateDao {
 
     @Override
     public ArrayList<PrivateEntity> getAll() throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        ArrayList<PrivateEntity> privateEntities=new ArrayList<>();
+        ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM report");
+        if (rst.next()) {
+            privateEntities.add(new PrivateEntity(rst.getString("id"), rst.getString("name"), rst.getString("department"),
+             rst.getString("attendance"), rst.getString("sem1_grade"), rst.getString("sem2_grade")));
+        }
+        return privateEntities;
     }
 
 }

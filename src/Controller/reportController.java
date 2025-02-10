@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import dto.Reportdto;
 import java.util.List;
-import java.util.Properties;
+
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
