@@ -43,7 +43,9 @@ public class PrivateServiceImpl implements PrivateService{
        ArrayList<Privatedto> privatedtos=new ArrayList<>();
        ArrayList<PrivateEntity> privateEntities=privateDao.getAll();
        for (PrivateEntity privateEntity : privateEntities) {
-           Privatedto dto=new Privatedto(privateEntity.getId(),privateEntity.getName(),privateEntity.getDepartment(),privateEntity.getAttendance(),
+           Privatedto dto=new Privatedto(
+        privateEntity.getId(),privateEntity.getName(),privateEntity.getDepartment(),
+           privateEntity.getAttendance(),
            privateEntity.getSem1Grade(),privateEntity.getSem2Grade());
            privatedtos.add(dto);
        }

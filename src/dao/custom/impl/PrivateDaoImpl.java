@@ -18,7 +18,7 @@ public class PrivateDaoImpl implements PrivateDao {
 
     @Override
     public boolean update(PrivateEntity t) throws Exception {
-        return CrudUtil.executeUpdate("UPDATE private SET name=?,department=?,attendance=?,sem1_grade=?,sem2_grade=? WHERE id=?",
+        return CrudUtil.executeUpdate("UPDATE private SET name=?,department=?,attendance=?,sem1_grade=?,sem2_grade=? WHERE Id=?",
         t.getName(),t.getDepartment(),t.getAttendance(),t.getSem1Grade(),t.getSem2Grade(),t.getId());
     }
 
@@ -32,7 +32,7 @@ public class PrivateDaoImpl implements PrivateDao {
     public PrivateEntity search(String id) throws Exception {
         ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM private WHERE id=?", id);
         if (rst.next()) {
-            return new PrivateEntity(rst.getString("id"), rst.getString("name"), 
+            return new PrivateEntity(rst.getString("Id"), rst.getString("name"), 
             rst.getString("department"), rst.getString("attendance"), rst.getString("sem1_grade"), 
             rst.getString("sem2_grade"));
         }
@@ -48,9 +48,9 @@ public class PrivateDaoImpl implements PrivateDao {
     @Override
     public ArrayList<PrivateEntity> getAll() throws Exception {
         ArrayList<PrivateEntity> privateEntities=new ArrayList<>();
-        ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM report");
-        if (rst.next()) {
-            privateEntities.add(new PrivateEntity(rst.getString("id"), rst.getString("name"), rst.getString("department"),
+        ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM private");
+        while (rst.next()) {
+            privateEntities.add(new PrivateEntity(rst.getString("Id"), rst.getString("name"), rst.getString("department"),
              rst.getString("attendance"), rst.getString("sem1_grade"), rst.getString("sem2_grade")));
         }
         return privateEntities;

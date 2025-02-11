@@ -1,16 +1,16 @@
 package entity;
 
 public class PrivateEntity {
-        private String id;
+        private String Id;
         private String name;
         private String department;
         private String attendance;
         private String sem1Grade;
         private String sem2Grade;
         
-        public PrivateEntity(String id, String name, String department, String attendance, String sem1Grade,
+        public PrivateEntity(String Id, String name, String department, String attendance, String sem1Grade,
                 String sem2Grade) {
-            this.id = id;
+            this.Id = Id;
             this.name = name;
             this.department = department;
             this.attendance = attendance;
@@ -19,11 +19,11 @@ public class PrivateEntity {
         }
 
         public String getId() {
-            return id;
+            return Id;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void setId(String Id) {
+            this.Id = Id;
         }
 
         public String getName() {
@@ -68,7 +68,7 @@ public class PrivateEntity {
 
         @Override
         public String toString() {
-            return "PrivateEntity [id=" + id + ", name=" + name + ", department=" + department + ", attendance="
+            return "PrivateEntity [Id=" + Id + ", name=" + name + ", department=" + department + ", attendance="
                     + attendance + ", sem1Grade=" + sem1Grade + ", sem2Grade=" + sem2Grade + "]";
         }
 
