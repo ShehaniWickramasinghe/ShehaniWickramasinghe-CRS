@@ -36,10 +36,11 @@
             <Image url="@../../images/students.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnStudentProgress" layoutX="206.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnStudentProgressOnAction" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Student Progress" textFill="#b43d3d">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <Button fx:id="btnStudentProgress" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnStudentProgressOnAction" prefHeight="52.0" prefWidth="208.0" style="-fx-background-color: #ffffff; -fx-border-color: #000099; -fx-border-radius: 5px; -fx-cursor: hand;" text="Student Progress Page" textFill="#000099" />
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="204.0" layoutY="193.0">
+         <image>
+            <Image url="@../../images/bar%20chart.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

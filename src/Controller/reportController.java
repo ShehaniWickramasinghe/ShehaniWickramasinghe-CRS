@@ -29,6 +29,8 @@ public class reportController {
     @FXML
     private Button btnVacancies;
 
+    
+
     @FXML
     private Button btnSchedule;
 
@@ -136,4 +138,6 @@ public class reportController {
         stage4.setTitle("Student Time Table");
         stage4.show();
     }
+
+    
 }
