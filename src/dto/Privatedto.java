@@ -65,12 +65,11 @@ public class Privatedto {
         public void setSem2Grade(String sem2Grade) {
             this.sem2Grade = sem2Grade;
         }
-
+        
         @Override
         public String toString() {
             return "Privatedto [id=" + id + ", name=" + name + ", department=" + department + ", attendance="
                     + attendance + ", sem1Grade=" + sem1Grade + ", sem2Grade=" + sem2Grade + "]";
         }
 
-        
-}
+    }
