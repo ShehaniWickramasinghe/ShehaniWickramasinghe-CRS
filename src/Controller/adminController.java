@@ -9,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class adminController {
+    @FXML
+    private Button btnStudentProgress;
+
      @FXML
     private Button btnCourse;
 
@@ -39,4 +42,18 @@ public class adminController {
         stage1.show();
         stage.close();
     }
+
+    @FXML
+    void btnStudentProgressOnAction(ActionEvent event) {
+        Stage stage=(Stage)btnStudentProgress.getScene().getWindow();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/private.fxml"));
+        Parent root=loader.load();
+
+        Stage stage1=new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.show();
+        stage.close();
+    }
+
+
 }
