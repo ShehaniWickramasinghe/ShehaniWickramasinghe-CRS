@@ -1,7 +1,10 @@
 package  controller;
 
 import dto.Privatedto;
+import dto.Reportdto;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableView;
@@ -87,6 +90,7 @@ public class privateController {
 
     public void initialize() throws Exception{
         getAllDetails();
+
         colId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colDepartment.setCellValueFactory(new PropertyValueFactory<>("Department"));
@@ -133,6 +137,7 @@ public class privateController {
             Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
             PrivateService privateService=new PrivateServiceImpl();
             String save = privateService.save(privatedto);
+            clearForm();
     }
 
     @FXML
@@ -164,6 +169,8 @@ public class privateController {
             Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
             PrivateService privateService=new PrivateServiceImpl();
             String update = privateService.update(privatedto);
+            System.out.println(update);
+            clearForm();
     }
 
     public void clearForm(){
@@ -174,4 +181,40 @@ public class privateController {
         txtGrade1.setText("");
         txtGrade2.setText("");
     }
+
+    public String placeOrder(Privatedto privatedto, List<Reportdto> reportList) throws Exception{
+            PrivateService privateService=new PrivateServiceImpl();
+            return privateService.placeOrder(privatedto, reportList);
+    }
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) {
+    PrivateService privateService = new PrivateServiceImpl();
+        try {
+            String Id = txtStudentId.getText();
+            String Name = txtName.getText();
+            String Department = txtDepartment.getText();
+            String Attendance = txtAttendance.getText();
+            String sem1 = txtGrade1.getText();
+            String sem2 = txtGrade2.getText();
+            Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
+            List<Reportdto> reportList = new ArrayList<>();
+            reportList.add(new Reportdto(Id, Name, Department, Attendance, sem1, sem2));
+            String result = privateService.placeOrder(privatedto, reportList);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Order Status");
+            alert.setHeaderText(null);
+            alert.setContentText(result);
+            alert.showAndWait();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Transaction Failed");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+   
+}
+
 }

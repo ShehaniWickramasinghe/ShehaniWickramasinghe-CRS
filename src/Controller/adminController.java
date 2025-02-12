@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +36,7 @@ public class adminController {
     @FXML
     void btnStudentOnAction(ActionEvent event)throws Exception {
         Stage stage=(Stage)btnStudent.getScene().getWindow();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/student.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
         Parent root=loader.load();
 
         Stage stage1=new Stage();
@@ -44,7 +46,7 @@ public class adminController {
     }
 
     @FXML
-    void btnStudentProgressOnAction(ActionEvent event) {
+    void btnStudentProgressOnAction(ActionEvent event) throws IOException {
         Stage stage=(Stage)btnStudentProgress.getScene().getWindow();
         FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/private.fxml"));
         Parent root=loader.load();
