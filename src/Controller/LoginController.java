@@ -56,7 +56,7 @@ public class LoginController {
             try {
                 Stage stage=(Stage)btnSignIn.getScene().getWindow();
                 FXMLLoader loader;
-                if ("A001".equals(user_name)|"A002".equals(user_name)|"A003".equals(user_name)) {
+                if (user_name.matches("A00[0-9]") || user_name.matches("C00[0-9]") || user_name.matches("C0(10|11|12|13|14|15|16|17|18|19|20)")) {
                     loader=new FXMLLoader(getClass().getResource("../view/admin.fxml"));
                     Parent root1=loader.load();
 
@@ -65,7 +65,7 @@ public class LoginController {
                     stage2.setTitle("Admin Page");
                     stage2.show();
                     stage.close();
-                }else{
+                }else if(user_name.matches("S00[0-9]")){
                     loader=new FXMLLoader(getClass().getResource("../view/report.fxml"));
                     Parent root=loader.load();
              
