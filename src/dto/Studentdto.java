@@ -9,16 +9,18 @@ public class Studentdto {
         private LocalDate DOB;
         private String phoneNumber;
         private String email;
-        private List<String> programOfStudy;
+        private List<String> semester1;
+        private List<String> semester2;
 
         public Studentdto(String studentId, String name, LocalDate dOB, String phoneNumber, String email,
-        List<String> programOfStudy) {
+        List<String> semester1,List<String> semester2) {
             this.studentId = studentId;
             this.name = name;
             this.DOB = dOB;
             this.phoneNumber = phoneNumber;
             this.email = email;
-            this.programOfStudy = programOfStudy;
+            this.semester1 = semester1;
+            this.semester2 = semester2;
         }
 
     public String getStudentId() {
@@ -61,19 +63,29 @@ public class Studentdto {
         this.email = email;
     }
 
-    public List<String> getProgramOfStudy() {
-        return programOfStudy;
+    public List<String> getSemester1() {
+        return semester1;
     }
 
-    public void setProgramOfStudy(List<String> programOfStudy) {
-        this.programOfStudy = programOfStudy;
+    public void setSemester1(List<String> semester1) {
+        this.semester1 = semester1;
+    }
+
+    public List<String> getSemester2() {
+        return semester2;
+    }
+
+    public void setSemester2(List<String> semester2) {
+        this.semester2 = semester2;
     }
 
     @Override
     public String toString() {
-        return "Studentdto [studentId=" + studentId + ", Name=" + name + ", DOB=" + DOB + ", phoneNumber=" + phoneNumber
-                + ", email=" + email + ", programOfStudy=" + programOfStudy + "]";
+        return "Studentdto [studentId=" + studentId + ", name=" + name + ", DOB=" + DOB + ", phoneNumber=" + phoneNumber
+                + ", email=" + email + ", semester1=" + semester1 + ", semester2=" + semester2 + "]";
     }
+
+   
 
     
         
