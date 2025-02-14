@@ -50,8 +50,12 @@ public class StudentController {
     @FXML
     private TextField txtPhoneNo;
 
+
     @FXML
-    private ComboBox<String> programOfStudy;
+    private ComboBox<String> Semester1;
+
+    @FXML
+    private ComboBox<String> Semester2;
 
     @FXML
     private TextField txtStudentId;
@@ -73,12 +77,19 @@ public class StudentController {
 
     
     public void initialize(){
-        List<String> arrayList = Arrays.asList("Inorganic", "Statistics and probability",
-        "Relative motion", "Radioactivity", "Optics", "Atomic Structure",
-        "Acids, Bases and pH", "Robotics", "Operating Systems", "OOP", "Cyber Security","Nuclear Reaction");
-        ObservableList<String> comboBoxList = FXCollections.observableArrayList(arrayList);
-        programOfStudy.setItems(comboBoxList);
-        programOfStudy.setValue("Inorganic");
+        List<String> sem1 = Arrays.asList("Inorganic",
+        "Relative motion", "Radioactivity",  
+         "Robotics", "Operating Systems", "OOP", "Nuclear Reaction");
+        ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
+        Semester1.setItems(semester1);
+        Semester1.setValue("Inorganic");
+
+        List<String> sem2=Arrays.asList("Organic", "Operating Systems","Statistics and Probability","Optics", "CyberSecurity"
+        ,"Nuclear Reaction");
+        ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+        Semester2.setItems(semester2);
+        Semester2.setValue("Organic");
+
 
     }
     
@@ -96,9 +107,11 @@ public class StudentController {
                    alert(Alert.AlertType.ERROR, "ERROR", "Please enter a correct email address.");
                     return;
                 }
-                String selectedProgram = programOfStudy.getValue();
-                ObservableList<String> comboBoxList = FXCollections.observableArrayList(selectedProgram);
-                Studentdto studentdto=new Studentdto(studentId, name, DOB, phoneNo, email, comboBoxList);
+                String sem1 = Semester1.getValue();
+                ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
+                String sem2 = Semester2.getValue();
+                ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+                Studentdto studentdto=new Studentdto(studentId, name, DOB, phoneNo, email, semester1,semester2);
                 StudentService studentService=new StudentServiceImpl();
                 String save = studentService.save(studentdto);
                 System.out.println(studentdto);
@@ -139,9 +152,11 @@ public class StudentController {
        LocalDate DOB = txtDOB.getValue();
        String phone = txtPhoneNo.getText();
        String email = txtEmail.getText();
-       String programOfStudyList = programOfStudy.getValue();
-       ObservableList<String> comboBoxList = FXCollections.observableArrayList(programOfStudyList);
-       Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, comboBoxList);
+       String sem1 = Semester1.getValue();
+       ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
+       String sem2 = Semester2.getValue();
+       ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+       Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
        StudentService studentService=new StudentServiceImpl();
        String update = studentService.update(studentdto);
        System.out.println(studentdto);
@@ -161,7 +176,8 @@ public class StudentController {
         txtDOB.setValue(null);
         txtEmail.setText("");
         txtPhoneNo.setText("");
-        programOfStudy.setValue(null);
+        Semester1.setValue(null);
+        Semester2.setValue(null);
     }
 
     @FXML
@@ -176,8 +192,11 @@ public class StudentController {
               txtDOB.setValue(studentdto.getDOB());
               txtPhoneNo.setText(studentdto.getPhoneNumber());
               txtEmail.setText(studentdto.getEmail());
-              ObservableList<String> observablePrograms = FXCollections.observableArrayList(studentdto.getProgramOfStudy());
-              programOfStudy.setItems(observablePrograms);
+             
+              ObservableList<String> semester1 = FXCollections.observableArrayList(studentdto.getSemester1());
+              Semester1.setItems(semester1);
+              ObservableList<String> semester2 = FXCollections.observableArrayList(studentdto.getSemester2());
+              Semester2.setItems(semester2);
               
             }else{
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Student not found!", ButtonType.OK);

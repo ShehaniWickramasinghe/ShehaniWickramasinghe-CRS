@@ -13,10 +13,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public String save(Studentdto studentdto) throws Exception {
-      List<String> programList = new ArrayList<>(studentdto.getProgramOfStudy());
+      List<String> sem1 = new ArrayList<>(studentdto.getSemester1());
+      List<String> sem2 = new ArrayList<>(studentdto.getSemester2());
         StudentEntity studentEntity;
           studentEntity = new StudentEntity(studentdto.getStudentId(), studentdto.getName(),
-                  studentdto.getDOB(), studentdto.getPhoneNumber(), studentdto.getEmail(), programList);
+                  studentdto.getDOB(), studentdto.getPhoneNumber(), studentdto.getEmail(), sem1,sem2);
 
          boolean isSaved =studentDao.save(studentEntity);
          return isSaved ? "success":"fail";
@@ -24,11 +25,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public String update(Studentdto studentdto) throws Exception {
-      List<String> programOfStudyString=new ArrayList<>(studentdto.getProgramOfStudy());
+      List<String> sem1 = new ArrayList<>(studentdto.getSemester1());
+      List<String> sem2 = new ArrayList<>(studentdto.getSemester2());
       StudentEntity studentEntity;
       studentEntity = new StudentEntity(studentdto.getStudentId(), studentdto.getName(),
               studentdto.getDOB(),
-              studentdto.getPhoneNumber(), studentdto.getEmail(), programOfStudyString);
+              studentdto.getPhoneNumber(), studentdto.getEmail(), sem1,sem2);
        boolean isUpdate=studentDao.update(studentEntity);
        return isUpdate? "success":"fail";
     }
@@ -44,7 +46,8 @@ public class StudentServiceImpl implements StudentService {
       StudentEntity studentEntity=studentDao.search(studentId);
       if (studentEntity!=null) {
          return new Studentdto(studentEntity.getStudentId(), studentEntity.getName(),
-          studentEntity.getDOB(), studentEntity.getPhoneNumber(), studentEntity.getEmail(), studentEntity.getProgramOfStudy()); 
+          studentEntity.getDOB(), studentEntity.getPhoneNumber(), studentEntity.getEmail(), studentEntity.getSemester1(),
+          studentEntity.getSemester2()); 
       }
       return null;
    }
