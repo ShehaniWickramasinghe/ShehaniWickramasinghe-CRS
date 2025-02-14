@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="641.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.privateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="642.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.privateController">
    <children>
       <ImageView fitHeight="297.0" fitWidth="641.0">
          <image>
@@ -47,7 +47,7 @@
          </font>
       </Label>
       <TextField fx:id="txtStudentId" layoutX="153.0" layoutY="94.0" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #f1f3f5; -fx-border-radius: 5px;" />
-      <Button fx:id="btnSearch" layoutX="350.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-border-color: #28a745; -fx-background-color: #28a745; -fx-border-radius: 4px; -fx-cursor: hhand;" text="Search" textFill="WHITE">
+      <Button fx:id="btnSearch" layoutX="350.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-border-color: #28a745; -fx-background-color: #28a745; -fx-border-radius: 4px; -fx-cursor: hand;" text="Search" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -97,15 +97,21 @@
             <TableColumn fx:id="colSem2" prefWidth="71.99993896484375" text="Sem2" />
         </columns>
       </TableView>
-      <Button fx:id="btnSave" layoutX="492.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-border-color: #1d3773; -fx-background-color: #1d3773; -fx-border-radius: 4px; -fx-cursor: hhand;" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="492.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-border-color: #1d3773; -fx-background-color: #1d3773; -fx-border-radius: 4px; -fx-cursor: hand;" text="Save" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="378.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-border-color: #158452; -fx-background-color: #158452; -fx-border-radius: 4px; -fx-cursor: hhand;" text="Update" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="378.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="94.0" style="-fx-border-color: #158452; -fx-background-color: #158452; -fx-border-radius: 4px; -fx-cursor: hand;" text="Update" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
+      <ImageView fitHeight="24.0" fitWidth="33.0" layoutX="14.0" layoutY="22.0">
+         <image>
+            <Image url="@../../images/arrow.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnBack" alignment="CENTER_RIGHT" layoutX="8.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: rgba(255, 255, 255, 0.02);" />
    </children>
 </AnchorPane>
