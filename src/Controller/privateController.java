@@ -1,16 +1,23 @@
 package  controller;
 
+import dto.Coursedto;
 import dto.Privatedto;
 import dto.Reportdto;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
 
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableView;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -18,6 +25,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import service.custom.PrivateService;
 import service.custom.ReportService;
 import service.custom.impl.PrivateServiceImpl;
@@ -32,6 +40,9 @@ public class privateController {
 
     @FXML
     private Button btnUpdate;
+
+    @FXML
+    private Button btnBack;
 
     @FXML
     private TableColumn<Privatedto, String> colAttendance;
@@ -187,6 +198,7 @@ public class privateController {
             PrivateService privateService=new PrivateServiceImpl();
             String update = privateService.update(privatedto, reportList);
             System.out.println(update);
+            loadTable();
             clearForm();
     }
             private List<Reportdto> fetchReportData(String studentId) throws Exception {
@@ -203,7 +215,47 @@ public class privateController {
         txtGrade2.setText("");
     }
 
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+            Stage stage=(Stage)btnBack.getScene().getWindow();
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/admin.fxml"));
+            Parent root=loader.load();
 
+            Stage stage1=new Stage();
+            stage1.setScene(new Scene(root));
+            stage1.show();
+            stage.close();
+    }
     
+    @SuppressWarnings("unchecked")
+    public void loadTable(){
+        try {
+            tblAcademic.getColumns().clear();
+            tblAcademic.getColumns().addAll(colId,colName,colDepartment,colAttendance,colSem1,colSem2);
+            PrivateService privateService=new PrivateServiceImpl();
+            ObservableList<Privatedto> privatedtos=FXCollections.observableArrayList(privateService.getAll());
+            tblAcademic.setItems(privatedtos);
+             String columns[]={"Id","Name","Department","Attendance","Sem1","Sem2"};
+            DefaultTableModel dtm=new DefaultTableModel(columns,0){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+                
+            };
+                tblAcademic.getItems();
+
+                ArrayList<Privatedto> privatedtos1=privateService.getAll();
+                for (Privatedto privatedto : privatedtos1) {
+                    Object rowData[]={privatedto.getId(),privatedto.getName(),privatedto.getDepartment(),privatedto.getAttendance(),
+                    privatedto.getSem1Grade(),privatedto.getSem2Grade()};
+                    dtm.addRow(rowData);
+                    System.out.println(privatedtos1);
+                }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

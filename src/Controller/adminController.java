@@ -53,6 +53,7 @@ public class adminController {
 
         Stage stage1=new Stage();
         stage1.setScene(new Scene(root));
+        stage1.setTitle("Private Page");
         stage1.show();
         stage.close();
     }
