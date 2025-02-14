@@ -18,12 +18,58 @@ public class PrivateServiceImpl implements PrivateService{
             private PrivateDao privateDao=(PrivateDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.PRIVATE);
             private ReportDao reportDao=(ReportDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.REPORT);
     @Override
-    public String save(Privatedto privatedto) throws Exception {
-        PrivateEntity privateEntity=new PrivateEntity(privatedto.getId(), privatedto.getName(),
-        privatedto.getDepartment(),privatedto.getAttendance(), privatedto.getSem1Grade(), privatedto.getSem2Grade());
+    public String save(Privatedto privatedto, List<Reportdto> reportList) throws Exception {
+        Connection connection=DBConnection.getInstance().getConnection();
+        ReportDao reportDao=new ReportDaoImpl(connection);
 
-        boolean isSaved=privateDao.save(privateEntity);
-        return isSaved ? "Success":"fail";
+        try {
+            connection.setAutoCommit(false);
+            PrivateEntity privateEntity=new PrivateEntity(privatedto.getId(), privatedto.getName(),
+            privatedto.getDepartment(),privatedto.getAttendance(), privatedto.getSem1Grade(), privatedto.getSem2Grade());
+            System.out.println("Saving privateEntity:"+privateEntity);
+
+            boolean isSaved=privateDao.save(privateEntity);
+
+            boolean allReportedSaved=true;
+
+            for (Reportdto reportdto : reportList) {
+                ReportEntity reportEntity=new ReportEntity(reportdto.getStudentId(), reportdto.getStudentName(), reportdto.getDepartment(),
+                reportdto.getCourse(), reportdto.getSemester(), reportdto.getGrade());
+                boolean isReportSave = reportDao.save(reportEntity);
+                
+                
+                if (!isReportSave) {
+                    allReportedSaved=false;
+                    break;
+                }
+                
+            }
+            if (isSaved && allReportedSaved) {
+                connection.commit();
+                return "Save successful";
+            } else {
+                connection.rollback();
+                return "Save failed";
+            }
+
+
+        } catch (Exception e) {
+            if (connection != null) {
+                connection.rollback();
+            }
+            return "Transaction failed: " + e.getMessage();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.setAutoCommit(true); 
+                    connection.close(); 
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+
+        
     }
 
     @Override

@@ -141,36 +141,41 @@ public class privateController {
 
     }
 
-    @FXML
-    void btnSaveOnAction(ActionEvent event) throws Exception {
-            String Id = txtStudentId.getText();
-            String Name = txtName.getText();
-            String Department = txtDepartment.getText();
-            String Attendance = txtAttendance.getText();
-            String sem1 = txtGrade1.getText();
-            String sem2 = txtGrade2.getText();
-
-            Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
-            PrivateService privateService=new PrivateServiceImpl();
-            String save = privateService.save(privatedto);
-            clearForm();
-    }
-
+    
     @FXML
     void btnSearchOnAction(ActionEvent event) throws Exception {
-                    String Id = txtStudentId.getText();
-                   PrivateService privateService=new PrivateServiceImpl();
-                   Privatedto privatedto = privateService.search(Id);
-                    if (privatedto!=null) {
-                        txtStudentId.setText(privatedto.getId());
-                        txtName.setText(privatedto.getName());
-                        txtDepartment.setText(privatedto.getDepartment());
-                        txtAttendance.setText(privatedto.getAttendance());
-                        txtGrade1.setText(privatedto.getSem1Grade());
-                        txtGrade2.setText(privatedto.getSem2Grade());
-                    }else{
-                        Alert alert=new Alert(Alert.AlertType.INFORMATION,"Student Not Found",ButtonType.OK);
-                    }
+        String Id = txtStudentId.getText();
+        PrivateService privateService=new PrivateServiceImpl();
+        Privatedto privatedto = privateService.search(Id);
+        if (privatedto!=null) {
+            txtStudentId.setText(privatedto.getId());
+            txtName.setText(privatedto.getName());
+            txtDepartment.setText(privatedto.getDepartment());
+            txtAttendance.setText(privatedto.getAttendance());
+            txtGrade1.setText(privatedto.getSem1Grade());
+            txtGrade2.setText(privatedto.getSem2Grade());
+        }else{
+            Alert alert=new Alert(Alert.AlertType.INFORMATION,"Student Not Found",ButtonType.OK);
+        }
+    }
+    @FXML
+    void btnSaveOnAction(ActionEvent event) throws Exception {
+            String Id = txtStudentId.getText().trim();
+            String Name = txtName.getText().trim();
+            String Department = txtDepartment.getText().trim();
+            String Attendance = txtAttendance.getText().trim();
+            String sem1 = txtGrade1.getText().trim();
+            String sem2 = txtGrade2.getText().trim();
+
+            Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
+            List<Reportdto> reportList=fetchReportData(Id);
+            for (Reportdto reportdto : reportList) {
+                System.out.println("Saved Report Data: " + reportdto);
+            }
+            PrivateService privateService=new PrivateServiceImpl();
+            String save = privateService.save(privatedto, reportList);
+            loadTable();
+            clearForm();
     }
 
     @FXML
