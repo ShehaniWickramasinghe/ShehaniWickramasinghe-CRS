@@ -20,7 +20,7 @@ public class DBConnection {
             return dBConnection;
         }
 
-        public  Connection getConnection(){
+        public  Connection getConnection() throws Exception{
             return connection;
         }
 }

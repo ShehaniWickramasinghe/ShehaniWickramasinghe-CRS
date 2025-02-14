@@ -10,7 +10,7 @@ import service.custom.ReportService;
 
 public class ReportServiceImpl implements ReportService {
     private  ReportDao reportDao=(ReportDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.REPORT);
-
+        
    @Override
 public List<Reportdto> search(String studentId) throws Exception {
     List<ReportEntity> reportEntities = reportDao.searchAll(studentId);
@@ -28,6 +28,19 @@ public List<Reportdto> search(String studentId) throws Exception {
         ));
     }
     return reportDtos;
+}
+
+@Override
+public String update(Reportdto reportdto) throws Exception {
+    List<Reportdto> reportdtos=new ArrayList<>();
+    ReportEntity reportEntity=new ReportEntity(reportdto.getStudentId(), reportdto.getStudentName(), reportdto.getDepartment(),
+    reportdto.getCourse(), reportdto.getSemester(), reportdto.getGrade());
+
+    List<ReportEntity> existingReports = reportDao.searchAll(reportdto.getStudentId());
+      
+        
+    boolean isUpdated=reportDao.update(reportEntity);
+    return isUpdated?"success":"fail";
 }
 
 

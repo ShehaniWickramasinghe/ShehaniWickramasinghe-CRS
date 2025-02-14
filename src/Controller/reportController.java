@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 
 import dto.Reportdto;
+import entity.ReportEntity;
 import java.util.List;
 
 import javafx.event.ActionEvent;
@@ -124,6 +125,17 @@ public class reportController {
         colSemester.setCellValueFactory(new PropertyValueFactory<>("Semester"));
 
         tblRecord.setItems(FXCollections.observableArrayList());
+
+        tblRecord.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) ->{
+          
+            if (newSelection!=null) {
+                ReportEntity reportEntity=new ReportEntity(newSelection.getStudentId(), newSelection.getStudentName(),
+                newSelection.getDepartment(), newSelection.getCourse(), newSelection.getSemester(), newSelection.getGrade());
+            }
+        }
+            
+        );
+        
     
     }
 
@@ -139,5 +151,8 @@ public class reportController {
         stage4.show();
     }
 
-    
+    public void update(Reportdto reportdto) throws Exception{
+        ReportService reportService=new ReportServiceImpl();
+        reportService.update(reportdto);
+    }
 }

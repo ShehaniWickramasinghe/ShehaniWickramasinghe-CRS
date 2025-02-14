@@ -19,7 +19,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.custom.PrivateService;
+import service.custom.ReportService;
 import service.custom.impl.PrivateServiceImpl;
+import service.custom.impl.ReportServiceImpl;
 
 public class privateController {
      @FXML
@@ -88,6 +90,8 @@ public class privateController {
     @FXML
     private TextField txtStudentId;
 
+    private final ReportService reportService = new ReportServiceImpl();
+
     public void initialize() throws Exception{
         getAllDetails();
 
@@ -97,7 +101,8 @@ public class privateController {
         colAttendance.setCellValueFactory(new PropertyValueFactory<>("Attendance"));
         colSem1.setCellValueFactory(new PropertyValueFactory<>("Sem1Grade"));
         colSem2.setCellValueFactory(new PropertyValueFactory<>("Sem2Grade"));
-        
+       
+        tblAcademic.refresh();
         tblAcademic.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection)->{
             System.out.println("Table row click");
             System.out.println("oldSelection:"+oldSelection);
@@ -159,18 +164,34 @@ public class privateController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws Exception {
-            String Id = txtStudentId.getText();
-            String Name = txtName.getText();
-            String Department = txtDepartment.getText();
-            String Attendance = txtAttendance.getText();
-            String sem1 = txtGrade1.getText();
-            String sem2 = txtGrade2.getText();
+        String Id = txtStudentId.getText().trim();
+        String Name = txtName.getText().trim();
+        String Department = txtDepartment.getText().trim();
+        String Attendance = txtAttendance.getText().trim();
+        String sem1 = txtGrade1.getText().trim();
+        String sem2 = txtGrade2.getText().trim();
+
+        
 
             Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
+            List<Reportdto> reportList = fetchReportData(Id);
+            for (Reportdto reportdto : reportList) {
+                System.out.println("Updated Report Data: " + reportdto);
+            }
+            
+            for (Reportdto reportdto : reportList) {
+                reportdto.setStudentName(Name); 
+                String reportUpdateStatus = reportService.update(reportdto);
+            
+                }
             PrivateService privateService=new PrivateServiceImpl();
-            String update = privateService.update(privatedto);
+            String update = privateService.update(privatedto, reportList);
             System.out.println(update);
             clearForm();
+    }
+            private List<Reportdto> fetchReportData(String studentId) throws Exception {
+                ReportService reportService=new ReportServiceImpl();
+                return reportService.search(studentId);
     }
 
     public void clearForm(){
@@ -182,39 +203,7 @@ public class privateController {
         txtGrade2.setText("");
     }
 
-    public String placeOrder(Privatedto privatedto, List<Reportdto> reportList) throws Exception{
-            PrivateService privateService=new PrivateServiceImpl();
-            return privateService.placeOrder(privatedto, reportList);
-    }
-    @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) {
-    PrivateService privateService = new PrivateServiceImpl();
-        try {
-            String Id = txtStudentId.getText();
-            String Name = txtName.getText();
-            String Department = txtDepartment.getText();
-            String Attendance = txtAttendance.getText();
-            String sem1 = txtGrade1.getText();
-            String sem2 = txtGrade2.getText();
-            Privatedto privatedto=new Privatedto(Id, Name, Department, Attendance, sem1, sem2);
-            List<Reportdto> reportList = new ArrayList<>();
-            reportList.add(new Reportdto(Id, Name, Department, Attendance, sem1, sem2));
-            String result = privateService.placeOrder(privatedto, reportList);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Order Status");
-            alert.setHeaderText(null);
-            alert.setContentText(result);
-            alert.showAndWait();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Transaction Failed");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-        }
-   
-}
+    
 
 }

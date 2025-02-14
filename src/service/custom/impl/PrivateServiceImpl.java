@@ -3,6 +3,7 @@ package service.custom.impl;
 import dao.DaoFactory;
 import dao.custom.PrivateDao;
 import dao.custom.ReportDao;
+import dao.custom.impl.ReportDaoImpl;
 import db.DBConnection;
 import dto.Privatedto;
 import dto.Reportdto;
@@ -26,14 +27,67 @@ public class PrivateServiceImpl implements PrivateService{
     }
 
     @Override
-    public String update(Privatedto privatedto) throws Exception {
-        PrivateEntity privateEntity=new PrivateEntity(privatedto.getId(), privatedto.getName(), privatedto.getDepartment(),
-        privatedto.getAttendance(),privatedto.getSem1Grade(),privatedto.getSem2Grade());
+    public String update(Privatedto privatedto, List<Reportdto> reportList) throws Exception {
+        
+        Connection connection=DBConnection.getInstance().getConnection();
+        ReportDao reportDao=new ReportDaoImpl(connection);
 
-        boolean isUpdate=privateDao.update(privateEntity);
-        return isUpdate ? "Success":"fail";
+        try {
+            connection.setAutoCommit(false);
+            PrivateEntity privateEntity=new PrivateEntity(privatedto.getId(), privatedto.getName(),
+            privatedto.getDepartment(), privatedto.getAttendance(), privatedto.getSem1Grade(), privatedto.getSem2Grade());
+            System.out.println("Updating private entity: " + privateEntity);
+
+            boolean isPrivateUpdate = privateDao.update(privateEntity);
+
+            boolean allReportsUpdated = true;
+            for (Reportdto reportdto : reportList) {
+                ReportEntity reportEntity=new ReportEntity(reportdto.getStudentId(), reportdto.getStudentName(), reportdto.getDepartment(), 
+                reportdto.getCourse(), reportdto.getSemester(), reportdto.getGrade());
+                
+               if (reportdto.getStudentId().equals(privatedto.getId())) {
+                if (reportdto.getSemester().equals("Semester 1")) {
+                    reportEntity.setGrade(privatedto.getSem1Grade());
+                }else if (reportdto.getSemester().equals("semester 2")) {
+                    reportEntity.setGrade(privatedto.getSem2Grade());
+                }
+               }
+                boolean isReportUpdate = reportDao.update(reportEntity);
+                
+                
+                if (!isReportUpdate) {
+                    allReportsUpdated=false;
+                    break;
+                }
+            }
+
+            
+            if (isPrivateUpdate && allReportsUpdated) {
+                connection.commit();
+                return "Update successful";
+            } else {
+                connection.rollback();
+                return "Update failed";
+            }
+
+
+        } catch (Exception e) {
+            if (connection != null) {
+                connection.rollback();
+            }
+            return "Transaction failed: " + e.getMessage();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.setAutoCommit(true); 
+                    connection.close(); 
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
     }
-
+    
     @Override
     public Privatedto search(String id) throws Exception {
         PrivateEntity privateEntity=privateDao.search(id);
@@ -59,92 +113,5 @@ public class PrivateServiceImpl implements PrivateService{
        return privatedtos;
     }
 
-    @Override
-    public String placeOrder(Privatedto privatedto, List<Reportdto> reportList) throws Exception {
-        Connection connection=null;
-        try {
-            connection = DBConnection.getInstance().getConnection();
-            connection.setAutoCommit(false); // Step 1: Start Transaction
-    
-            String studentId = privatedto.getId();
-            boolean studentExists = (privateDao.search(privatedto.getId()) != null);
-        if (privateDao.search(studentId) == null) {
-            connection.rollback();
-            return "Error: Student does not exist!";
-        }
-
-            PrivateEntity privateEntity = new PrivateEntity(
-                privatedto.getId(), 
-                privatedto.getName(), 
-                privatedto.getDepartment(),
-                privatedto.getAttendance(), 
-                privatedto.getSem1Grade(), 
-                privatedto.getSem2Grade()
-            );
-
-            boolean isPrivateSuccess;
-        if (studentExists) {
-            // 🔹 Update if student exists
-            isPrivateSuccess = privateDao.update(privateEntity);
-        } else {
-            // 🔹 Save if student does not exist
-            isPrivateSuccess = privateDao.save(privateEntity);
-        }
-
-    
-            if (!isPrivateSuccess) {
-                connection.rollback();  // If privateDao.save() fails, rollback
-                return "Failed to save/update PrivateEntity";
-            }
-    
-   
-            for (Reportdto reportDto : reportList) {
-                ReportEntity reportEntity = new ReportEntity(
-                    reportDto.getStudentId(),
-                    reportDto.getStudentName(),
-                    reportDto.getDepartment(),
-                    reportDto.getCourse(),
-                    reportDto.getSemester(),
-                    reportDto.getGrade()
-                );
-    
-                boolean reportExists = !reportDao.searchAll(reportDto.getStudentId()).isEmpty();
-
-                boolean isReportSuccess;
-                if (reportExists) {
-                    isReportSuccess = reportDao.update(reportEntity);
-                } else {
-                    isReportSuccess = reportDao.save(reportEntity);
-                }
-            if (!isReportSuccess) {
-                connection.rollback();
-                return "Failed to save/update ReportEntity!";
-            }
-            }
-    
-            connection.commit(); 
-            return "Success";
-    
-        } catch (Exception e) {
-            if (connection != null) {
-                try {
-                    connection.rollback(); // 🔹 Rollback if error occurs
-                } catch (Exception rollbackEx) {
-                    rollbackEx.printStackTrace();
-                }
-            }
-            connection.rollback();  
-            e.printStackTrace();
-            return "Transaction failed: " + e.getMessage();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.setAutoCommit(true); // 🔹 Reset AutoCommit
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                } 
-        }
-    }
-    
-     } 
+ 
 }
