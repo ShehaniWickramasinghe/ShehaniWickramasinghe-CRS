@@ -1,5 +1,6 @@
 package service;
 
+import service.custom.impl.CheckServiceImpl;
 import service.custom.impl.CourseServiceImpl;
 import service.custom.impl.PrivateServiceImpl;
 import service.custom.impl.ReportServiceImpl;
@@ -27,13 +28,15 @@ public class ServiceFactory {
             case COURSE:
                 return new CourseServiceImpl(); 
             case PRIVATE:
-                return new PrivateServiceImpl();        
+                return new PrivateServiceImpl();   
+            case CHECK:
+                return new CheckServiceImpl();         
             default:
                 return null;
            }
     }
 
     public enum ServiceType{
-            STUDENT,REPORT,COURSE,PRIVATE
+            STUDENT,REPORT,COURSE,PRIVATE,CHECK
     }
 }

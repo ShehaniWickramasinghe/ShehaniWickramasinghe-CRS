@@ -1,5 +1,6 @@
 package dao;
 
+import dao.custom.impl.CheckDaoImpl;
 import dao.custom.impl.CourseDaoImpl;
 import dao.custom.impl.PrivateDaoImpl;
 import dao.custom.impl.ReportDaoImpl;
@@ -27,13 +28,15 @@ public class DaoFactory {
             case COURSE:
                 return new CourseDaoImpl();  
             case PRIVATE:
-                 return new PrivateDaoImpl();  
+                 return new PrivateDaoImpl(); 
+            case CHECK:
+                 return new CheckDaoImpl();         
             default:
                 throw new AssertionError();
         }
     }
     
     public enum DaoType{
-        STUDENT,REPORT,COURSE,PRIVATE
+        STUDENT,REPORT,COURSE,PRIVATE,CHECK
     }
 }
