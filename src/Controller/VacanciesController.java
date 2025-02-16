@@ -18,11 +18,12 @@ public class VacanciesController {
     @FXML
     void btnRegisterOnAction(ActionEvent event)throws IOException {
             Stage stage=(Stage)btnRegister.getScene().getWindow();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/student.fxml"));
+            FXMLLoader loader=new  FXMLLoader(getClass().getResource("../view/checkPrerequisites.fxml"));
             Parent root=loader.load();
 
             Stage stage1=new Stage();
             stage1.setScene(new Scene(root));
+            stage1.setTitle("Check Prerequisites");
             stage1.show();
             stage.close();
     }
