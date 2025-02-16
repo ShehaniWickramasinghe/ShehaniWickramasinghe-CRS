@@ -14,15 +14,15 @@ public class CourseServiceImpl implements CourseService {
             private CourseDao courseDao=(CourseDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.COURSE);
     @Override
     public String save(Coursedto coursedto) throws Exception {
-        List<String> CourseList=new ArrayList<>(coursedto.getDepartment());
+            List<String> CourseList=new ArrayList<>(coursedto.getDepartment());
         CourseEntity courseEntity=new CourseEntity(coursedto.getCourseId(), coursedto.getName(), coursedto.getCreditHour(), coursedto.getPrerequisites(), coursedto.getMaximumCapacity(), CourseList);
 
         boolean isSaved=courseDao.save(courseEntity);
         if (isSaved) {
-           alert(Alert.AlertType.CONFIRMATION, "Success", "Course saved successfully!"); 
-        }else{
-            alert(Alert.AlertType.ERROR, "Fail", "Failed to save course. Please try again.");
-        }
+               alert(Alert.AlertType.CONFIRMATION, "Success", "Course saved successfully!"); 
+            }else{
+                alert(Alert.AlertType.ERROR, "Fail", "Failed to save course. Please try again.");
+            }
         return isSaved ? "Success":"fail";
     }
 

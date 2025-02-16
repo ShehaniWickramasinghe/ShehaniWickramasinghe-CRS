@@ -85,7 +85,7 @@ public class StudentController {
         Semester1.setValue("Inorganic");
 
         List<String> sem2=Arrays.asList("Organic", "Operating Systems","Statistics and Probability","Optics", "CyberSecurity"
-        ,"Nuclear Reaction");
+        ,"Nuclear Reaction","React");
         ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
         Semester2.setItems(semester2);
         Semester2.setValue("Organic");

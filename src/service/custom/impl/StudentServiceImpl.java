@@ -11,7 +11,7 @@ import service.custom.StudentService;
 public class StudentServiceImpl implements StudentService {
       private  StudentDao studentDao=(StudentDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.STUDENT);  
 
-    @Override
+      @Override
     public String save(Studentdto studentdto) throws Exception {
       List<String> sem1 = new ArrayList<>(studentdto.getSemester1());
       List<String> sem2 = new ArrayList<>(studentdto.getSemester2());
@@ -50,6 +50,19 @@ public class StudentServiceImpl implements StudentService {
           studentEntity.getSemester2()); 
       }
       return null;
+   }
+
+   @Override
+   public ArrayList<Studentdto> getAll() throws Exception {
+       ArrayList<Studentdto> studentdtos=new ArrayList<>();
+       ArrayList<StudentEntity> studentEntities=studentDao.getAll();
+       for (StudentEntity studentEntity : studentEntities) {
+          Studentdto dto=new Studentdto(studentEntity.getStudentId(), studentEntity.getName(),
+          studentEntity.getDOB(),studentEntity.getPhoneNumber(), studentEntity.getEmail(), studentEntity.getSemester1(), 
+          studentEntity.getSemester2()) ;
+          studentdtos.add(dto);
+       }
+       return studentdtos;
    }
 
 }

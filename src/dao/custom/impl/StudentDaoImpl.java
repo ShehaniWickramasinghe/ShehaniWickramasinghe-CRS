@@ -56,6 +56,6 @@ public class StudentDaoImpl implements StudentDao {
     public List<StudentEntity> searchAll(String id) throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'searchAll'");
-    }
+}
 
 }
