@@ -38,11 +38,11 @@ public class LoginController {
     void btnCreateAccountOnAction(ActionEvent event) throws IOException {
         System.out.println("==========");
         Stage currentStage = (Stage) btnCreateAccount.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/student.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/checkPrerequisites.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
-        newStage.setTitle("Student Page");
+        newStage.setTitle("Check Prerequisites Page");
         newStage.show();
         currentStage.close();
     }
