@@ -45,7 +45,10 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="lblTextPrerequisites" layoutX="177.0" layoutY="180.0" prefHeight="26.0" prefWidth="385.0" />
+      <Label fx:id="lblTextPrerequisites" layoutX="173.0" layoutY="180.0" prefHeight="26.0" prefWidth="390.0" style="-fx-border-color: #e3e3e3;" textFill="#7e7e7e">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Label layoutX="29.0" layoutY="57.0" prefHeight="26.0" prefWidth="541.0" text="Before registering for a course, please check its prerequisites. If you have completed   ">
          <font>
             <Font size="14.0" />
