@@ -2,29 +2,101 @@ package service.custom.impl;
 
 import dao.DaoFactory;
 import dao.custom.CourseDao;
+import dao.custom.StudentDao;
+import db.DBConnection;
 import dto.Coursedto;
+import dto.Studentdto;
 import entity.CourseEntity;
+import entity.StudentEntity;
 import javafx.scene.control.Alert;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import service.custom.CourseService;
 
 public class CourseServiceImpl implements CourseService {
             private CourseDao courseDao=(CourseDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.COURSE);
-    @Override
-    public String save(Coursedto coursedto) throws Exception {
-            List<String> CourseList=new ArrayList<>(coursedto.getDepartment());
-        CourseEntity courseEntity=new CourseEntity(coursedto.getCourseId(), coursedto.getName(), coursedto.getCreditHour(), coursedto.getPrerequisites(), coursedto.getMaximumCapacity(), CourseList);
+            private StudentDao studentDao=(StudentDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.STUDENT);
 
-        boolean isSaved=courseDao.save(courseEntity);
-        if (isSaved) {
-               alert(Alert.AlertType.CONFIRMATION, "Success", "Course saved successfully!"); 
-            }else{
-                alert(Alert.AlertType.ERROR, "Fail", "Failed to save course. Please try again.");
+            @Override
+            public String save(Coursedto coursedto, List<Studentdto> studentList) throws Exception {
+                Connection connection = DBConnection.getInstance().getConnection();
+                
+                try {
+                    connection.setAutoCommit(false); // Start transaction
+            
+                    // Creating CourseEntity
+                    List<String> courseList = new ArrayList<>(coursedto.getDepartment());
+                    CourseEntity courseEntity = new CourseEntity(
+                        coursedto.getCourseId(),
+                        coursedto.getName(),
+                        coursedto.getCreditHour(),
+                        coursedto.getPrerequisites(),
+                        coursedto.getMaximumCapacity(),
+                        courseList
+                    );
+            
+                    boolean isSaved = courseDao.save(courseEntity);
+                    if (!isSaved) {
+                        connection.rollback();
+                        alert(Alert.AlertType.ERROR, "Fail", "Failed to save course. Please try again.");
+                        return "Failed to save course";
+                    }
+            
+                    boolean isAllSaved = true;
+            
+                    // Save students and assign new course
+                    for (Studentdto studentdto : studentList) {
+                        List<String> sem1 = new ArrayList<>(studentdto.getSemester1());
+                        List<String> sem2 = new ArrayList<>(studentdto.getSemester2());
+            
+                        String newCourse = coursedto.getName(); 
+
+                        if (!sem1.contains(newCourse) && !sem2.contains(newCourse)) {
+                            if (sem1.size() <= sem2.size()) {
+                                sem1.add(newCourse); 
+                            } else {
+                                sem2.add(newCourse); 
+                            }
+                        }
+            
+                        StudentEntity studentEntity = new StudentEntity(
+                            studentdto.getStudentId(),
+                            studentdto.getName(),
+                            studentdto.getDOB(),
+                            studentdto.getPhoneNumber(),
+                            studentdto.getEmail(),
+                            sem1,
+                            sem2
+                        );
+            
+                        boolean studentSaved = studentDao.save(studentEntity);
+                        if (!studentSaved) {
+                            isAllSaved = false;
+                            break;
+                        }
+                    }
+            
+                    if (!isAllSaved) {
+                        connection.rollback();
+                        alert(Alert.AlertType.ERROR, "Fail", "Failed to save students. Transaction rolled back.");
+                        return "Failed to save students";
+                    }
+            
+                    connection.commit(); // Commit transaction
+                    alert(Alert.AlertType.CONFIRMATION, "Success", "Course and students saved successfully!");
+                    return "Success";
+            
+                } catch (Exception e) {
+                    connection.rollback(); 
+                    e.printStackTrace(); // Log error
+                    return "Error occurred: " + e.getMessage();
+                } finally {
+                    connection.setAutoCommit(true); // Reset auto-commit
+                }
             }
-        return isSaved ? "Success":"fail";
-    }
+            
 
     @Override
     public String update(Coursedto coursedto) throws Exception {

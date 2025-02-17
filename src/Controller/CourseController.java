@@ -3,6 +3,7 @@ package controller;
 
 
 import dto.Coursedto;
+import dto.Studentdto;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -172,11 +173,15 @@ public class CourseController {
                 comboBoList.add(department);
             }
             Coursedto coursedto=new Coursedto(courseId, courseName, creditHour, prerequisites, mec, comboBoList);
+            List<Studentdto> studentList=getSelectedStudents();
             CourseService courseService=new CourseServiceImpl();
-            String save = courseService.save(coursedto);
+            String save = courseService.save(coursedto, studentList);
             loadTable();
             clearForm();
           
+        }
+        private List<Studentdto> getSelectedStudents() {
+            return List.of(); 
         }
 
     @FXML
