@@ -35,8 +35,8 @@ public class StudentDaoImpl implements StudentDao {
     public StudentEntity search(String id) throws Exception {
        ResultSet rst = CrudUtil.extecuteQuery("SELECT * FROM student WHERE studentId=?", id);
        if (rst.next()) {
-        String sem1=rst.getString("Semester 1");
-        String sem2=rst.getString("Semester 2");
+        String sem1=rst.getString("Sem_1");
+        String sem2=rst.getString("Sem_2");
         List<String> semester1 = sem1 != null ? Arrays.asList(sem1.split(",")) : new ArrayList<>();
         List<String> semester2 = sem2 != null ? Arrays.asList( sem2.split(",")) : new ArrayList<>();
         return new StudentEntity(rst.getString("studentId"), rst.getString("name"), 
