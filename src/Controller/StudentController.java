@@ -1,8 +1,10 @@
 package controller;
 
+import dto.Logindto;
 import dto.Studentdto;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,7 +23,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import service.custom.LoginService;
 import service.custom.StudentService;
+import service.custom.impl.LoginServiceImpl;
 import service.custom.impl.StudentServiceImpl;
 
 public class StudentController {
@@ -112,11 +116,25 @@ public class StudentController {
                 String sem2 = Semester2.getValue();
                 ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
                 Studentdto studentdto=new Studentdto(studentId, name, DOB, phoneNo, email, semester1,semester2);
+
+                List<Logindto> loginList = new ArrayList<>();
+                String username = studentdto.getStudentId();
+                String password = studentdto.getStudentId();
+
+                loginList.add(new Logindto(username, password));
+                
                 StudentService studentService=new StudentServiceImpl();
-                String save = studentService.save(studentdto);
-                System.out.println(studentdto);
+                String save = studentService.save(studentdto, loginList);
+                
+                System.out.println(save);
                 clearForm();
         }
+
+        private List<Logindto> getSelectedStudents(String username)throws Exception {
+            LoginService loginService=new LoginServiceImpl();
+            return (List<Logindto>) loginService.search(username);
+        }
+
     @FXML
     void btnGoBackOnAction(ActionEvent event) throws IOException {
             System.out.println("Go Back");
