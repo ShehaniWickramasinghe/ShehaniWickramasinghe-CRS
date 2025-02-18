@@ -50,7 +50,8 @@ public class CheckController {
             btnNo.setStyle("-fx-background-color: #00A5A5; " +
                            "-fx-border-color: #00A5A5; " +
                            "-fx-text-fill: #ffffff;"+
-                           "-fx-border-radius:4px;"); 
+                           "-fx-border-radius:4px;"+
+                           "-fx-cursor:hand;"); 
         });
     
         btnNo.setOnMouseExited(event -> {
@@ -64,7 +65,8 @@ public class CheckController {
             btnYes.setStyle("-fx-background-color: #ec2f55; " +
                            "-fx-border-color: #ec2f55; " +
                            "-fx-text-fill: #ffffff;"+
-                           "-fx-border-radius:4px;"); 
+                           "-fx-border-radius:4px;"+
+                           "-fx-cursor:hand;"); 
         });
     
         btnYes.setOnMouseExited(event -> {
