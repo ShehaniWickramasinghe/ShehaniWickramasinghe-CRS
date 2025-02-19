@@ -1,16 +1,18 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
 import dto.CourseReportdto;
-import dto.Coursedto;
-import dto.Privatedto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -21,10 +23,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import service.custom.CourseReportService;
-import service.custom.CourseService;
 import service.custom.impl.CourseReportServiceImpl;
-import service.custom.impl.CourseServiceImpl;
 
 public class CourseReportController {
      @FXML
@@ -35,6 +36,9 @@ public class CourseReportController {
 
     @FXML
     private Button btnUpdate;
+
+    @FXML
+    private Button btnArrow;
 
     @FXML
     private Label lblCompleted;
@@ -295,5 +299,18 @@ public class CourseReportController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void btnArrowOnAction(ActionEvent event) throws IOException {
+        Stage stage=(Stage)btnArrow.getScene().getWindow();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/admin.fxml"));
+        Parent root=loader.load();
+
+        Stage stage1=new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.setTitle("Admin Page");
+        stage1.show();
+        stage.close(); 
     }
 }

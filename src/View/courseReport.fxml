@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -104,5 +106,11 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Button fx:id="btnArrow" layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnArrowOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: rgba(255, 255, 255, 0.02);" />
+      <ImageView fitHeight="26.0" fitWidth="51.0" layoutX="20.0" layoutY="14.0" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@../../images/arrow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
