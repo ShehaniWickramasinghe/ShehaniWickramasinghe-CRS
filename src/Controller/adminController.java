@@ -21,6 +21,9 @@ public class adminController {
     private Button btnStudent;
 
     @FXML
+    private Button btnCourseReport;
+
+    @FXML
     void btnCourseOnAction(ActionEvent event)throws Exception {
             Stage stage=(Stage)btnCourse.getScene().getWindow();
             FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/course.fxml"));
@@ -56,6 +59,19 @@ public class adminController {
         stage1.setTitle("Private Page");
         stage1.show();
         stage.close();
+    }
+
+    @FXML
+    void btnCourseReportOnAction(ActionEvent event) throws IOException {
+        Stage stage=(Stage)btnStudentProgress.getScene().getWindow();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/courseReport.fxml"));
+        Parent root=loader.load();
+
+        Stage stage1=new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.setTitle("Course Report Page");
+        stage1.show();
+        stage.close(); 
     }
 
 

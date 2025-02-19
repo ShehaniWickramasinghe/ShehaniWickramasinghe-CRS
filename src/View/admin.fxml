@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="548.0" style="-fx-border-radius: 5px; -fx-background-color: #e3f2fd;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminController">
    <children>
-      <ImageView fitHeight="291.0" fitWidth="548.0">
+      <ImageView fitHeight="291.0" fitWidth="548.0" layoutY="-1.0">
          <image>
             <Image url="@../../images/admin%20background.jpg" />
          </image>
@@ -36,10 +36,16 @@
             <Image url="@../../images/students.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnStudentProgress" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnStudentProgressOnAction" prefHeight="52.0" prefWidth="208.0" style="-fx-background-color: #ffffff; -fx-border-color: #000099; -fx-border-radius: 5px; -fx-cursor: hand;" text="Student Progress Page" textFill="#000099" />
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="204.0" layoutY="193.0">
+      <Button fx:id="btnStudentProgress" alignment="CENTER_RIGHT" layoutX="38.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnStudentProgressOnAction" prefHeight="52.0" prefWidth="208.0" style="-fx-background-color: #ffffff; -fx-border-color: #000099; -fx-border-radius: 5px; -fx-cursor: hand;" text="Student Progress Page" textFill="#000099" />
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="57.0" layoutY="193.0">
          <image>
             <Image url="@../../images/bar%20chart.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnCourseReport" alignment="CENTER_RIGHT" layoutX="298.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnCourseReportOnAction" prefHeight="52.0" prefWidth="228.0" style="-fx-border-color: #000099; -fx-border-radius: 5px; -fx-background-color: #ffffff; -fx-cursor: hand;" text="Course Report Page" textFill="#000099" />
+      <ImageView fitHeight="42.0" fitWidth="79.0" layoutX="317.0" layoutY="193.0">
+         <image>
+            <Image url="@../../images/cr_og-8cf5252ebb4e5fca03fd6e73a29233ce5d6d08ee78c4ae4c5547370abde62e74.jpg" />
          </image>
       </ImageView>
    </children>
