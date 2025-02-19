@@ -5,9 +5,9 @@ public class CourseReportEntity {
     private int enrolledStudent;
     private int completedStudent;
     private String performance;
-    private String rate;
+    private int rate;
     
-    public CourseReportEntity(String name, int enrolledStudent, int completedStudent, String performance, String rate) {
+    public CourseReportEntity(String name, int enrolledStudent, int completedStudent, String performance, int rate) {
         this.name = name;
         this.enrolledStudent = enrolledStudent;
         this.completedStudent = completedStudent;
@@ -47,11 +47,11 @@ public class CourseReportEntity {
         this.performance = performance;
     }
 
-    public String getRate() {
+    public int getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(int rate) {
         this.rate = rate;
     }
 

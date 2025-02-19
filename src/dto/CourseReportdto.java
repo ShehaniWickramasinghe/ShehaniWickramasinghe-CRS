@@ -5,10 +5,10 @@ public class CourseReportdto {
         private int enrolledStudent;
         private int completedStudent;
         private String performance;
-        private String rate;
+        private int rate;
         
         public CourseReportdto(String name, int enrolledStudent, int completedStudent, String performance,
-                String rate) {
+                int rate) {
             this.name = name;
             this.enrolledStudent = enrolledStudent;
             this.completedStudent = completedStudent;
@@ -48,11 +48,11 @@ public class CourseReportdto {
             this.performance = performance;
         }
 
-        public String getRate() {
+        public int getRate() {
             return rate;
         }
 
-        public void setRate(String rate) {
+        public void setRate(int rate) {
             this.rate = rate;
         }
 
