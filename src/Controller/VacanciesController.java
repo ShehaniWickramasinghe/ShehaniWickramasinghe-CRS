@@ -30,8 +30,14 @@ public class VacanciesController {
 
     public void initialize() {
 
-        btnRegister.setOnMouseEntered(event -> btnRegister.setStyle("-fx-background-color: #00A5A5;"));
+        btnRegister.setOnMouseEntered(event -> 
+        btnRegister.setStyle("-fx-background-color: #00A5A5;"+
+        "-fx-cursor:hand;"
+        )
+        );
         
-        btnRegister.setOnMouseExited(event -> btnRegister.setStyle("-fx-background-color: #008080;"));
+        btnRegister.setOnMouseExited(event ->
+         btnRegister.setStyle("-fx-background-color: #008080;"
+         ));
     }
 }
