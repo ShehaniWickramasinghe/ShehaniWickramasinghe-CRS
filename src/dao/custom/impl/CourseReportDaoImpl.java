@@ -1,12 +1,11 @@
 package dao.custom.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import dao.CrudUtil;
 import dao.custom.CourseReportDao;
 import entity.CourseReportEntity;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseReportDaoImpl implements CourseReportDao{
 
@@ -34,9 +33,9 @@ public class CourseReportDaoImpl implements CourseReportDao{
         ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM course_report WHERE course_name=?",id);
 
         if (rst.next()) {
-            CourseReportEntity courseReportEntity=new CourseReportEntity(rst.getString("course_name"), 
+            return new CourseReportEntity(rst.getString("course_name"), 
             rst.getInt("enrolled_student"), rst.getInt("courseCompleted_students"),
-             rst.getString("student_performance"), rst.getString("rate"));
+             rst.getString("student_performance"), rst.getInt("rate"));
         }
         return null;
     }
@@ -52,14 +51,13 @@ public class CourseReportDaoImpl implements CourseReportDao{
        ArrayList<CourseReportEntity> courseReportEntities=new ArrayList<>();
        ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM course_report");
 
-       if (rst.next()) {
+       while(rst.next()) {
         courseReportEntities.add(new CourseReportEntity(rst.getString("course_name"), 
         rst.getInt("enrolled_student"), rst.getInt("courseCompleted_students"),
-         rst.getString("student_performance"), rst.getString("rate")));
+         rst.getString("student_performance"), rst.getInt("rate")));
        }
        return courseReportEntities;
     }
 
-   
 
 }
