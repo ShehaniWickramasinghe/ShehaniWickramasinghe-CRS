@@ -97,7 +97,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnGoBack" layoutX="480.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="114.0" style="-fx-border-color: #437938; -fx-border-radius: 4px; -fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Go Back" textFill="#437938">
+      <Button fx:id="btnGoBack" layoutX="482.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="114.0" style="-fx-border-color: #437938; -fx-border-radius: 4px; -fx-background-color: rgba(255, 255, 255, 0.001); -fx-cursor: hand;" text="Go Back" textFill="#437938">
          <font>
             <Font size="14.0" />
          </font>
@@ -112,7 +112,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnSearch" layoutX="314.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-border-color: #133281; -fx-border-radius: 3px;" text="Search" textFill="#133281">
+      <Button fx:id="btnSearch" layoutX="314.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-border-color: #133281; -fx-border-radius: 3px; -fx-cursor: hand;" text="Search" textFill="#133281">
          <font>
             <Font size="14.0" />
          </font>
