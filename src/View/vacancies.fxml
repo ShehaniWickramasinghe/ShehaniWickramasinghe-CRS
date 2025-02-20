@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VacanciesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VacanciesController">
    <children>
-      <ImageView fitHeight="162.0" fitWidth="273.0" layoutX="351.0" layoutY="350.0">
+      <ImageView fitHeight="128.0" fitWidth="240.0" layoutX="381.0" layoutY="367.0">
          <image>
             <Image url="@../../images/university.jpg" />
          </image>
@@ -48,7 +48,7 @@
       <Label alignment="CENTER_RIGHT" layoutX="85.0" layoutY="93.0" prefHeight="26.0" prefWidth="480.0" text="We have an open student vacancy for the Inorganic Chemistry course.This course covers " />
       <Label layoutX="63.0" layoutY="119.0" prefHeight="26.0" prefWidth="502.0" text="fundamental and advanced concepts of inorganic compounds, periodic trends, bonding theor " />
       <Label layoutX="58.0" layoutY="144.0" prefHeight="26.0" prefWidth="502.0" text="-ies, coordination chemistry, and solid-state chemistry." />
-      <Label layoutX="99.0" layoutY="170.0" prefHeight="26.0" prefWidth="480.0" text="      prerequisites- Basic knowledge of general chemistry.">
+      <Label layoutX="99.0" layoutY="182.0" prefHeight="26.0" prefWidth="480.0" text="      prerequisites- Basic knowledge of general chemistry.">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
@@ -64,20 +64,30 @@
       <Label layoutX="91.0" layoutY="269.0" prefHeight="18.0" prefWidth="474.0" text="We are looking for students to enroll in our Object-Oriented Programming (OOP) course." />
       <Label layoutX="63.0" layoutY="287.0" prefHeight="18.0" prefWidth="502.0" text="This course covers fundamental OOP concepts such as encapsulation, inheritance, polymorphi" />
       <Label layoutX="63.0" layoutY="305.0" prefHeight="18.0" prefWidth="502.0" text=" -sm, and abstraction, with hands-on coding exercises." />
-      <Label layoutX="113.0" layoutY="333.0" prefHeight="18.0" prefWidth="452.0" text="Prerequisites:-   Basic programming knowledge (preferably in Java or Python)">
+      <Label layoutX="102.0" layoutY="349.0" prefHeight="18.0" prefWidth="452.0" text="Prerequisites:-   Basic programming knowledge (preferably in Java or Python)">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Line endX="431.199951171875" endY="-57.69999694824219" layoutX="144.0" layoutY="284.0" startX="-120.70709228515625" startY="-57.69999694824219" />
-      <Line endX="431.199951171875" endY="-57.69999694824219" layoutX="143.0" layoutY="422.0" startX="-120.70709228515625" startY="-57.69999694824219" />
-      <Line endX="31.792896270751953" endY="66.79998779296875" layoutX="-10.0" layoutY="297.0" startX="32.79291534423828" startY="-70.19999694824219" />
-      <Line endX="32.79290771484375" endY="68.5999755859375" layoutX="541.0" layoutY="297.0" startX="32.79291534423828" startY="-70.19999694824219" />
+      <Line endX="431.199951171875" endY="-57.69999694824219" layoutX="143.0" layoutY="433.0" startX="-120.70709228515625" startY="-57.69999694824219" />
+      <Line endX="31.792896270751953" endY="77.79998779296875" layoutX="-10.0" layoutY="297.0" startX="32.79291534423828" startY="-70.19999694824219" />
+      <Line endX="32.79290771484375" endY="79.79998779296875" layoutX="541.0" layoutY="297.0" startX="32.79291534423828" startY="-70.19999694824219" />
       <Line endX="236.39996337890625" layoutX="144.0" layoutY="261.0" startX="-100.0" stroke="#007c92" />
       <Button fx:id="btnRegister" layoutX="59.0" layoutY="410.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="42.0" prefWidth="146.0" style="-fx-background-color: #008080; -fx-border-radius: 5px;" text="Register Now  " textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="118.0" layoutY="162.0" prefHeight="26.0" prefWidth="161.0" text="Final Date-  03/10/2025">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="323.0" prefHeight="26.0" prefWidth="161.0" text="Final Date-  03/10/2025">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
