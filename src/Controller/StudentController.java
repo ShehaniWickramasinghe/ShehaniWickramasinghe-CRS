@@ -86,15 +86,15 @@ public class StudentController {
          "Robotics", "Operating Systems", "OOP", "Nuclear Reaction");
         ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
         Semester1.setItems(semester1);
-        Semester1.setValue("Inorganic");
+        //Semester1.setValue("Inorganic");
 
         List<String> sem2=Arrays.asList("Organic", "Operating Systems","Statistics and Probability","Optics", "CyberSecurity"
         ,"Nuclear Reaction","React");
         ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
         Semester2.setItems(semester2);
-        Semester2.setValue("Organic");
+        //Semester2.setValue("Organic");
 
-
+       
     }
     
         @FXML
@@ -103,6 +103,12 @@ public class StudentController {
                 String name=txtStudentName.getText();
                 LocalDate DOB=txtDOB.getValue();
                 String phoneNo =txtPhoneNo.getText();
+                if (phoneNo.length()==10) {
+                    txtPhoneNo.getText();
+                }else{
+                    alert(Alert.AlertType.ERROR, "ERROR", "Please enter a correct Phone No.");
+                    return;
+                }
                 String email=txtEmail.getText();
     
                 if (email.contains("@") && email.contains(".")) {
@@ -130,6 +136,7 @@ public class StudentController {
                 clearForm();
         }
 
+        @SuppressWarnings("unused")
         private List<Logindto> getSelectedStudents(String username)throws Exception {
             LoginService loginService=new LoginServiceImpl();
             return (List<Logindto>) loginService.search(username);
@@ -174,7 +181,10 @@ public class StudentController {
        ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
        String sem2 = Semester2.getValue();
        ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+       
        Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
+
+    
        StudentService studentService=new StudentServiceImpl();
        String update = studentService.update(studentdto);
        System.out.println(studentdto);

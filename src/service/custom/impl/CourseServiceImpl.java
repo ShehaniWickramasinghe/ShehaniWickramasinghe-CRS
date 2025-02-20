@@ -46,7 +46,7 @@ public class CourseServiceImpl implements CourseService {
             
                     boolean isAllSaved = true;
             
-                    // Save students and assign new course
+                    
                     for (Studentdto studentdto : studentList) {
                         List<String> sem1 = new ArrayList<>(studentdto.getSemester1());
                         List<String> sem2 = new ArrayList<>(studentdto.getSemester2());
@@ -84,16 +84,16 @@ public class CourseServiceImpl implements CourseService {
                         return "Failed to save students";
                     }
             
-                    connection.commit(); // Commit transaction
+                    connection.commit(); 
                     alert(Alert.AlertType.CONFIRMATION, "Success", "Course and students saved successfully!");
                     return "Success";
             
                 } catch (Exception e) {
                     connection.rollback(); 
-                    e.printStackTrace(); // Log error
+                    e.printStackTrace(); 
                     return "Error occurred: " + e.getMessage();
                 } finally {
-                    connection.setAutoCommit(true); // Reset auto-commit
+                    connection.setAutoCommit(true); 
                 }
             }
             
