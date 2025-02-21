@@ -105,16 +105,25 @@ public class CheckController {
            stage.close();
     }
 
+    
     @FXML
     void btnYesOnAction(ActionEvent event) throws IOException {
-        Stage stage=(Stage)btnYes.getScene().getWindow();
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/student.fxml"));
-       Parent root=loader.load();
+        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Please give me one minute to check the students' capacity of the course");
+        alert.showAndWait();
+        if (txtCourseName.getText().equalsIgnoreCase("React") || txtCourseName.getText().equalsIgnoreCase("Organic")
+        || txtCourseName.getText().equalsIgnoreCase("Nuclear Reactions")) {
+            btnNoOnAction(event);
+         }else{
+             Stage stage=(Stage)btnYes.getScene().getWindow();
+             FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/student.fxml"));
+            Parent root=loader.load();
+     
+            Stage stage1=new Stage();
+            stage1.setScene(new Scene(root));
+            stage1.show();
+            stage.close();
 
-       Stage stage1=new Stage();
-       stage1.setScene(new Scene(root));
-       stage1.show();
-       stage.close();
+         }
     }
 
 }
