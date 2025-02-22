@@ -1,7 +1,6 @@
 package controller;
 
 import db.DBConnection;
-import dto.Logindto;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,8 +17,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import service.custom.LoginService;
-import service.custom.impl.LoginServiceImpl;
+
 
 public class LoginController {
     @FXML
