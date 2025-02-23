@@ -116,7 +116,42 @@ public class reportController {
     }
 
     public void initialize(){
-        
+        btnVacancies.setOnMouseEntered(event -> {
+            btnVacancies.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                            "-fx-text-fill:  #8e1717;"+
+                           "-fx-border-radius:4px;"+
+                           "-fx-cursor:hand;"); 
+        });
+    
+        btnVacancies.setOnMouseExited(event -> {
+            btnVacancies.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                                 "-fx-text-fill:#b43d3d;"+
+                           "-fx-border-radius:4px;"); 
+        });
+        btnProfile.setOnMouseEntered(event -> {
+            btnProfile.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                            "-fx-text-fill:  #8e1717;"+
+                           "-fx-border-radius:4px;"+
+                           "-fx-cursor:hand;"); 
+        });
+    
+        btnProfile.setOnMouseExited(event -> {
+            btnProfile.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                                 "-fx-text-fill:#b43d3d;"+
+                           "-fx-border-radius:4px;"); 
+        });
+        btnSchedule.setOnMouseEntered(event -> {
+            btnSchedule.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                            "-fx-text-fill:  #8e1717;"+
+                           "-fx-border-radius:4px;"+
+                           "-fx-cursor:hand;"); 
+        });
+    
+        btnSchedule.setOnMouseExited(event -> {
+            btnVacancies.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                                 "-fx-text-fill:#b43d3d;"+
+                           "-fx-border-radius:4px;"); 
+        });
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         colDepartment.setCellValueFactory(new PropertyValueFactory<>("department"));

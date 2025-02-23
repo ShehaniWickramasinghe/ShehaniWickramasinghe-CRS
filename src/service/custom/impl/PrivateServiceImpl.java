@@ -92,9 +92,9 @@ public class PrivateServiceImpl implements PrivateService{
                 reportdto.getCourse(), reportdto.getSemester(), reportdto.getGrade());
                 
                if (reportdto.getStudentId().equals(privatedto.getId())) {
-                if (reportdto.getSemester().equals("Semester 1")) {
+                if (reportdto.getSemester().equalsIgnoreCase("semester 1")) {
                     reportEntity.setGrade(privatedto.getSem1Grade());
-                }else if (reportdto.getSemester().equals("semester 2")) {
+                }else if (reportdto.getSemester().equalsIgnoreCase("semester 2")) {
                     reportEntity.setGrade(privatedto.getSem2Grade());
                 }
                }
