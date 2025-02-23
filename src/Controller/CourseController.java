@@ -150,7 +150,7 @@ public class CourseController {
     void btnGoBackOnAction(ActionEvent event) throws IOException {
         System.out.println("Go Back");
             Stage stage=(Stage)btnGoBack.getScene().getWindow();
-            FXMLLoader load= new FXMLLoader(getClass().getResource("../view/login.fxml"));
+            FXMLLoader load= new FXMLLoader(getClass().getResource("../view/admin.fxml"));
             Parent root=load.load();
     
             Stage stage1=new Stage();
