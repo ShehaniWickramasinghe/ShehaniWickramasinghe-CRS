@@ -5,8 +5,8 @@ import dao.custom.LoginDao;
 import dto.Logindto;
 import entity.LoginEntity;
 import service.custom.LoginService;
-
 public class LoginServiceImpl implements LoginService {
+
       private LoginDao loginDao=(LoginDao)DaoFactory.getInstance().getDao(DaoFactory.DaoType.LOGIN);
     @Override
     public String save(Logindto logindto) throws Exception {
@@ -14,6 +14,7 @@ public class LoginServiceImpl implements LoginService {
         boolean isSaved=loginDao.save(loginEntity);
         return isSaved? "Success":"fail";
     }
+
     @Override
     public Logindto search(String name) throws Exception {
         LoginEntity loginEntity=loginDao.search(name);
@@ -23,4 +24,9 @@ public class LoginServiceImpl implements LoginService {
         return null;
     }
 
+    @Override
+    public String delete(String name) throws Exception {
+        boolean isDelete=loginDao.delete(name);
+        return isDelete? "success":"fail";
+    }
 }

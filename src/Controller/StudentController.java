@@ -161,8 +161,11 @@ public class StudentController {
         if (txtStudentId!=null) {
             Alert alert=new Alert(Alert.AlertType.WARNING,"Do you want to delete your details?");
             alert.show();
+            
             StudentService studentService=new StudentServiceImpl();
             String delete = studentService.delete(txtStudentId.getText());
+            LoginService loginService=new LoginServiceImpl();
+            String delete2 = loginService.delete(txtStudentId.getText());
             clearForm();
         }else{
             Alert alert=new Alert(Alert.AlertType.NONE,"Student not found!");
@@ -178,16 +181,41 @@ public class StudentController {
        String phone = txtPhoneNo.getText();
        String email = txtEmail.getText();
        String sem1 = Semester1.getValue();
-       ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
        String sem2 = Semester2.getValue();
-       ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+       if ((sem1 == null || sem1.isEmpty())) {
+        // Default Semester 1 Courses
+        List<String> defaultSem1Courses = Arrays.asList(
+            "Inorganic", "Relative motion", "Radioactivity",  
+            "Robotics", "Operating Systems", "OOP", "Nuclear Reaction"
+        );
+        ObservableList<String> seme1 = FXCollections.observableArrayList(defaultSem1Courses);
+        Semester1.setItems(seme1);
+        Semester1.setVisibleRowCount(5);  
+        Semester1.setValue(defaultSem1Courses.get(0)); 
+        sem1 = defaultSem1Courses.get(0); 
+    }
+
+    if ((sem2 == null || sem2.isEmpty())) {
+        // Default Semester 2 Courses
+        List<String> defaultSem2Courses = Arrays.asList(
+            "Organic", "Operating Systems", "Statistics and Probability",
+            "Optics", "CyberSecurity", "Nuclear Reaction", "React"
+        );
+        ObservableList<String> seme2 = FXCollections.observableArrayList(defaultSem2Courses);
+        Semester2.setItems(seme2);
+        Semester2.setVisibleRowCount(5);  
+        Semester2.setValue(defaultSem2Courses.get(0));
+        sem2 = defaultSem2Courses.get(0); 
+    }
+        ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
+        ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
        
-       Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
+        Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
 
     
        StudentService studentService=new StudentServiceImpl();
        String update = studentService.update(studentdto);
-       System.out.println(studentdto);
+       System.out.println(update);
        clearForm();
     }
     @SuppressWarnings("unused")

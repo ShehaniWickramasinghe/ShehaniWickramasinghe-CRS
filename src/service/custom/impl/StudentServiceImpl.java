@@ -77,6 +77,33 @@ public class StudentServiceImpl implements StudentService {
       }
          
     }
+    @Override
+    public String delete(String studentId) throws Exception {
+        Connection connection = DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
+    
+            boolean isStudentDeleted = studentDao.delete(studentId);
+            boolean isLoginDeleted = loginDao.delete(studentId);
+    
+            if (!isStudentDeleted || !isLoginDeleted) {
+                connection.rollback();
+                System.out.println("Failed to delete student and login details. Transaction rolled back.");
+                return "Failed to delete student";
+            }
+    
+            connection.commit();
+            System.out.println("Student and login details deleted successfully.");
+            return "Success";
+        } catch (Exception e) {
+            connection.rollback();
+            e.printStackTrace();
+            return "Error occurred: " + e.getMessage();
+        } finally {
+            connection.setAutoCommit(true);
+        }
+    }
+    
 
     @Override
     public String update(Studentdto studentdto) throws Exception {
@@ -90,11 +117,6 @@ public class StudentServiceImpl implements StudentService {
        return isUpdate? "success":"fail";
     }
 
-    @Override
-    public String delete(String studentId) throws Exception {
-       boolean isDelete=studentDao.delete(studentId);
-       return isDelete ? "success":"fail";
-    }
 
    @Override
    public Studentdto search(String studentId) throws Exception {

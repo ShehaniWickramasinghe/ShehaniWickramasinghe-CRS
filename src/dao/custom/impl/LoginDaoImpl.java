@@ -22,8 +22,7 @@ public class LoginDaoImpl implements LoginDao {
 
     @Override
     public boolean delete(String id) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+       return CrudUtil.executeUpdate("DELETE FROM login WHERE user_name=? ", id);
     }
 
     @Override
