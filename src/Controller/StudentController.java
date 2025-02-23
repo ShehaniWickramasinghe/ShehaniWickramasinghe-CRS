@@ -119,7 +119,16 @@ public class StudentController {
                 }
                 String sem1 = Semester1.getValue();
                 ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
+
                 String sem2 = Semester2.getValue();
+
+               
+                if ("React".equalsIgnoreCase(sem2) || "Organic".equalsIgnoreCase(sem2) || "Nuclear Reaction".equalsIgnoreCase(sem2)) {
+                    alert(Alert.AlertType.ERROR, "ERROR", "You cannot choose 'React' for Semester 2.");
+                    Semester2.setValue(null); 
+                    return;
+                }
+            
                 ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
                 Studentdto studentdto=new Studentdto(studentId, name, DOB, phoneNo, email, semester1,semester2);
 
@@ -181,42 +190,34 @@ public class StudentController {
        String phone = txtPhoneNo.getText();
        String email = txtEmail.getText();
        String sem1 = Semester1.getValue();
-       String sem2 = Semester2.getValue();
-       if ((sem1 == null || sem1.isEmpty())) {
-        // Default Semester 1 Courses
-        List<String> defaultSem1Courses = Arrays.asList(
-            "Inorganic", "Relative motion", "Radioactivity",  
-            "Robotics", "Operating Systems", "OOP", "Nuclear Reaction"
-        );
-        ObservableList<String> seme1 = FXCollections.observableArrayList(defaultSem1Courses);
-        Semester1.setItems(seme1);
-        Semester1.setVisibleRowCount(5);  
-        Semester1.setValue(defaultSem1Courses.get(0)); 
-        sem1 = defaultSem1Courses.get(0); 
-    }
-
-    if ((sem2 == null || sem2.isEmpty())) {
-        // Default Semester 2 Courses
-        List<String> defaultSem2Courses = Arrays.asList(
-            "Organic", "Operating Systems", "Statistics and Probability",
-            "Optics", "CyberSecurity", "Nuclear Reaction", "React"
-        );
-        ObservableList<String> seme2 = FXCollections.observableArrayList(defaultSem2Courses);
-        Semester2.setItems(seme2);
-        Semester2.setVisibleRowCount(5);  
-        Semester2.setValue(defaultSem2Courses.get(0));
-        sem2 = defaultSem2Courses.get(0); 
-    }
-        ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
-        ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
-       
-        Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
-
+       String sem2 = Semester2.getValue(); 
     
-       StudentService studentService=new StudentServiceImpl();
-       String update = studentService.update(studentdto);
-       System.out.println(update);
-       clearForm();
+    if ("null".equalsIgnoreCase(sem2) || "null".equalsIgnoreCase(sem1)) {
+
+        alert(Alert.AlertType.ERROR, "ERROR", "Update your Semester course.");
+        
+        List<String> seme1 = Arrays.asList("Inorganic",
+        "Relative motion", "Radioactivity",  
+         "Robotics", "Operating Systems", "OOP", "Nuclear Reaction");
+        ObservableList<String> semester1 = FXCollections.observableArrayList(seme1);
+        Semester1.setItems(semester1);
+
+          List<String> seme2=Arrays.asList("Organic", "Operating Systems","Statistics and Probability","Optics", "CyberSecurity"
+          ,"Nuclear Reaction","React");
+          ObservableList<String> semester2 = FXCollections.observableArrayList(seme2);
+          Semester2.setItems(semester2);
+      }else{
+        ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
+          ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+          Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
+  
+      
+         StudentService studentService=new StudentServiceImpl();
+         String update = studentService.update(studentdto);
+         System.out.println(update);
+         clearForm();
+         
+        }
     }
     @SuppressWarnings("unused")
     private void alert(Alert.AlertType alertType,String header,String content){
@@ -238,25 +239,27 @@ public class StudentController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) throws Exception {
-            String id = txtStudentId.getText();
-            StudentService studentService=new StudentServiceImpl();
-            Studentdto studentdto=studentService.search(id);
-            
-            if (studentdto!=null) {
-              txtStudentId.setText(studentdto.getStudentId());
-              txtStudentName.setText(studentdto.getName());
-              txtDOB.setValue(studentdto.getDOB());
-              txtPhoneNo.setText(studentdto.getPhoneNumber());
-              txtEmail.setText(studentdto.getEmail());
-             
-              ObservableList<String> semester1 = FXCollections.observableArrayList(studentdto.getSemester1());
-              Semester1.setItems(semester1);
-              ObservableList<String> semester2 = FXCollections.observableArrayList(studentdto.getSemester2());
-              Semester2.setItems(semester2);
-              
-            }else{
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Student not found!", ButtonType.OK);
-                 alert.showAndWait();
-            }
+        String id = txtStudentId.getText();
+        StudentService studentService = new StudentServiceImpl();
+        Studentdto studentdto = studentService.search(id);
+    
+        if (studentdto != null) {
+            txtStudentId.setText(studentdto.getStudentId());
+            txtStudentName.setText(studentdto.getName());
+            txtDOB.setValue(studentdto.getDOB());
+            txtPhoneNo.setText(studentdto.getPhoneNumber());
+            txtEmail.setText(studentdto.getEmail());
+    
+            ObservableList<String> semester1 = FXCollections.observableArrayList(studentdto.getSemester1());
+            Semester1.setItems(semester1);
+    
+            ObservableList<String> semester2 = FXCollections.observableArrayList(studentdto.getSemester2());
+            Semester2.setItems(semester2);
+    
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Student not found!", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
+    
 }
