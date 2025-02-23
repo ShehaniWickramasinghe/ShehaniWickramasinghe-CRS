@@ -82,7 +82,10 @@
             <Font size="14.0" />
          </font></RadioButton>
       <TextField fx:id="txtCompleted" layoutX="195.0" layoutY="187.0" prefHeight="26.0" prefWidth="269.0" />
-      <Label fx:id="lblEnrolled" layoutX="48.0" layoutY="106.0" prefHeight="23.0" prefWidth="294.0" text="How many students enrolled in this course?" />
+      <Label fx:id="lblEnrolled" layoutX="48.0" layoutY="106.0" prefHeight="23.0" prefWidth="294.0" text="How many students enrolled in this course?">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <TextField fx:id="txtEnrolled" layoutX="195.0" layoutY="130.0" prefHeight="26.0" prefWidth="269.0" />
       <Button fx:id="btnSave" layoutX="470.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #29cb42; -fx-cursor: hand; -fx-border-radius: 4px;" text="Save" textFill="WHITE">
          <font>
