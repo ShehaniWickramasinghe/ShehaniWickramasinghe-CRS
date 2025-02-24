@@ -125,7 +125,7 @@ public class reportController {
     
         btnVacancies.setOnMouseExited(event -> {
             btnVacancies.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
-                                 "-fx-text-fill:#b43d3d;"+
+                           "-fx-text-fill:  #b43d3d;"+
                            "-fx-border-radius:4px;"); 
         });
         btnProfile.setOnMouseEntered(event -> {
@@ -137,7 +137,7 @@ public class reportController {
     
         btnProfile.setOnMouseExited(event -> {
             btnProfile.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
-                                 "-fx-text-fill:#b43d3d;"+
+                                  "-fx-text-fill:  #b43d3d;"+
                            "-fx-border-radius:4px;"); 
         });
         btnSchedule.setOnMouseEntered(event -> {
@@ -148,8 +148,8 @@ public class reportController {
         });
     
         btnSchedule.setOnMouseExited(event -> {
-            btnVacancies.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
-                                 "-fx-text-fill:#b43d3d;"+
+            btnSchedule.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                           "-fx-text-fill:  #b43d3d;"+
                            "-fx-border-radius:4px;"); 
         });
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));

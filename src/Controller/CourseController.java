@@ -122,7 +122,6 @@ public class CourseController {
         "Nuclear Science ");
         ObservableList<String> comboBoList=FXCollections.observableArrayList(arrayList);
         comboBox1.setItems(comboBoList);
-        comboBox1.setValue("Chemistry");
 
         tblCourse.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection)->{
             System.out.println("Table row click");
