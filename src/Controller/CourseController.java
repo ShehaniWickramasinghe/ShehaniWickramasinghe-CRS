@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javax.swing.table.DefaultTableModel;
@@ -62,6 +63,9 @@ public class CourseController {
     private TableColumn<Coursedto, String> colprerequisites;
 
     @FXML
+    private TableColumn<Coursedto, String> colSemester;
+
+    @FXML
     private ComboBox<String> comboBox1;
 
     @FXML
@@ -99,6 +103,9 @@ public class CourseController {
 
     @FXML
     private TextField txtprerequisites;
+
+    @FXML
+    private TextField txtSemester;
     
     public void getAllCourse() throws Exception{
         CourseService courseService=new CourseServiceImpl();
@@ -117,6 +124,7 @@ public class CourseController {
         colprerequisites.setCellValueFactory(new PropertyValueFactory<>("prerequisites"));
         colDepartment.setCellValueFactory(new PropertyValueFactory<>("Department"));
         colMEC.setCellValueFactory(new PropertyValueFactory<>("maximumCapacity"));
+        colSemester.setCellValueFactory(new PropertyValueFactory<>("sem"));
 
         List<String> arrayList=Arrays.asList("Computer Science","Chemistry","Applied Maths","Pure Maths","Physics",
         "Nuclear Science ");
@@ -135,6 +143,7 @@ public class CourseController {
                 txtprerequisites.setText(newSelection.getPrerequisites());
                 txtMEC.setText(Integer.toString(newSelection.getMaximumCapacity()));
                 comboBox1.setValue(newSelection.getDepartment().toString());
+                txtSemester.setText(newSelection.getSem());
             }
         });
     }
@@ -143,6 +152,10 @@ public class CourseController {
     void btnDeleteOnAction(ActionEvent event) throws Exception {
             CourseService courseService=new CourseServiceImpl();
             String delete = courseService.delete(txtCourseId.getText());
+            System.out.println(delete);
+            alert(AlertType.WARNING, "Delete", "Delete this course");
+            loadTable();
+            clearForm();
     }
 
     @FXML
@@ -171,7 +184,8 @@ public class CourseController {
             if (department!=null) {
                 comboBoList.add(department);
             }
-            Coursedto coursedto=new Coursedto(courseId, courseName, creditHour, prerequisites, mec, comboBoList);
+            String sem = txtSemester.getText();
+            Coursedto coursedto=new Coursedto(courseId, courseName, creditHour, prerequisites, mec, comboBoList, sem);
             List<Studentdto> studentList=getSelectedStudents();
             CourseService courseService=new CourseServiceImpl();
             String save = courseService.save(coursedto, studentList);
@@ -195,7 +209,8 @@ public class CourseController {
             if (department!=null) {
                 comboBoxList.add(department);
             }
-            Coursedto coursedto=new Coursedto(id, name, creditHour, prerequisites, mec, comboBoxList);
+            String sem = txtSemester.getText();
+              Coursedto coursedto=new Coursedto(id, name, creditHour, prerequisites, mec, comboBoxList, sem);
             CourseService courseService=new CourseServiceImpl();
             String update = courseService.update(coursedto);
             loadTable();
@@ -209,6 +224,7 @@ public class CourseController {
             txtprerequisites.setText("");
             txtMEC.setText(null);
             comboBox1.setValue("");
+            txtSemester.setText("");
     }
 
     @SuppressWarnings("unused")
@@ -223,11 +239,11 @@ public class CourseController {
     public void loadTable(){
         try {
             tblCourse.getColumns().clear();
-            tblCourse.getColumns().addAll(colCourseId,colCourseName,colCreditHours,colprerequisites,colMEC,colDepartment);
+            tblCourse.getColumns().addAll(colCourseId,colCourseName,colCreditHours,colprerequisites,colMEC,colDepartment,colSemester);
             CourseService courseService=new CourseServiceImpl();
             ObservableList<Coursedto> courseList=FXCollections.observableArrayList(courseService.getAll());
             tblCourse.setItems(courseList);
-            String columns[]={"CourseId","Course Name","Credit Hours","Prerequisites","MEC","Department"};
+            String columns[]={"CourseId","Course Name","Credit Hours","Prerequisites","MEC","Department","Semester"};
             DefaultTableModel dtm=new DefaultTableModel(columns,0){
                 @Override
                 public boolean isCellEditable(int row, int column) {
@@ -241,7 +257,7 @@ public class CourseController {
             for (Coursedto coursedto : coursedtos) {
                 Object rowData[]={coursedto.getCourseId(),
                 coursedto.getName(),coursedto.getCreditHour(),coursedto.getPrerequisites(),
-            coursedto.getMaximumCapacity(),coursedto.getDepartment()};
+            coursedto.getMaximumCapacity(),coursedto.getDepartment(),coursedto.getSem()};
             dtm.addRow(rowData);
             System.out.println(coursedtos);
             System.out.println("successfully loaded");

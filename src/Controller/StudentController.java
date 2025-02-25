@@ -1,5 +1,6 @@
 package controller;
 
+import dto.Coursedto;
 import dto.Logindto;
 import dto.Studentdto;
 import java.io.IOException;
@@ -23,8 +24,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import service.custom.CourseService;
 import service.custom.LoginService;
 import service.custom.StudentService;
+import service.custom.impl.CourseServiceImpl;
 import service.custom.impl.LoginServiceImpl;
 import service.custom.impl.StudentServiceImpl;
 
@@ -80,22 +83,39 @@ public class StudentController {
     private Button btnUpdate;
 
     
-    public void initialize(){
-        List<String> sem1 = Arrays.asList("Inorganic",
-        "Relative motion", "Radioactivity",  
-         "Robotics", "Operating Systems", "OOP", "Nuclear Reaction");
-        ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
-        Semester1.setItems(semester1);
-        //Semester1.setValue("Inorganic");
-
-        List<String> sem2=Arrays.asList("Organic", "Operating Systems","Statistics and Probability","Optics", "CyberSecurity"
-        ,"Nuclear Reaction","React");
-        ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
-        Semester2.setItems(semester2);
-        //Semester2.setValue("Organic");
-
-       
+    public void initialize() {
+        loadCourses(); 
     }
+    
+    private void loadCourses() {
+        CourseService courseService = new CourseServiceImpl();
+    
+        try {
+            List<Coursedto> courseList = courseService.getAllCourses(); 
+    
+            List<String> semester1Courses = new ArrayList<>();
+            List<String> semester2Courses = new ArrayList<>();
+    
+            for (Coursedto course : courseList) {
+                if ("Sem 1".equalsIgnoreCase(course.getSem())) {
+                    semester1Courses.add(course.getName());
+                } else if ("Sem 2".equalsIgnoreCase(course.getSem())) {
+                    semester2Courses.add(course.getName());
+                }
+            }
+    
+            ObservableList<String> semester1 = FXCollections.observableArrayList(semester1Courses);
+            ObservableList<String> semester2 = FXCollections.observableArrayList(semester2Courses);
+    
+            Semester1.setItems(semester1);
+            Semester2.setItems(semester2);
+    
+        } catch (Exception e) {
+            e.printStackTrace();
+            alert(Alert.AlertType.ERROR, "Error", "Failed to load courses.");
+        }
+    }
+    
     
         @FXML
         void btnSaveOnAction(ActionEvent event) throws Exception {
@@ -130,6 +150,12 @@ public class StudentController {
                 }
             
                 ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+                if (sem1 != null) {
+                    semester1.add(sem1);
+                }
+                if (sem2 != null) {
+                    semester2.add(sem2);
+                }
                 Studentdto studentdto=new Studentdto(studentId, name, DOB, phoneNo, email, semester1,semester2);
 
                 List<Logindto> loginList = new ArrayList<>();
@@ -142,6 +168,13 @@ public class StudentController {
                 String save = studentService.save(studentdto, loginList);
                 
                 System.out.println(save);
+
+                if ("Sem 1".equalsIgnoreCase(sem1)) {
+                    semester1.add(txtStudentName.getText());
+                } else if ("Sem 2".equalsIgnoreCase(sem2)) {
+                    semester2.add(txtStudentName.getText());
+                }
+                studentService.update(studentdto);
                 clearForm();
         }
 
@@ -196,16 +229,8 @@ public class StudentController {
 
         alert(Alert.AlertType.ERROR, "ERROR", "Update your Semester course.");
         
-        List<String> seme1 = Arrays.asList("Inorganic",
-        "Relative motion", "Radioactivity",  
-         "Robotics", "Operating Systems", "OOP", "Nuclear Reaction");
-        ObservableList<String> semester1 = FXCollections.observableArrayList(seme1);
-        Semester1.setItems(semester1);
+        loadCourses();
 
-          List<String> seme2=Arrays.asList("Organic", "Operating Systems","Statistics and Probability","Optics", "CyberSecurity"
-          ,"Nuclear Reaction","React");
-          ObservableList<String> semester2 = FXCollections.observableArrayList(seme2);
-          Semester2.setItems(semester2);
       }else{
         ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
           ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);

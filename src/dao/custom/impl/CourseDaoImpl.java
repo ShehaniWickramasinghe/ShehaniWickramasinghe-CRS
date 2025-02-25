@@ -13,15 +13,15 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public boolean save(CourseEntity t) throws Exception {
        String department=String.join(",", t.getDepartment());
-       return CrudUtil.executeUpdate("INSERT INTO course VALUES(?,?,?,?,?,?)", t.getCourseId(),t.getName(),
-       t.getCreditHour(),t.getPrerequisites(),t.getMaximumCapacity(),department);
+       return CrudUtil.executeUpdate("INSERT INTO course VALUES(?,?,?,?,?,?,?)", t.getCourseId(),t.getName(),
+       t.getCreditHour(),t.getPrerequisites(),t.getMaximumCapacity(),department,t.getSem());
     }
 
     @Override
     public boolean update(CourseEntity t) throws Exception {
         String department=String.join(",", t.getDepartment());
         return CrudUtil.executeUpdate("UPDATE course SET courseName=?,creditHours=?, prerequisites=?, MEC=?, department=? WHERE courseId=?", 
-        t.getName(),t.getCreditHour(),t.getPrerequisites(),t.getMaximumCapacity(),department,t.getCourseId());
+        t.getName(),t.getCreditHour(),t.getPrerequisites(),t.getMaximumCapacity(),department,t.getSem(),t.getCourseId());
     }
 
     @Override
@@ -34,7 +34,8 @@ public class CourseDaoImpl implements CourseDao {
        ResultSet rst=CrudUtil.extecuteQuery("SELECT * FROM course WHERE courseId=?", id);
        if (rst.next()) {
             return new CourseEntity(rst.getString("courseId"), rst.getString("courseName"), rst.getString("creditHours"),
-            rst.getString("prerequisites"), rst.getInt("MEC"), Arrays.asList(rst.getString("department").split(",")));
+            rst.getString("prerequisites"), rst.getInt("MEC"), Arrays.asList(rst.getString("department").split(",")),
+            rst.getString("sem"));
        }
        return null;
     }
@@ -48,7 +49,7 @@ public class CourseDaoImpl implements CourseDao {
         
         courseEntities.add(new CourseEntity(rst.getString("courseId"),
         rst.getString("courseName"), rst.getString("creditHours"), rst.getString("prerequisites"),
-        rst.getInt("mec"), departments));
+        rst.getInt("mec"), departments,rst.getString("sem")));
        }
        return courseEntities;
     }

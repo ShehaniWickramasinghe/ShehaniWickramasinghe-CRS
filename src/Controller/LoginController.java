@@ -35,6 +35,20 @@ public class LoginController {
     @FXML
     private TextField txtUserName;
 
+    public void initialize(){
+        btnCreateAccount.setOnMouseEntered(event -> {
+            btnCreateAccount.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                            "-fx-text-fill:  #5e1eaa;"+
+                           "-fx-border-radius:4px;"+
+                           "-fx-cursor:hand;"); 
+        });
+    
+        btnCreateAccount.setOnMouseExited(event -> {
+            btnCreateAccount.setStyle( "-fx-background-color:   rgba(255, 255, 255, 0.001); " +
+                           "-fx-text-fill:  #29257b;"+
+                           "-fx-border-radius:4px;"); 
+        });
+    }
     @FXML
     void btnCreateAccountOnAction(ActionEvent event) throws IOException {
         System.out.println("==========");
