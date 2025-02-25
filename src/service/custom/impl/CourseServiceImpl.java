@@ -24,9 +24,9 @@ public class CourseServiceImpl implements CourseService {
                 Connection connection = DBConnection.getInstance().getConnection();
                 
                 try {
-                    connection.setAutoCommit(false); // Start transaction
+                    connection.setAutoCommit(false);
             
-                    // Creating CourseEntity
+
                     List<String> courseList = new ArrayList<>(coursedto.getDepartment());
                     CourseEntity courseEntity = new CourseEntity(
                         coursedto.getCourseId(),
@@ -34,7 +34,8 @@ public class CourseServiceImpl implements CourseService {
                         coursedto.getCreditHour(),
                         coursedto.getPrerequisites(),
                         coursedto.getMaximumCapacity(),
-                        courseList
+                        courseList,
+                        coursedto.getSem()
                     );
             
                     boolean isSaved = courseDao.save(courseEntity);
@@ -54,7 +55,7 @@ public class CourseServiceImpl implements CourseService {
                         String newCourse = coursedto.getName(); 
 
                         if (!sem1.contains(newCourse) && !sem2.contains(newCourse)) {
-                            if (sem1.size() <= sem2.size()) {
+                            if ("Sem 1".equalsIgnoreCase(coursedto.getSem())) {
                                 sem1.add(newCourse); 
                             } else {
                                 sem2.add(newCourse); 
@@ -102,7 +103,7 @@ public class CourseServiceImpl implements CourseService {
     public String update(Coursedto coursedto) throws Exception {
         List<String> CourseList=new ArrayList<>(coursedto.getDepartment());
         CourseEntity courseEntity=new CourseEntity(coursedto.getCourseId(), coursedto.getName(), coursedto.getCreditHour(),
-         coursedto.getPrerequisites(), coursedto.getMaximumCapacity(), CourseList);
+         coursedto.getPrerequisites(), coursedto.getMaximumCapacity(), CourseList,coursedto.getSem());
 
          boolean isUpdate=courseDao.update(courseEntity);
          return isUpdate ? "Success":"fail";
@@ -113,7 +114,7 @@ public class CourseServiceImpl implements CourseService {
        CourseEntity courseEntity=courseDao.search(courseId);
        if (courseEntity!=null) {
         return new Coursedto(courseEntity.getCourseId(), courseEntity.getName(), courseEntity.getCreditHour(), 
-        courseEntity.getPrerequisites(), courseEntity.getMaximumCapacity(), courseEntity.getDepartment());
+        courseEntity.getPrerequisites(), courseEntity.getMaximumCapacity(), courseEntity.getDepartment(),courseEntity.getSem());
        }
        return null;
     }
@@ -129,7 +130,8 @@ public class CourseServiceImpl implements CourseService {
         ArrayList<Coursedto> coursedto=new ArrayList<>();
         ArrayList<CourseEntity> courseEntities=courseDao.getAll();
         for (CourseEntity courseEntity : courseEntities) {
-            Coursedto dto=new Coursedto(courseEntity.getCourseId(), courseEntity.getName(), courseEntity.getCreditHour(), courseEntity.getPrerequisites(), courseEntity.getMaximumCapacity(), courseEntity.getDepartment());
+            Coursedto dto=new Coursedto(courseEntity.getCourseId(), courseEntity.getName(), courseEntity.getCreditHour(), 
+            courseEntity.getPrerequisites(), courseEntity.getMaximumCapacity(), courseEntity.getDepartment(),courseEntity.getSem());
             coursedto.add(dto);
         }
         return coursedto;
@@ -142,5 +144,26 @@ public class CourseServiceImpl implements CourseService {
         alert.setContentText(context);
         alert.showAndWait();
     }
+
+
+    @Override
+    public List<Coursedto> getAllCourses() throws Exception {
+        List<CourseEntity> courseEntities = courseDao.getAll(); 
+        List<Coursedto> courseDtos = new ArrayList<>();
+    
+        for (CourseEntity entity : courseEntities) {
+            courseDtos.add(new Coursedto(
+                entity.getCourseId(),
+                entity.getName(),
+                entity.getCreditHour(),
+                entity.getPrerequisites(),
+                entity.getMaximumCapacity(),
+                entity.getDepartment(),
+                entity.getSem()
+            ));
+        }
+        return courseDtos;
+    }
+    
 
 }
