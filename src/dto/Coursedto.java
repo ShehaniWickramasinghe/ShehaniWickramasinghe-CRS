@@ -10,15 +10,17 @@ public class Coursedto {
         private String prerequisites;
         private Integer maximumCapacity;
         private List<String> department;
+        private String sem;
 
         public Coursedto(String courseId, String name, String creditHour, String prerequisites,
-                Integer maximumCapacity, List<String> department) {
+                Integer maximumCapacity, List<String> department, String sem) {
             this.courseId = courseId;
             this.name = name;
             this.creditHour = creditHour;
             this.prerequisites = prerequisites;
             this.maximumCapacity = maximumCapacity;
             this.department = department;
+            this.sem=sem;
         }
 
     public String getCourseId() {
@@ -69,12 +71,22 @@ public class Coursedto {
         this.department = department;
     }
 
+    public String getSem() {
+        return sem;
+    }
+
+    public void setSem(String sem) {
+        this.sem = sem;
+    }
+
     @Override
     public String toString() {
-        return "Coursedto [courseId=" + courseId + ", name=" + name +  ", creditHour="
-                + creditHour + ", prerequisites=" + prerequisites + ", maximumCapacity=" + maximumCapacity
-                + ", department=" + department + "]";
+        return "Coursedto [courseId=" + courseId + ", name=" + name + ", creditHour=" + creditHour + ", prerequisites="
+                + prerequisites + ", maximumCapacity=" + maximumCapacity + ", department=" + department + ", sem=" + sem
+                + "]";
     }
+    
+
 
         
 }

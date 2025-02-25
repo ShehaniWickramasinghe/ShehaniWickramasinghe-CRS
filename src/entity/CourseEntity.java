@@ -9,14 +9,17 @@ public class CourseEntity {
         private String prerequisites;
         private Integer maximumCapacity;
         private List<String> department;
+        private String sem;
 
-    public CourseEntity(String courseId, String name,String creditHour, String prerequisites, Integer maximumCapacity, List<String> department) {
+    public CourseEntity(String courseId, String name,String creditHour, String prerequisites, Integer maximumCapacity, 
+    List<String> department, String sem) {
         this.courseId = courseId;
         this.name = name;
         this.creditHour = creditHour;
         this.prerequisites = prerequisites;
         this.maximumCapacity = maximumCapacity;
         this.department = department;
+        this.sem=sem;
     }
 
     public String getCourseId() {
@@ -41,6 +44,14 @@ public class CourseEntity {
 
     public void setCreditHour(String creditHour) {
         this.creditHour = creditHour;
+    }
+
+    public String getSem() {
+        return sem;
+    }
+
+    public void setSem(String sem) {
+        this.sem = sem;
     }
 
     public String getPrerequisites() {
@@ -69,11 +80,12 @@ public class CourseEntity {
 
     @Override
     public String toString() {
-        return "CourseEntity [courseId=" + courseId + ", name=" + name 
-                + ", creditHour=" + creditHour + ", prerequisites=" + prerequisites + ", maximumCapacity="
-                + maximumCapacity + ", department=" + department + "]";
+        return "CourseEntity [courseId=" + courseId + ", name=" + name + ", creditHour=" + creditHour
+                + ", prerequisites=" + prerequisites + ", maximumCapacity=" + maximumCapacity + ", department="
+                + department + ", sem=" + sem + "]";
     }
 
+    
     
 
 
