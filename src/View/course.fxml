@@ -12,14 +12,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
    <children>
-      <ImageView fitHeight="647.0" fitWidth="710.0">
+      <ImageView fitHeight="673.0" fitWidth="730.0">
          <image>
             <Image url="@../../images/course-background-image.jpg" />
          </image>
       </ImageView>
-      <ListView layoutX="22.0" layoutY="72.0" prefHeight="510.0" prefWidth="616.0" />
+      <ListView layoutX="22.0" layoutY="72.0" prefHeight="538.0" prefWidth="647.0" />
       <Label alignment="CENTER" layoutY="22.0" prefHeight="39.0" prefWidth="717.0" text="Course  Form">
          <font>
             <Font name="System Bold" size="27.0" />
@@ -48,7 +48,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtprerequisites" layoutX="163.0" layoutY="222.0" prefHeight="30.0" prefWidth="458.0" />
+      <TextField fx:id="txtprerequisites" layoutX="163.0" layoutY="222.0" prefHeight="30.0" prefWidth="486.0" />
       <Label fx:id="lblMEC" layoutX="41.0" layoutY="261.0" prefHeight="30.0" prefWidth="217.0" text="Maximum enrollment Capacity">
          <font>
             <Font size="14.0" />
@@ -60,36 +60,43 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBox1" layoutX="407.0" layoutY="110.0" prefHeight="22.0" prefWidth="227.0" />
-      <Button fx:id="btnDelete" layoutX="536.0" layoutY="306.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="81.0" style="-fx-border-color: #cf2626; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Delete" textFill="#cf2626">
+      <ComboBox fx:id="comboBox1" layoutX="415.0" layoutY="110.0" prefHeight="22.0" prefWidth="227.0" />
+      <Button fx:id="btnDelete" layoutX="568.0" layoutY="341.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="81.0" style="-fx-border-color: #cf2626; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Delete" textFill="#cf2626">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="439.0" layoutY="306.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="81.0" style="-fx-border-color: #2759cf; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Update" textFill="#2759cf">
+      <Button fx:id="btnUpdate" layoutX="467.0" layoutY="341.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="81.0" style="-fx-border-color: #2759cf; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Update" textFill="#2759cf">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="341.0" layoutY="306.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="81.0" style="-fx-border-color: #09893a; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Save" textFill="#09893a">
+      <Button fx:id="btnSave" layoutX="359.0" layoutY="341.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="81.0" style="-fx-border-color: #09893a; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Save" textFill="#09893a">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="tblCourse" layoutX="32.0" layoutY="346.0" prefHeight="216.0" prefWidth="587.0">
+      <TableView fx:id="tblCourse" layoutX="41.0" layoutY="381.0" prefHeight="216.0" prefWidth="612.0">
         <columns>
-          <TableColumn fx:id="colCourseId" prefWidth="75.0" text="CourseId" />
-          <TableColumn fx:id="colCourseName" prefWidth="113.60003662109375" text="Course Name" />
-            <TableColumn fx:id="colCreditHours" prefWidth="79.19996643066406" text="Credit Hours" />
-            <TableColumn fx:id="colprerequisites" prefWidth="136.0" text="prerequisites" />
-            <TableColumn fx:id="colMEC" prefWidth="59.99993896484375" style="-fx-text-align: center;" text="MEC" />
-            <TableColumn fx:id="colDepartment" prefWidth="104.79998779296875" text="Department" />
+          <TableColumn fx:id="colCourseId" prefWidth="67.19998168945312" text="CourseId" />
+          <TableColumn fx:id="colCourseName" prefWidth="113.59996795654297" text="Course Name" />
+            <TableColumn fx:id="colCreditHours" prefWidth="72.79998779296875" text="Credit Hours" />
+            <TableColumn fx:id="colprerequisites" prefWidth="135.99993896484375" text="prerequisites" />
+            <TableColumn fx:id="colMEC" prefWidth="56.79998779296875" style="-fx-text-align: center;" text="MEC" />
+            <TableColumn fx:id="colDepartment" prefWidth="99.20004272460938" text="Department" />
+            <TableColumn fx:id="colSemester" prefWidth="57.5999755859375" text="Department" />
         </columns>
       </TableView>
-      <Button fx:id="btnGoBack" layoutX="568.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #cf2626; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Go Back" textFill="#cf2626">
+      <Button fx:id="btnGoBack" layoutX="568.0" layoutY="614.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #cf2626; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Go Back" textFill="#cf2626">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
+      <Label fx:id="lblSemester" layoutX="41.0" layoutY="298.0" prefHeight="30.0" prefWidth="444.0" text="Which semester does this course belong to: Sem 1 or Sem 2?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSemester" layoutX="467.0" layoutY="298.0" prefHeight="30.0" prefWidth="181.0" />
    </children>
 </AnchorPane>

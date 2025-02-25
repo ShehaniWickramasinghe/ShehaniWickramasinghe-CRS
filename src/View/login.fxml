@@ -41,7 +41,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label alignment="CENTER" layoutX="-4.0" layoutY="73.0" prefHeight="50.0" prefWidth="602.0" text="Have an account?">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-4.0" layoutY="73.0" prefHeight="50.0" prefWidth="602.0" text="Have an account?" textAlignment="CENTER">
          <font>
             <Font size="16.0" />
          </font>
