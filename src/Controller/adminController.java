@@ -63,7 +63,7 @@ public class adminController {
 
     @FXML
     void btnCourseReportOnAction(ActionEvent event) throws IOException {
-        Stage stage=(Stage)btnStudentProgress.getScene().getWindow();
+        Stage stage=(Stage)btnCourseReport.getScene().getWindow();
         FXMLLoader loader=new FXMLLoader(getClass().getResource("../view/courseReport.fxml"));
         Parent root=loader.load();
 

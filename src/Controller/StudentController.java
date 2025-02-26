@@ -193,6 +193,7 @@ public class StudentController {
 
         Stage stage2=new Stage();
         stage2.setScene(new Scene(root));
+        stage2.setTitle("Login Page");
         stage2.show();
         stage.close();
     }

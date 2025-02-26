@@ -167,6 +167,7 @@ public class CourseController {
     
             Stage stage1=new Stage();
             stage1.setScene(new Scene(root));
+            stage1.setTitle("Admin Page");
             stage1.show();
             stage.close();
 
