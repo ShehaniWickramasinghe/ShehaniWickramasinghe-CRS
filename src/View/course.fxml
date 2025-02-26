@@ -76,7 +76,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="tblCourse" layoutX="41.0" layoutY="381.0" prefHeight="216.0" prefWidth="612.0">
+      <TableView fx:id="tblCourse" layoutX="36.0" layoutY="381.0" prefHeight="216.0" prefWidth="622.0">
         <columns>
           <TableColumn fx:id="colCourseId" prefWidth="67.19998168945312" text="CourseId" />
           <TableColumn fx:id="colCourseName" prefWidth="113.59996795654297" text="Course Name" />
@@ -84,7 +84,7 @@
             <TableColumn fx:id="colprerequisites" prefWidth="135.99993896484375" text="prerequisites" />
             <TableColumn fx:id="colMEC" prefWidth="56.79998779296875" style="-fx-text-align: center;" text="MEC" />
             <TableColumn fx:id="colDepartment" prefWidth="99.20004272460938" text="Department" />
-            <TableColumn fx:id="colSemester" prefWidth="57.5999755859375" text="Department" />
+            <TableColumn fx:id="colSemester" prefWidth="57.5999755859375" text="Semester" />
         </columns>
       </TableView>
       <Button fx:id="btnGoBack" layoutX="568.0" layoutY="614.0" mnemonicParsing="false" onAction="#btnGoBackOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #cf2626; -fx-background-color: #ffffff; -fx-border-radius: 4px; -fx-cursor: hand;" text="Go Back" textFill="#cf2626">

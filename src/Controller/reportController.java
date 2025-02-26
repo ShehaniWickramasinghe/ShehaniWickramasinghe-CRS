@@ -110,8 +110,9 @@ public class reportController {
                 ObservableList<Reportdto> data = FXCollections.observableArrayList(reportList);
                 tblRecord.setItems(data);
             }else{
-                alert(Alert.AlertType.NONE,"Not Found","Student result cannot be found");
+                alert(Alert.AlertType.ERROR,"Not Found","Student result cannot be found");
                 tblRecord.setItems(FXCollections.observableArrayList());
+        
             }        
     }
 
