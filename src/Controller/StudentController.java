@@ -231,17 +231,16 @@ public class StudentController {
         alert(Alert.AlertType.ERROR, "ERROR", "Update your Semester course.");
         
         loadCourses();
-
-      }else{
+        
+    }else{
         ObservableList<String> semester1 = FXCollections.observableArrayList(sem1);
-          ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
-          Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
-  
+        ObservableList<String> semester2 = FXCollections.observableArrayList(sem2);
+        Studentdto studentdto=new Studentdto(id, name, DOB, phone, email, semester1,semester2);
       
-         StudentService studentService=new StudentServiceImpl();
-         String update = studentService.update(studentdto);
-         System.out.println(update);
-         clearForm();
+        StudentService studentService=new StudentServiceImpl();
+        String update = studentService.update(studentdto);
+        System.out.println(update);
+        clearForm();
          
         }
     }
